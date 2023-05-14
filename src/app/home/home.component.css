@@ -1,0 +1,20 @@
+  .navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: center;
+    align-content: center
+    ;
+  }
+  
+  .action {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 40%;
+    gap: 10px;
+  
+  }
+  

@@ -1,0 +1,21 @@
+.list_header{
+
+    display: flex;
+    flex-direction: row;
+    justify-items: center;
+    gap: 20px;
+}
+.heading{
+
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    flex-direction: row;
+}
+.home_button{
+
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px;
+    color: black;
+}

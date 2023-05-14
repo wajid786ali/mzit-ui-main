@@ -1,0 +1,88 @@
+ 
+ 
+<div class="container">
+  <div class="innerPage">
+    <div class="innerCont">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <div class="rgs_frm">
+            <div class="page_title">
+              <h2>Update <span>Student Details</span></h2>
+            </div> 
+            <p>{{message}}</p>
+            <form>
+              <div class="row">
+                 
+                <div class="form-group col-6">
+                  <label for="studentName"> Student Name <span>*</span></label>
+                  <input type="text" class="form-control" id="studentName" required [(ngModel)]="student.studentName" name="studentName" placeholder="Enter student name"/> 
+                </div> 
+
+                <div class="form-group col-6">
+                  <label> Grade <span>*</span></label>
+                  <input type="text" class="form-control" id="grade" required [(ngModel)]="student.grade" name="grade" placeholder="1/2/3/4/5"/> 
+                </div>
+
+                <div class="form-group">
+                  <label for="parentsName">Parent Name <span>*</span></label>
+                  <input type="text" class="form-control" required id="parentsName" [(ngModel)]="student.parentsName" name="parentsName" placeholder="Enter parents name" /> 
+                </div>
+              
+                <div class="form-group col-6">
+                  <label for="email"> Email <span>*</span></label>
+                  <input type="email" class="form-control" required id="email" [(ngModel)]="student.email" name="email" placeholder="mzit@gmail.com"/> 
+                </div>
+                <div class="form-group col-6">
+                  <label for="phoneNumber"> Phone Number <span>*</span></label>
+                  <input type="text" class="form-control" required id="phoneNumber" [(ngModel)]="student.phoneNumber" name="phoneNumber" placeholder="000-000-0000" />
+                </div>
+                
+                <div class="form-group">
+                  <label for="address"> Address (if shipping material) <span>*</span></label>
+                  <input type="text" class="form-control" required id="address" [(ngModel)]="student.address" name="address" placeholder="Enter you address" />
+                </div>
+              
+                <div class="form-group col-6">
+                  <label> Start Date <span>*</span></label>
+                  <input type="date" class="form-control" required id="startDate" [(ngModel)]="student.startDate" name="startDate" placeholder="mm-dd-yyyy" />
+                </div>
+                <div class="form-group col-6">
+                  <label> End Date <span>*</span></label>
+                  <input type="date" class="form-control" required id="endDate" [(ngModel)]="student.endDate" name="endDate" placeholder="mm-dd-yyyy" />
+                </div> 
+                <div class="form-group col-6">
+                  <label> Subjects </label> 
+                    
+                  <select class="form-control"  id="subjects" [(ngModel)]="student.subjects" name="subjects" multiple>
+                    <option value="Mathematics">Mathematics</option>
+                    <option value="Physics">Physics</option>
+                    <option value="Biology">Biology</option>
+                    <option value="Robotics">Robotics</option>
+                    <option value="Java">Java</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="English">English</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-6">
+                  <label> Days </label>
+                  <select class="form-control"  id="days" [(ngModel)]="student.days" name="days" multiple>
+                    <option value="Monday">Monday</option>
+                    <option value="Tuesday">Tuesday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="N/A - material only">N/A - material only</option>
+                  </select> 
+                </div> 
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn rgst_btn" type="submit" (click)="update(student)" > Update </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 

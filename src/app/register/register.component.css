@@ -1,0 +1,11 @@
+._error{font-size: 12px;color: #c03;margin-top: 2px;}
+fieldset {
+    border: solid 1px #ddd; 
+    padding:0px 12px 12px;
+}
+legend {
+    float: none;background: #fff;padding:5px 10px;
+    width: inherit;font-size: 15px;
+}
+
+._message_show{font-size:18px;color: green;text-align: center;}
