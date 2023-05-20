@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { ReadComponent } from './read/read.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
+import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   {path:'update/:studentId',component:UpdateComponent},
   {path:'view', component:ReadComponent},
-  {path:'delete/:studentId', component:DeleteComponent}
+  {path:'delete/:studentId', component:DeleteComponent},
+  {path:'studentFeedback',component:StudentFeedbackComponent}
 ];
 
 @NgModule({

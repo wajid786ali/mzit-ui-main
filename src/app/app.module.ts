@@ -19,6 +19,7 @@ import { ReadComponent } from './read/read.component';
 import { DeleteComponent } from './delete/delete.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { FooterComponent } from './footer/footer.component';
     ReadComponent,
     DeleteComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    StudentFeedbackComponent
   ],
   imports: [
     BrowserModule,

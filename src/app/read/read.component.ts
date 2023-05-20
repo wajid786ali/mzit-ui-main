@@ -10,7 +10,7 @@ import { Students } from '../entity/students';
   styleUrls: ['./read.component.css']
 })
 export class ReadComponent implements OnInit{
-
+  filterTerm : string;
   student: Students = new Students();
   students: any;
   message: string;
