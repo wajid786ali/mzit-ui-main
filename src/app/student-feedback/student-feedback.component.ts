@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
+import { StudentFeedBack } from '../entity/studentFeedBack';
 import { Router } from '@angular/router';
 
 
@@ -11,8 +12,10 @@ import { Router } from '@angular/router';
 })
 export class StudentFeedbackComponent {
   filterWorksheet!: string;
-  student: Students = new Students();
+  message: string;
+  student: StudentFeedBack = new StudentFeedBack();
   students: any;
+  studentFeedBack: StudentFeedBack = new StudentFeedBack();
   
   constructor(private apiService: ApiClientService,
     private router: Router
@@ -24,14 +27,22 @@ ngOnInit() {
  
 readAll(){
   let response1 =this.apiService.getAll();
-  response1.subscribe((data1) => {
+  response1.subscribe((data1) => { 
     this.students = data1;
   });
 }
 
-wsSubmit(){
- 
+  wsSubmit(studentFeedBack: StudentFeedBack) {
+    let response = this.apiService.studentFeedBack(studentFeedBack);
+    response.subscribe((data) => {
+      this.studentFeedBack = data;
+    
+      if (data != null) {
+        this.message =
+          'Student ' + this.student.studentName + ' added successfully..!!';
+      }
+    });
+    this.router.navigate(['studentFeedback']);
+  }
 }
  
-
-}

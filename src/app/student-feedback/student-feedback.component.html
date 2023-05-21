@@ -9,16 +9,22 @@ Select student Name to view history
 <form  >
 <div class="list_header">
 <div class="form-group">
-<label>Name: {{filterWorksheet}}</label> 
+
 </div>
 <div class="form-group">
-<label>Number of worksheet completed: </label><input type="text"  id="no"/>
+  <label>Student Name: </label><input type="text"  value="{{filterWorksheet}}"  id="studentName" [(ngModel)]="studentFeedBack.studentName"  name="studentName"/>
+  </div>
+  <div class="form-group">
+    <label>Teacher Name: </label><input type="text"  id="teacherName" [(ngModel)]="studentFeedBack.teacherName"  name="teacherName"/>
+    </div>
+<div class="form-group">
+<label>Number of worksheet completed: </label><input type="text"  id="noOfWorksheet" [(ngModel)]="studentFeedBack.noOfWorksheets"  name="noOfWorksheet"/>
 </div>
 <div class="form-group">
-<label>Comments: </label><input type="text" id="comments" size="50"/> </div>
+<label>Comments: </label><input type="text"   size="50" id="comments" [(ngModel)]="studentFeedBack.comments"  name="comments"/> </div>
 <div class="form-group">
     <label> Worksheet Type </label>
-    <select  class="form-control"  id="worksheetType" name="worksheetType">
+    <select  class="form-control"  id="worksheetType" name="worksheetType" [(ngModel)]="studentFeedBack.worksheetsType">
       <option value="Just Right" selected>Just Right</option>
       <option value="Easy">Easy</option>
       <option value="Hard">Hard</option>
@@ -26,7 +32,7 @@ Select student Name to view history
     </div>
 </div>
 <div class="text-center mt-2">
-    <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit()" >Submit</button>
+    <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentFeedBack)" >Submit</button>
   </div>
 </form>
 </div>

@@ -7,6 +7,7 @@ import { ReadComponent } from './read/read.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
+import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'update/:studentId',component:UpdateComponent},
   {path:'view', component:ReadComponent},
   {path:'delete/:studentId', component:DeleteComponent},
-  {path:'studentFeedback',component:StudentFeedbackComponent}
+  {path:'studentFeedback',component:StudentFeedbackComponent},
+  {path:'feedbackDisplay',component:FeedbackDisplayComponent}
 ];
 
 @NgModule({

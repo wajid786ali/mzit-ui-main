@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="innerPage">  
+        <div class="page_title2">
+            <h2>Students <span>List</span></h2>
+          </div>
+
+     <div class="innerCont">	
+
+        <table class = "table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Student Name</th> 
+                    <th>Teacher Name</th> 
+                    <th>Worksheets Type </th>
+                    <th>noOfWorksheets</th>
+                    <th>comments</th>
+                    
+                </tr>
+            </thead>
+        
+            <tbody>
+                <tr *ngFor ="let studentFeedBack of studentFeedBacks">
+                    <td>{{studentFeedBack.studentId}}</td>
+                    <td>{{studentFeedBack.studentName}}</td>
+                    <td>{{studentFeedBack.teacherName}}</td>
+                    <td>{{studentFeedBack.worksheetsType}}</td>
+                    <td>{{studentFeedBack.noOfWorksheets}}</td>
+                    <td>{{studentFeedBack.comments}}</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+        
+
+     </div>	  
+    </div>
+   </div>
+
+ 

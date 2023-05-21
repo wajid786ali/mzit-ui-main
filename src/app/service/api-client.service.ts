@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Students } from '../entity/students';
+import { StudentFeedBack } from '../entity/studentFeedBack';
 import { Observable } from 'rxjs';
 
 
@@ -22,9 +23,18 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/all`);
   }
 
+  public getListFeedBack():Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listFeedBack`);
+  }
+
   public register(student:Students):Observable<any>{
     console.log(student.startDate);
     return this.httpClient.post(`${this.apiUrl}/students/`,student);
+  }
+
+  public studentFeedBack(studentFeedBack:StudentFeedBack):Observable<any>{
+  
+    return this.httpClient.post(`${this.apiUrl}/students/addFeedBack`,studentFeedBack);
   }
   
   public deleteById(studentId:number){

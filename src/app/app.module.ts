@@ -20,6 +20,7 @@ import { DeleteComponent } from './delete/delete.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
+import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { StudentFeedbackComponent } from './student-feedback/student-feedback.co
     DeleteComponent,
     HeaderComponent,
     FooterComponent,
-    StudentFeedbackComponent
+    StudentFeedbackComponent,
+    FeedbackDisplayComponent
   ],
   imports: [
     BrowserModule,
