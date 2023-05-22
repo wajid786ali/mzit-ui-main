@@ -21,8 +21,12 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
+<<<<<<< HEAD
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
+=======
+import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
+>>>>>>> abb947a988cf55c9c97c63f510f71e24eb35ba95
 
 @NgModule({
   declarations: [
@@ -36,8 +40,12 @@ import { TeacherRegisterComponent } from './teacher-register/teacher-register.co
     FooterComponent,
     StudentFeedbackComponent,
     FeedbackDisplayComponent,
+<<<<<<< HEAD
     TeacherListComponent,
     TeacherRegisterComponent
+=======
+    NewWorksheetComponent
+>>>>>>> abb947a988cf55c9c97c63f510f71e24eb35ba95
   ],
   imports: [
     BrowserModule,
