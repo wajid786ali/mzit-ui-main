@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
       }
       this.student = new Students();
     });
-    this.router.navigate(['view']);
+    this.router.navigate(['/']);
   }
  
 }

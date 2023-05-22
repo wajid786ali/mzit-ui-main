@@ -21,6 +21,8 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,9 @@ import { FeedbackDisplayComponent } from './feedback-display/feedback-display.co
     HeaderComponent,
     FooterComponent,
     StudentFeedbackComponent,
-    FeedbackDisplayComponent
+    FeedbackDisplayComponent,
+    TeacherListComponent,
+    TeacherRegisterComponent
   ],
   imports: [
     BrowserModule,

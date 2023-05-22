@@ -17,9 +17,7 @@ export class StudentFeedbackComponent {
   students: any;
   studentFeedBack: StudentFeedBack = new StudentFeedBack();
   
-  constructor(private apiService: ApiClientService,
-    private router: Router
-){}
+  constructor(private apiService: ApiClientService, private router: Router ){}
   
 ngOnInit() {
       this.readAll();

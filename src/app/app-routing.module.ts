@@ -8,6 +8,8 @@ import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
+import { TeacherListComponent } from './teacher-list/teacher-list.component';
+import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -17,7 +19,9 @@ const routes: Routes = [
   {path:'view', component:ReadComponent},
   {path:'delete/:studentId', component:DeleteComponent},
   {path:'studentFeedback',component:StudentFeedbackComponent},
-  {path:'feedbackDisplay',component:FeedbackDisplayComponent}
+  {path:'feedbackDisplay',component:FeedbackDisplayComponent},
+  {path:'list-teacher',component:TeacherListComponent},
+  {path:'add-teacher',component:TeacherRegisterComponent}
 ];
 
 @NgModule({

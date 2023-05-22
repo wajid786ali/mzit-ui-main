@@ -1,45 +1,92 @@
-<div class="card col-md-6 offset-md-3 offset-md-3">
-  <hr />
-  <div class="form-group">
-    Select student Name to view history
-    <select name="sName" [(ngModel)]="filterWorksheet">
-      <option *ngFor="let student of students">{{student.studentName}}</option>
-    </select>
-  </div>
-  <form>
-    <div class="list_header">
-      <div class="form-group">
+<div class="container">
+  <div class="innerPage">
+    <div class="innerCont">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="rgs_frm">
+            <div class="page_title">
+              <h2>Student <span>Feedback</span></h2>
+            </div>
+            <div class="row">
+              <div class="form-group col-12">
+                <label for="studentName"> Select student Name to view history</label>
+                <select class="form-control" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel">
+                  <option selected>Select student</option>
+                  <option *ngFor="let student of students">{{student.studentName}}</option>
+                </select>
+                <div *ngIf="!sName?.valid && (sName?.dirty || sName?.touched)" class="_error">
+                  <div *ngIf="sName.errors?.['required']">Select student is required</div>
+                </div>
+              </div>
+            </div>
+            <form #contactForm="ngForm" novalidate>
+              <div class="row">
+                <div class="form-group col-8">
+                  <label for="studentName"> Student Name </label>
+                  <input class="form-control" disabled type="text" value="{{filterWorksheet}}" id="studentName"
+                    [(ngModel)]="studentFeedBack.studentName" name="studentName" />
+                </div>
+                <div class="form-group col-4">
+                  <label for="studentId"> Student ID </label>
+                  <input class="form-control" disabled type="text" value="{{filterWorksheet}}" id="studentId"
+                    [(ngModel)]="student.studentId" name="studentId" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="teacherName"> Teacher Name </label>
+                  <input class="form-control" type="text" id="teacherName" [(ngModel)]="studentFeedBack.teacherName"
+                    name="teacherName" placeholder="Enter Teacher Name" required #teacherName="ngModel" />
 
-      </div>
-      <div class="form-group">
-        <label>Student Name: </label><input type="text" value="{{filterWorksheet}}" id="studentName"
-          [(ngModel)]="studentFeedBack.studentName" name="studentName" />
-      </div>
-      <div class="form-group">
-        <label>Teacher Name: </label><input type="text" id="teacherName" [(ngModel)]="studentFeedBack.teacherName"
-          name="teacherName" />
-      </div>
-      <div class="form-group">
-        <label>Number of worksheet completed: </label><input type="text" id="noOfWorksheet"
-          [(ngModel)]="studentFeedBack.noOfWorksheets" name="noOfWorksheet" />
-      </div>
-      <div class="form-group">
-        <label>Comments: </label><input type="text" size="50" id="comments" [(ngModel)]="studentFeedBack.comments"
-          name="comments" />
-      </div>
-      <div class="form-group">
-        <label> Worksheet Type </label>
-        <select class="form-control" id="worksheetType" name="worksheetType"
-          [(ngModel)]="studentFeedBack.worksheetsType">
-          <option>Select Type</option>
-          <option value="Just Right" selected>Just Right</option>
-          <option value="Easy">Easy</option>
-          <option value="Hard">Hard</option>
-        </select>
+                  <div *ngIf="!teacherName?.valid && (teacherName?.dirty || teacherName?.touched)" class="_error">
+                    <div *ngIf="teacherName.errors?.['required']">Teacher Name is required</div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="noOfWorksheet"> Number of worksheet completed</label>
+                  <input class="form-control" type="text" id="noOfWorksheet"
+                    [(ngModel)]="studentFeedBack.noOfWorksheets" name="noOfWorksheet"
+                    placeholder="Number of worksheet completed"  required #noOfWorksheet="ngModel" />
+
+                    <div *ngIf="!noOfWorksheet?.valid && (noOfWorksheet?.dirty || noOfWorksheet?.touched)" class="_error">
+                      <div *ngIf="noOfWorksheet.errors?.['required']">Number of worksheet is required</div>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="comments"> Comments</label>
+                  <input class="form-control" type="text" size="50" id="comments" [(ngModel)]="studentFeedBack.comments"
+                    name="comments" placeholder="Enter Comments" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="worksheetType"> Worksheet Type</label>
+                  <select class="form-control" id="worksheetType" name="worksheetType"
+                    [(ngModel)]="studentFeedBack.worksheetsType" required #worksheetType="ngModel">
+                    <option selected>Select Worksheet Type</option>
+                    <option value="Just Right">Just Right</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Hard">Hard</option>
+                  </select> 
+
+                  <div *ngIf="!worksheetType?.valid && (worksheetType?.dirty || worksheetType?.touched)" class="_error">
+                    <div *ngIf="worksheetType.errors?.['required']">Worksheet Type is required</div>
+                  </div>
+                </div>
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentFeedBack)"
+                  [disabled]="!contactForm.valid"> Submit Feedback</button>
+              </div>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="text-center mt-2">
-      <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentFeedBack)">Submit</button>
-    </div>
-  </form>
+  </div>
 </div>
