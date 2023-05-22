@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Students } from '../entity/students';
 import { StudentFeedBack } from '../entity/studentFeedBack';
+import { Worksheets } from '../entity/worksheets';
 import { Observable } from 'rxjs';
 
 
@@ -30,6 +31,12 @@ export class ApiClientService {
   public register(student:Students):Observable<any>{
     console.log(student.startDate);
     return this.httpClient.post(`${this.apiUrl}/students/`,student);
+  }
+
+
+  public addWorksheet(worksheets:Worksheets):Observable<any>{
+  
+    return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`,worksheets);
   }
 
   public studentFeedBack(studentFeedBack:StudentFeedBack):Observable<any>{

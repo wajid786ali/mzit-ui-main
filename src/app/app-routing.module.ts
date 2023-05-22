@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
 import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
+import {NewWorksheetComponent}  from './new-worksheet/new-worksheet.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'view', component:ReadComponent},
   {path:'delete/:studentId', component:DeleteComponent},
   {path:'studentFeedback',component:StudentFeedbackComponent},
-  {path:'feedbackDisplay',component:FeedbackDisplayComponent}
+  {path:'feedbackDisplay',component:FeedbackDisplayComponent},
+  {path:'newWorksheet',component:NewWorksheetComponent}
 ];
 
 @NgModule({
