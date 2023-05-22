@@ -1,31 +1,65 @@
-<div class="card col-md-6 offset-md-3 offset-md-3">
-    <hr />
+<div class="container">
+  <div class="innerPage">
+    <div class="innerCont">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <div class="rgs_frm">
+            <div class="page_title">
+              <h2>New <span>Worksheet</span></h2>
+            </div> 
+            <form #contactForm="ngForm" novalidate>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="studentName"> Student Name </label>
+                    <input class="form-control" type="text" id="studentName" [(ngModel)]="worksheet.studentName"  name="studentName" placeholder="Enter student name" required #studentName="ngModel" />
 
-<form  >
-<div class="list_header">
-<div class="form-group">
+                    <div *ngIf="!studentName?.valid && (studentName?.dirty || studentName?.touched)" class="_error">
+                      <div *ngIf="studentName.errors?.['required']">Student Name is required</div>
+                    </div>
 
-</div>
-<div class="form-group">
-  <label>Student Name: </label><input type="text"   id="studentName" [(ngModel)]="worksheet.studentName"  name="studentName"/>
-  </div>
-  <div class="form-group">
-    <label>Grade: </label><input type="text"  id="grade" [(ngModel)]="worksheet.grade"  name="grade"/>
-    </div>
-    <div class="form-group">
-        <label>Week Date: </label><input type="text"  id="weekDate" [(ngModel)]="worksheet.weekDate"  name="weekDate"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="grade"> Grade </label>
+                  <input class="form-control" type="text" id="grade" [(ngModel)]="worksheet.grade"  name="grade" placeholder="Enter grade" required #grade="ngModel" />
+
+                  <div *ngIf="!grade?.valid && (grade?.dirty || grade?.touched)" class="_error">
+                    <div *ngIf="grade.errors?.['required']">Grade is required</div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="weekDate"> Week Date</label>
+                   <input class="form-control" type="date" id="weekDate" [(ngModel)]="worksheet.weekDate" name="weekDate" placeholder="Enter Week Date" required #weekDate="ngModel" />
+
+                   <div *ngIf="!weekDate?.valid && (weekDate?.dirty || weekDate?.touched)" class="_error">
+                     <div *ngIf="weekDate.errors?.['required']">Week Date is required</div>
+                   </div>
+
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="worksheet"> Worksheet</label>
+                  <input class="form-control" type="text"  id="worksheet" [(ngModel)]="worksheet.worksheet"  name="extraWorksheet" placeholder="Enter Worksheet"/>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12">
+                  <label for="extraWorksheet"> Extra Worksheet</label>
+                   <input class="form-control" type="text" size="50" id="extraWorksheet" [(ngModel)]="worksheet.extraWorksheet"  name="extraWorksheet" placeholder="Enter Extra Worksheet"/>
+                </div>
+              </div>
+              <div class="text-center mt-2">
+                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(worksheet)" [disabled]="!contactForm.valid"> Submit Feedback</button>
+              </div>
+            </form>
+          </div>
         </div>
-    
-<div class="form-group">
-<label>Worksheet: </label><input type="text"  id="worksheet" [(ngModel)]="worksheet.worksheet"  name="extraWorksheet"/>
-</div>
-<div class="form-group">
-<label>Extra Worksheet: </label><input type="text"   size="50" id="extraWorksheet" [(ngModel)]="worksheet.extraWorksheet"  name="extraWorksheet"/> </div>
-</div>
-<div class="text-center mt-2">
-    <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(worksheet)" >Submit</button>
+      </div>
+    </div>
   </div>
-</form>
 </div>
-
-

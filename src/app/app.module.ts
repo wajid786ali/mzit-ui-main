@@ -20,13 +20,10 @@ import { DeleteComponent } from './delete/delete.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
-import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
-<<<<<<< HEAD
+import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component'; 
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
-import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
-=======
-import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
->>>>>>> abb947a988cf55c9c97c63f510f71e24eb35ba95
+import { TeacherRegisterComponent } from './teacher-register/teacher-register.component'; 
+import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component'; 
 
 @NgModule({
   declarations: [
@@ -39,13 +36,10 @@ import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
     HeaderComponent,
     FooterComponent,
     StudentFeedbackComponent,
-    FeedbackDisplayComponent,
-<<<<<<< HEAD
+    FeedbackDisplayComponent, 
     TeacherListComponent,
-    TeacherRegisterComponent
-=======
-    NewWorksheetComponent
->>>>>>> abb947a988cf55c9c97c63f510f71e24eb35ba95
+    TeacherRegisterComponent,
+    NewWorksheetComponent 
   ],
   imports: [
     BrowserModule,
