@@ -1,48 +1,86 @@
- 
-
 <header>
-    <div class="topHead theme1">
-      <div class="container">
-       <div class="right-head">
+  <div class="topHead theme1">
+    <div class="container">
+      <div class="right-head">
         <div class="icon"><span> </span></div>
-         <ul class="dropdown smsEmail">
+        <ul class="dropdown smsEmail">
           <li><a href="tel:+1(515)978-1220"><i class="fa fa-phone"></i> +1(515)978-1220</a></li>
-          <li><a href="mailto:info@mindzonelearning.com"><i class="fa fa-envelope"></i> info@mindzonelearning.com </a></li> 
-           <li class="fr">
+          <li><a href="mailto:info@mindzonelearning.com"><i class="fa fa-envelope"></i> info@mindzonelearning.com </a>
+          </li>
+          <li class="fr">
             <div class="dropdown">
-            <a class="dropdown-toggle login_bt" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-user-o"></i> User Name
-            </a>
-            <ul class="dropdown-menu tpSocial">
-              <li><a class="dropdown-item" routerLink="/"><i class="fa fa-edit"></i> Edit Profile </a></li>
-              <li><a class="dropdown-item" routerLink="/login"><i class="fa fa-sign-out"></i> Logout </a></li>
-            </ul> 
-                                             
-           </div>
-          </li>  
-         </ul>
-        </div>  
+              <a class="dropdown-toggle login_bt" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="fa fa-user-o"></i> User Name
+              </a>
+              <ul class="dropdown-menu tpSocial">
+                <li><a class="dropdown-item" routerLink="/"><i class="fa fa-edit"></i> Edit Profile </a></li>
+                <li><a class="dropdown-item" routerLink="/login"><i class="fa fa-sign-out"></i> Logout </a></li>
+              </ul>
+
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
-    
-    <nav class="navbar navbar-expand-lg fixer">
-      <div class="container">
-        <a class="navbar-brand" routerLink="/"><img src="./assets/images/logo.png" alt="" /></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop" aria-controls="navbarTop" aria-expanded="false"><span class="fa fa-bars"></span></button>
-        <div class="collapse navbar-collapse" id="navbarTop">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
-              true}">Home</a></li>   
-              <li class="nav-item"><a class="nav-link" routerLink="/register" routerLinkActive="active">Student Register</a></li> 
-              <li class="nav-item"><a class="nav-link" routerLink="/view" routerLinkActive="active">Student List</a></li>      
-              <li class="nav-item"><a class="nav-link" routerLink="/studentFeedback" routerLinkActive="active">Student Feedback</a></li>      
-              <li class="nav-item"><a class="nav-link" routerLink="/feedbackDisplay" routerLinkActive="active">View Student Feedback</a></li>      
-              <li class="nav-item"><a class="nav-link" routerLink="/newWorksheet" routerLinkActive="active">New Worksheet</a></li>   
-              <li class="nav-item"><a class="nav-link" routerLink="/worksheetList" routerLinkActive="active">Worksheet List</a></li>   
-              <li class="nav-item"><a class="nav-link" routerLink="/add-teacher" routerLinkActive="active">Teacher Add</a></li>      
-              <li class="nav-item"><a class="nav-link" routerLink="/list-teacher" routerLinkActive="active">Teacher List</a></li>
-            </ul>      
-        </div>
+  </div>
+
+  <nav class="navbar navbar-expand-lg fixer">
+    <div class="container">
+      <a class="navbar-brand" routerLink="/"><img src="./assets/images/logo.png" alt="" /></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop"
+        aria-controls="navbarTop" aria-expanded="false"><span class="fa fa-bars"></span></button>
+      <div class="collapse navbar-collapse" id="navbarTop">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+              true}">Home</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Student
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/register" routerLinkActive="active">Student Register</a></li>
+              <li><a class="dropdown-item" routerLink="/view" routerLinkActive="active">Student List</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Student Feedback
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/studentFeedback" routerLinkActive="active">Student Feedback</a>
+              </li>
+              <li><a class="dropdown-item" routerLink="/feedbackDisplay" routerLinkActive="active">View Student
+                  Feedback</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Worksheet
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/newWorksheet" routerLinkActive="active">New Worksheet</a></li>
+              <li><a class="dropdown-item" routerLink="/worksheetList" routerLinkActive="active">Worksheet List</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Teacher
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" routerLink="/add-teacher" routerLinkActive="active">Teacher Register</a></li>
+              <li><a class="dropdown-item" routerLink="/list-teacher" routerLinkActive="active">Teacher List</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
-    </nav>
-    </header>
+    </div>
+  </nav>
+</header>

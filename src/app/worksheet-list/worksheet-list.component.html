@@ -28,15 +28,50 @@
                     <td>{{worksheet.grade}}</td>
                     <td>{{worksheet.worksheet}}</td>
                     <td>{{worksheet.extraWorksheet}}</td>
-                    <td>{{worksheet.weekDate}}</td>
-                 
+                    <td>{{worksheet.weekDate}}</td> 
                 </tr>
             </tbody>
         </table>
         
+        <a class="btn btn-primary" data-bs-toggle="modal" href="#pdf_file_view" role="button">PDF File</a>
+        <a class="btn btn-danger ms-2" data-bs-toggle="modal" href="#doc_file_view" role="button">Doc File</a>
+
+        <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Worksheet 001</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/wajid.pdf" frameborder="0" allowfullscreen></iframe> 
+                </div> 
+              </div>
+            </div>
+          </div> 
+
+          <div class="modal fade" id="doc_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Worksheet 002</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <iframe class="pdf_file_view" src="https://docs.google.com/gview?url=http://localhost:4200/assets/worksheet_doc_file/wajid.docx&embedded=true" frameborder="0" allowfullscreen></iframe>
+                    <!--<iframe class="pdf_file_view" src="http://docs.google.com/viewer?url=http://testprojects.net/project.docx&embedded=true" ></iframe>-->
+                    <iframe src='https://view.officeapps.live.com/op/embed.aspx?src=http://localhost:4200/assets/worksheet_doc_file/wajid.docx' width='100%' height='650px' frameborder='0'></iframe>
+
+                </div> 
+              </div>
+            </div>
+          </div> 
+          
 
      </div>	  
     </div>
    </div>
 
  
+
+   
