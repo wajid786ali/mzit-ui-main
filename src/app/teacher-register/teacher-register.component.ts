@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../service/api-client.service';
 import { Router } from '@angular/router';
-import { teacherRegister } from '../entity/teacher';
+import { TeacherRegister } from '../entity/teacher';
 
 @Component({
   selector: 'app-teacher-register',
@@ -10,7 +10,7 @@ import { teacherRegister } from '../entity/teacher';
 })
 export class TeacherRegisterComponent implements OnInit {
 
-  teacher : teacherRegister = new teacherRegister();  
+  teacherRegister : TeacherRegister = new TeacherRegister();  
   message: string;
  
   constructor(private apiService: ApiClientService, private router: Router) {}
@@ -19,4 +19,16 @@ export class TeacherRegisterComponent implements OnInit {
 
    
  
+  wsSubmit(teacherRegister: TeacherRegister) {
+    let response = this.apiService.teacherRegister(teacherRegister);
+    response.subscribe((data) => {
+      this.teacherRegister = data;
+    
+      if (data != null) {
+        this.message =
+          'Student ' + this.teacherRegister.teachertName + ' added successfully..!!';
+      }
+    });
+    this.router.navigate(['studentFeedback']);
+  }
 }

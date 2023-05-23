@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Students } from '../entity/students';
 import { StudentFeedBack } from '../entity/studentFeedBack';
+import { TeacherRegister } from '../entity/teacher';
 import { Worksheets } from '../entity/worksheets';
 import { Observable } from 'rxjs';
 
@@ -43,6 +44,13 @@ export class ApiClientService {
   
     return this.httpClient.post(`${this.apiUrl}/students/addFeedBack`,studentFeedBack);
   }
+
+  public teacherRegister(teacherRegister:TeacherRegister):Observable<any>{
+  
+    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`,teacherRegister);
+  }
+  
+
   
   public deleteById(studentId:number){
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);

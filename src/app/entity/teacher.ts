@@ -1,7 +1,6 @@
-export class teacherRegister {
-    teacherId: string;
-    teacherName: string;
-    teacherEmail: string;
+export class TeacherRegister {
+    teachertName: string;
+    email: string;
     phoneNumber: number;
     address: string;
     startDate: Date;
