@@ -11,6 +11,7 @@ import { FeedbackDisplayComponent } from './feedback-display/feedback-display.co
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 import {NewWorksheetComponent}  from './new-worksheet/new-worksheet.component';
+import {WorksheetListComponent}  from './worksheet-list/worksheet-list.component';
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -24,6 +25,7 @@ const routes: Routes = [
   {path:'add-teacher',component:TeacherRegisterComponent},
   {path:'list-teacher',component:TeacherListComponent},
   {path:'newWorksheet',component:NewWorksheetComponent},
+  {path:'worksheetList',component:WorksheetListComponent},
 ];
 
 @NgModule({

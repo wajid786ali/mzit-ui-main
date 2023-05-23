@@ -23,7 +23,8 @@ import { StudentFeedbackComponent } from './student-feedback/student-feedback.co
 import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component'; 
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherRegisterComponent } from './teacher-register/teacher-register.component'; 
-import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component'; 
+import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
+import { WorksheetListComponent } from './worksheet-list/worksheet-list.component'; 
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
     FeedbackDisplayComponent, 
     TeacherListComponent,
     TeacherRegisterComponent,
-    NewWorksheetComponent 
+    NewWorksheetComponent,
+    WorksheetListComponent 
   ],
   imports: [
     BrowserModule,

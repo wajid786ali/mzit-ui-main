@@ -1,0 +1,42 @@
+
+<div class="container">
+    <div class="innerPage">  
+        <div class="page_title2">
+            <h2>Worksheet <span>List</span></h2>
+          </div>
+
+     <div class="innerCont">	
+
+        <table class = "table table-bordered">
+
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Student Name</th> 
+                    <th>Grade</th> 
+                    <th>Worksheets  </th>
+                    <th>ExtraWorksheet</th>
+                    <th>WeekDate</th>
+                    
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor ="let worksheet of worksheets">
+                    <td>{{worksheet.studentId}}</td>
+                    <td>{{worksheet.studentName}}</td>
+                    <td>{{worksheet.grade}}</td>
+                    <td>{{worksheet.worksheet}}</td>
+                    <td>{{worksheet.extraWorksheet}}</td>
+                    <td>{{worksheet.weekDate}}</td>
+                 
+                </tr>
+            </tbody>
+        </table>
+        
+
+     </div>	  
+    </div>
+   </div>
+
+ 
