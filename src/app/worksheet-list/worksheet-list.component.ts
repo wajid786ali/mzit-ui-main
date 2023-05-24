@@ -12,6 +12,9 @@ import { Router } from '@angular/router';
   export class WorksheetListComponent {
     worksheet: Worksheets = new Worksheets();
     worksheets : any;
+    month:any;
+    year:any;
+
     constructor(private apiService: ApiClientService,
       private router: Router
   ){}
@@ -27,5 +30,12 @@ import { Router } from '@angular/router';
   });
   }
   
+  searhWorksheet(month:String,year:String){
+    let response =this.apiService.getMonthlyWorksheets(month,year);
+    response.subscribe((data) => { 
+      this.worksheets = data;
+    });
+    }
+
   }
   
