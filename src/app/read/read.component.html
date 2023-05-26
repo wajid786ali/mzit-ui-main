@@ -4,7 +4,6 @@
         <div class="page_title2">
             <h2>Students <span>List</span></h2>
           </div>
-
      <div class="innerCont">	
         <p>{{message}}</p>
         <table class = "table table-bordered">
@@ -22,7 +21,9 @@
                     <th>End Date</th> 
                     <th>Subjects</th>
                     <th>days</th>
-                    <th>Action</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <th>Add Note</th>
                 </tr>
             </thead>
         
@@ -41,9 +42,10 @@
                     <td>{{student.days}}</td>
                     <td>
                         <button (click) = "update(student.studentId)" class = "btn btn-primary"><b class="fa fa-edit"></b></button>
-                     
+                     </td><td>
                         <button (click) = "deleteById(student.studentId)" class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
-                    </td>
+                    </td><td>
+                        <button routerLink="studentNotes" (click) = "addNote(student.studentId,student.studentName)" class="btn btn-danger ms-3"> Add Notes</button>                 </td>
                 </tr>
             </tbody>
         </table>

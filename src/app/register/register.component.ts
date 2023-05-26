@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 
 @Component({
+
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],

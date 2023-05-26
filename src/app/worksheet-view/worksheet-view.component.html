@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="ods-box" ng-init="tabselector = 'firsttab'">
+  
+      <div>
+        <a class="tab" ng-click="tabselector = 'firsttab'">1st tab title</a>
+        <a class="tab" ng-click="tabselector = 'secondtab'">2nd tab title</a>
+        <a class="tab" ng-click="tabselector = 'thirdtab'">3rd tab title</a>
+      </div>
+  
+      <div class="ods-box">
+        <div ng-if="tabselector == 'firsttab'">
+          Content of first tab
+        </div>
+        <div ng-if="tabselector == 'secondtab'">
+          Content of second tab
+        </div>
+        <div ng-if="tabselector == 'thirdtab'">
+          Content of third tab
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  

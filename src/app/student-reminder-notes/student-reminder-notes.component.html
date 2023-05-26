@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="innerPage">
+      <div class="innerCont">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="rgs_frm">
+              <div class="page_title">
+                <h2>Teacher <span>Student Notes</span></h2>
+              </div>
+              
+              <p>UserId: {{studentName}}</p>
+              <form #contactForm="ngForm" novalidate>
+                <div class="row">
+  
+                  <div class="form-group">
+                    <label for="studentName"> Student Name <span>*</span></label>
+                    <input type="text" class="form-control" id="studentName" [(ngModel)]="studentName"
+                      name="teacherName"  value="qqq{studentName}" />
+                  </div>
+  
+                  <div class="form-group">
+                    <label for="teacherEmail"> Comments <span>*</span></label>
+                    <input type="textarea"  mdInput  class="form-control" id="comments" size="60"
+                    [(ngModel)]="studentNotes.comments" name="comments" />
+                  </div>
+                  <div class="form-group">
+                    <label for="reminderDate"> Reminder Date <span>*</span></label>
+                    <input type="text" class="form-control" id="reminderDate" [(ngModel)]="studentNotes.reminderDate"
+                      name="reminderDate" placeholder="000-000-0000">
+                  </div>
+  
+                 
+  
+                </div>
+                <div class="text-center mt-2">
+                  <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentNotes)">  Add Reminder
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

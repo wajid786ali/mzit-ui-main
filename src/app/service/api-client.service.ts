@@ -4,6 +4,8 @@ import { Students } from '../entity/students';
 import { StudentFeedBack } from '../entity/studentFeedBack';
 import { TeacherRegister } from '../entity/teacher';
 import { Worksheets } from '../entity/worksheets';
+import { StudentNotes } from '../entity/studentNotes';
+
 import { Observable } from 'rxjs';
 
 
@@ -58,6 +60,10 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addTeachers`,teacherRegister);
   }
   
+  public studentNotes(studentNotes:StudentNotes):Observable<any>{
+  
+    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`,studentNotes);
+  }
 
   
   public deleteById(studentId:number){

@@ -12,6 +12,10 @@ import { TeacherListComponent } from './teacher-list/teacher-list.component';
 import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 import {NewWorksheetComponent}  from './new-worksheet/new-worksheet.component';
 import {WorksheetListComponent}  from './worksheet-list/worksheet-list.component';
+import {WorksheetViewComponent}  from './worksheet-view/worksheet-view.component';
+import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
+
+
 
 const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -26,6 +30,8 @@ const routes: Routes = [
   {path:'list-teacher',component:TeacherListComponent},
   {path:'newWorksheet',component:NewWorksheetComponent},
   {path:'worksheetList',component:WorksheetListComponent},
+  {path:'worksheetView',component:WorksheetViewComponent},
+  {path:'studentNotes',component:StudentReminderNotesComponent},
 ];
 
 @NgModule({

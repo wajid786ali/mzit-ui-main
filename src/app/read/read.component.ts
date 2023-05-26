@@ -1,19 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Pipe, PipeTransform} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
-
+import {  } from '@angular/core';
 
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
-  styleUrls: ['./read.component.css']
+  styleUrls: ['./read.component.css'],
+  
 })
 export class ReadComponent implements OnInit{
   filterTerm : string;
   student: Students = new Students();
   students: any;
+  studentName: string;
   message: string;
+  nameFilter = null;
 
   constructor(private apiService: ApiClientService,
               private router: Router
@@ -40,8 +43,6 @@ export class ReadComponent implements OnInit{
     });
     
     this.message='Student deleted successfully..!!'
-
-    
   }
 
   update(studentId:number){
@@ -51,5 +52,17 @@ export class ReadComponent implements OnInit{
   home(){
     this.router.navigate(['home']);
   }
+
+  addNote(studentId:number,studentName:String){
+    this.studentName="Sajid"
+   // this.router.navigate(['studentNotes']);
+    //this.router.navigateByUrl('/studentNotes', { state: { id:1 , studentName:'Angular' } });
+    this.router.navigate(["/studentNotes"], {
+      queryParams: { studentName: "Application" },
+    });
+    
+    }
+
+ 
 
 }
