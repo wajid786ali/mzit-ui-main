@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiClientService } from '../service/api-client.service';
+import { Router } from '@angular/router';
+import { TeacherRegister } from '../entity/teacher';
 
 @Component({
   selector: 'app-teacher-list',
@@ -6,5 +9,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent {
+  teacherRegister: TeacherRegister = new TeacherRegister();
+  teacherRegisters : any;
+  message : String;
+
+  constructor(private apiService: ApiClientService,
+    private router: Router
+){}
+  ngOnInit() {
+    this.readAll();
+}
+
+readAll(){
+let response =this.apiService.getListTeachers();
+response.subscribe((data) => { 
+  this.teacherRegisters = data;
+});
+}
+
+delete(email:string){
+}
+ // this.apiService.deleteById(email).subscribe(data=>{
+  //  this.ngOnInit();
+ // });
+  
+ // this.message='Student deleted successfully..!!'
 
 }
