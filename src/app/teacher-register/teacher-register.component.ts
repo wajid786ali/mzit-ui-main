@@ -26,7 +26,7 @@ export class TeacherRegisterComponent implements OnInit {
     
       if (data != null) {
         this.message =
-          'Student ' + this.teacherRegister.teachertName + ' added successfully..!!';
+          'Student ' + this.teacherRegister.teacherName + ' added successfully..!!';
       }
     });
     this.router.navigate(['list-teacher']);

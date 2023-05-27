@@ -1,5 +1,5 @@
 export class TeacherRegister {
-    teachertName: string;
+    teacherName: string;
     email: string;
     phoneNumber: number;
     address: string;
