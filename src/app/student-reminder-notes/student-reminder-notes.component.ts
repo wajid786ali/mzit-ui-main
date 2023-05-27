@@ -14,13 +14,16 @@ export class StudentReminderNotesComponent implements OnInit {
   studentNotes : StudentNotes = new StudentNotes();  
   message: string;
   studentName: any;
+  studentId : any;
  
  constructor(private apiService: ApiClientService, private router: Router, private activatedRoute: ActivatedRoute ) {
 
  
-  this.activatedRoute.paramMap.subscribe((params) => {
-    this.studentName = params.get("studentName"); 
+  this.activatedRoute.queryParams.subscribe((params) => {
+    this.studentName = "sajid";//params; 
+    this.studentId="123";
     console.log(this.studentName);
+
   });
 }
 
@@ -29,15 +32,16 @@ export class StudentReminderNotesComponent implements OnInit {
    
  
   wsSubmit(studentNotes: StudentNotes) {
-    let response = this.apiService.studentNotes(studentNotes);
+    let response = this.apiService.addStudentNotes(studentNotes);
+    this.message =""+response;
     response.subscribe((data) => {
-      this.studentNotes = data;
+      this.message = data;
     
       if (data != null) {
         this.message =
           'Student ' + this.studentNotes.studentName + ' Noted  added successfully..!!';
       }
     });
-    this.router.navigate(['studentFeedback']);
+   // this.router.navigate(['studentNotes']);
   }
 }

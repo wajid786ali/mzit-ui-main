@@ -27,6 +27,7 @@ import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
 import { WorksheetListComponent } from './worksheet-list/worksheet-list.component';
 import { WorksheetViewComponent } from './worksheet-view/worksheet-view.component';
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
+import { RemindersComponent } from './reminders/reminders.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { StudentReminderNotesComponent } from './student-reminder-notes/student-
     NewWorksheetComponent,
     WorksheetListComponent,
     WorksheetViewComponent,
-    StudentReminderNotesComponent
+    StudentReminderNotesComponent,
+    RemindersComponent
   ],
   imports: [
     BrowserModule,

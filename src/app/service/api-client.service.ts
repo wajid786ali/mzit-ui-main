@@ -31,6 +31,10 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listFeedBack`);
   }
 
+  public getListReminders():Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listReminders`);
+  }
+
   public getListWorksheets():Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
   }
@@ -60,10 +64,11 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addTeachers`,teacherRegister);
   }
   
-  public studentNotes(studentNotes:StudentNotes):Observable<any>{
+  public addStudentNotes(studentNotes:StudentNotes):Observable<any>{
   
-    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`,studentNotes);
+    return this.httpClient.post(`${this.apiUrl}/students/addStudentNotes`,studentNotes);
   }
+  
 
   
   public deleteById(studentId:number){

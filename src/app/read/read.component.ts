@@ -2,7 +2,6 @@ import { Component, OnInit ,Pipe, PipeTransform} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
-import {  } from '@angular/core';
 
 @Component({
   selector: 'app-read',
@@ -24,6 +23,8 @@ export class ReadComponent implements OnInit{
   ngOnInit() {
     this.readAll();
   }
+
+
 
   readById(studentId:number){
 
@@ -60,7 +61,7 @@ export class ReadComponent implements OnInit{
     this.router.navigate(["/studentNotes"], {
       queryParams: { studentName: "Application" },
     });
-    
+
     }
 
  
