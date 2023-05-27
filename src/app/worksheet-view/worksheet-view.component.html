@@ -1,24 +1,77 @@
-<div class="container-fluid">
-    <div class="ods-box" ng-init="tabselector = 'firsttab'">
-  
-      <div>
-        <a class="tab" ng-click="tabselector = 'firsttab'">1st tab title</a>
-        <a class="tab" ng-click="tabselector = 'secondtab'">2nd tab title</a>
-        <a class="tab" ng-click="tabselector = 'thirdtab'">3rd tab title</a>
-      </div>
-  
-      <div class="ods-box">
-        <div ng-if="tabselector == 'firsttab'">
-          Content of first tab
-        </div>
-        <div ng-if="tabselector == 'secondtab'">
-          Content of second tab
-        </div>
-        <div ng-if="tabselector == 'thirdtab'">
-          Content of third tab
-        </div>
-      </div>
-  
+<div class="container">
+  <div class="innerPage">
+    <div class="page_title2">
+      <h2>Worksheet <span>View</span></h2>
     </div>
+
+    <ul class="student_work_sheet">
+      <li><a data-bs-toggle="modal" href="#pdf_file_view">
+          <b class="fa fa-folder-open"></b>
+          <div>Worksheet Class 1</div>
+        </a></li>
+      <li><a data-bs-toggle="modal" href="#pdf_file_view">
+          <b class="fa fa-folder-open"></b>
+          <div>Worksheet Class 1</div>
+        </a></li>
+      <li><a data-bs-toggle="modal" href="#pdf_file_view">
+          <b class="fa fa-folder-open"></b>
+          <div>Worksheet Class 1</div>
+        </a></li>
+      <li><a data-bs-toggle="modal" href="#pdf_file_view">
+          <b class="fa fa-folder-open"></b>
+          <div>Worksheet Class 1</div>
+        </a></li>
+      <li><a data-bs-toggle="modal" href="#pdf_file_view">
+          <b class="fa fa-folder-open"></b>
+          <div>Worksheet Class 1</div>
+        </a></li>
+    </ul>
+
+
+    <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Worksheet Class 1</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-pills mb-3 justify-content-center">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="worksheed_01_tab" data-bs-toggle="pill" data-bs-target="#worksheed_01"
+                  type="button" role="tab" aria-controls="worksheed_01" aria-selected="true">Student 1</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="worksheed_02_tab" data-bs-toggle="pill" data-bs-target="#worksheed_02"
+                  type="button" role="tab" aria-controls="worksheed_02" aria-selected="false">Student 2</button>
+              </li> 
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="worksheed_03_tab" data-bs-toggle="pill" data-bs-target="#worksheed_03"
+                  type="button" role="tab" aria-controls="worksheed_03" aria-selected="false">Student 3</button>
+              </li> 
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane show active" id="worksheed_01" role="tabpanel" aria-labelledby="worksheed_01_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_01.pdf" frameborder="0"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="tab-pane" id="worksheed_02" role="tabpanel" aria-labelledby="worksheed_02_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_02.pdf" frameborder="0"
+                  allowfullscreen></iframe>
+              </div> 
+              <div class="tab-pane" id="worksheed_03" role="tabpanel" aria-labelledby="worksheed_03_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_03.pdf" frameborder="0"
+                  allowfullscreen></iframe> 
+              </div> 
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
   </div>
-  

@@ -29,6 +29,6 @@ export class TeacherRegisterComponent implements OnInit {
           'Student ' + this.teacherRegister.teachertName + ' added successfully..!!';
       }
     });
-    this.router.navigate(['studentFeedback']);
+    this.router.navigate(['list-teacher']);
   }
 }

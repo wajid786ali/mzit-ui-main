@@ -26,7 +26,7 @@ import { TeacherRegisterComponent } from './teacher-register/teacher-register.co
 import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
 import { WorksheetListComponent } from './worksheet-list/worksheet-list.component';
 import { WorksheetViewComponent } from './worksheet-view/worksheet-view.component';
-import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
+import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component'; 
 
 @NgModule({
   declarations: [
