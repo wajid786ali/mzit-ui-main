@@ -9,33 +9,38 @@ import { Router } from '@angular/router';
   styleUrls: ['./worksheet-list.component.css']
 })
 
-  export class WorksheetListComponent {
-    worksheet: Worksheets = new Worksheets();
-    worksheets : any;
-    month:any;
-    year:any;
+export class WorksheetListComponent {
+  worksheet: Worksheets = new Worksheets();
+  worksheets: any;
+  month: any;
+  year: any;
+  message: string;
 
-    constructor(private apiService: ApiClientService,
-      private router: Router
-  ){}
-  
-    ngOnInit() {
-      this.readAll();
+  constructor(private apiService: ApiClientService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.readAll();
   }
-  
-  readAll(){
-  let response =this.apiService.getListWorksheets();
-  response.subscribe((data) => { 
-    this.worksheets = data;
-  });
-  }
-  
-  searhWorksheet(month:String,year:String){
-    let response =this.apiService.getMonthlyWorksheets(month,year);
-    response.subscribe((data) => { 
+
+  readAll() {
+    let response = this.apiService.getListWorksheets();
+    response.subscribe((data) => {
       this.worksheets = data;
     });
-    }
-
   }
-  
+ 
+
+  editWorksheet(worksheets:number){
+    this.router.navigate(['editWorksheet',worksheets]);
+  }
+
+  searhWorksheet(month: String, year: String) {
+    let response = this.apiService.getMonthlyWorksheets(month, year);
+    response.subscribe((data) => {
+      this.worksheets = data;
+    });
+  }
+
+}

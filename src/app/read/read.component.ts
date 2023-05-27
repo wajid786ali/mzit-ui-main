@@ -54,8 +54,7 @@ export class ReadComponent implements OnInit{
     this.router.navigate(['home']);
   }
 
-  addNote(studentId:number,studentName:String){
-    this.studentName="Sajid"
+  addNote(studentId:number,studentName:String){ 
    // this.router.navigate(['studentNotes']);
     //this.router.navigateByUrl('/studentNotes', { state: { id:1 , studentName:'Angular' } });
     this.router.navigate(["/studentNotes"], {

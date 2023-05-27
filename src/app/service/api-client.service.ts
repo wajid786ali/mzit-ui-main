@@ -39,6 +39,10 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
   }
 
+  public getListTeachers():Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listTeachers`);
+  }
+
   public getMonthlyWorksheets(month:String,year:String):Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyMonth/`+month);
   }

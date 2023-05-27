@@ -1,38 +1,33 @@
-
 <div class="container">
-    <div class="innerPage">  
+    <div class="innerPage">
         <div class="page_title2">
             <h2>Reminder <span>List</span></h2>
-          </div>
-     <div class="innerCont">	
-        <table class = "table table-bordered">
+        </div>
+        <div class="innerCont">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Student Name</th>
+                        <th>Note</th>
+                        <th>Date</th>
+                        <th>Resolve</th>
 
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Student Name</th> 
-                    <th>Note</th>
-                    <th>Date</th>
-                    <th>Resolve</th>
-                   
-                </tr>
-            </thead>
-        
-            <tbody>
-                <tr *ngFor ="let student of StudentNotes">
-                    <td>{{student.studentId}}</td>
-                    <td>{{student.studentName}}</td>
-                    <td>{{student.reminderDate}}</td>
-                    <td>{{student.comments}}</td>
-                    <td>
-                        <button (click) = "update(student.studentId)" class = "btn btn-primary"><b class="fa fa-edit"></b></button>
-                     </td>                </tr>
-            </tbody>
-        </table>
-        
-
-     </div>	  
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let student of StudentNotes">
+                        <td>{{student.studentId}}</td>
+                        <td>{{student.studentName}}</td>
+                        <td>{{student.reminderDate}}</td>
+                        <td>{{student.comments}}</td>
+                        <td>
+                            <button (click)="update(student.studentId)" class="btn btn-primary"><b
+                                    class="fa fa-edit"></b></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-   </div>
-
- 
+</div>

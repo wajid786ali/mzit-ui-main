@@ -1,0 +1,8 @@
+.student_work_sheet{display:flex;flex-wrap: wrap;text-align: center;}
+.student_work_sheet li{width:20%;}
+.student_work_sheet li a{display:block;border:solid 1px #ddd;margin:5px;padding:4px;color: #666;border-radius: 6px;}
+.student_work_sheet li a b{font-size:100px;margin:20px 0px;color:#fdbf5e}
+.student_work_sheet li a div{font-size: 14px;background:#ddd;padding:10px;font-weight:500;color:#333;border-bottom-left-radius: 6px;border-bottom-right-radius: 6px} 
+.tab-content,.tab-content>.active{height:80vh;}
+
+iframe.pdf_file_view{width:100%;height:100%;}

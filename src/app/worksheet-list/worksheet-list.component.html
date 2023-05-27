@@ -35,30 +35,80 @@
         </div>
       </form>
     </div>
+    <div>{{message}}</div>
     <table class="table table-striped table-hover table-bordered">
-
       <thead>
         <tr>
           <th>Id</th>
           <th>Student Name</th>
           <th>Grade</th>
-          <th>Worksheets </th>
-          <th>ExtraWorksheet</th>
           <th>WeekDate</th>
+          <th>ExtraWorksheet</th>
+          <th>Worksheets Name </th>
+          <th>Action </th>
         </tr>
       </thead>
-
       <tbody>
-        <tr *ngFor="let worksheet of worksheets">
+        <tr *ngFor="let worksheet of worksheets, let i = index">
           <td>{{worksheet.studentId}}</td>
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
-          <td>{{worksheet.worksheet}}</td>
-          <td>{{worksheet.extraWorksheet}}</td>
           <td>{{worksheet.weekDate}}</td>
+          <td>{{worksheet.extraWorksheet}}</td>
+          <td>{{worksheet.worksheet}}</td>
+          <td>
+            <button class="btn btn-primary" data-bs-toggle="modal" href="#pdf_file_view">View</button>
+            <button (click) = "editWorksheet(worksheets.studentId)" class="btn btn-success ms-3"><b class="fa fa-edit"></b></button>
+            <button class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    
+    <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Worksheet Class 1</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="nav nav-pills mb-3 justify-content-center">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="worksheed_01_tab" data-bs-toggle="pill" data-bs-target="#worksheed_01"
+                  type="button" role="tab" aria-controls="worksheed_01" aria-selected="true">Student 1</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="worksheed_02_tab" data-bs-toggle="pill" data-bs-target="#worksheed_02"
+                  type="button" role="tab" aria-controls="worksheed_02" aria-selected="false">Student 2</button>
+              </li> 
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="worksheed_03_tab" data-bs-toggle="pill" data-bs-target="#worksheed_03"
+                  type="button" role="tab" aria-controls="worksheed_03" aria-selected="false">Student 3</button>
+              </li> 
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane show active" id="worksheed_01" role="tabpanel" aria-labelledby="worksheed_01_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_01.pdf" frameborder="0"
+                  allowfullscreen></iframe>
+              </div>
+              <div class="tab-pane" id="worksheed_02" role="tabpanel" aria-labelledby="worksheed_02_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_02.pdf" frameborder="0"
+                  allowfullscreen></iframe>
+              </div> 
+              <div class="tab-pane" id="worksheed_03" role="tabpanel" aria-labelledby="worksheed_03_tab">
+                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_03.pdf" frameborder="0"
+                  allowfullscreen></iframe> 
+              </div> 
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
 
