@@ -3,10 +3,10 @@
     <div class="page_title2">
       <h2>Worksheet <span>List</span></h2>
     </div>
-    <div class="form-group col-6 mb-4">
+    <div class="form-group col-7 mb-4">
       <form #contactForm="ngForm" novalidate>
         <div class="row">
-          <div class="col-5">
+          <div class="col-4">
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">Year</span>
               <select class="form-select" id="year" [(ngModel)]="year" aria-label="Default select example">
@@ -16,7 +16,7 @@
               </select>
             </div>
           </div>
-          <div class="col-5">
+          <div class="col-4">
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">Month</span>
               <select class="form-control form-select" id="month" [(ngModel)]="month" name="month"> 
@@ -28,8 +28,9 @@
               </select>
             </div>
           </div> 
-          <div class="form-group col-2">
-            <button class="btn btn-primary" type="submit" (click)="searhWorksheet(month,year)"> Search </button>
+          <div class="form-group col-4">
+            <button class="btn btn-primary" type="submit" (click)="searhWorksheet(month,year)"> Search </button> 
+            <button class="btn btn-danger ms-2"  data-bs-toggle="modal" href="#pdf_file_view">{{totalClass}} Class Start</button>
           </div>
 
         </div>
@@ -57,59 +58,50 @@
           <td>{{worksheet.extraWorksheet}}</td>
           <td>{{worksheet.worksheet}}</td>
           <td>
-            <button class="btn btn-primary" data-bs-toggle="modal" href="#pdf_file_view">View</button>
-            <button (click) = "editWorksheet(worksheets.studentId)" class="btn btn-success ms-3"><b class="fa fa-edit"></b></button>
-            <button class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
+            <button (click)=addClass(worksheet) class="btn btn-primary" *ngIf="addClass">Add Class</button> 
+            <button (click)="removeClass(worksheets.studentId)" *ngIf="addClass" class="btn btn-danger">Remove Class</button>
+            <button (click)="editWorksheet(worksheets.studentId)" class="btn btn-success ms-3"><b class="fa fa-edit"></b></button>
+            <button class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>  
           </td>
         </tr>
       </tbody>
     </table>
+ 
 
-    
-    <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
-      tabindex="-1">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Worksheet Class 1</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <ul class="nav nav-pills mb-3 justify-content-center">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="worksheed_01_tab" data-bs-toggle="pill" data-bs-target="#worksheed_01"
-                  type="button" role="tab" aria-controls="worksheed_01" aria-selected="true">Student 1</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="worksheed_02_tab" data-bs-toggle="pill" data-bs-target="#worksheed_02"
-                  type="button" role="tab" aria-controls="worksheed_02" aria-selected="false">Student 2</button>
-              </li> 
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="worksheed_03_tab" data-bs-toggle="pill" data-bs-target="#worksheed_03"
-                  type="button" role="tab" aria-controls="worksheed_03" aria-selected="false">Student 3</button>
-              </li> 
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane show active" id="worksheed_01" role="tabpanel" aria-labelledby="worksheed_01_tab">
-                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_01.pdf" frameborder="0"
+ 
+ 
+
+  </div>
+
+  
+  
+  <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1">
+    <div class="modal-dialog modal-fullscreen">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Class Start</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="padding:0;">
+        
+          <div class="tab_body">
+            <div class="tabs">
+              <div class="tab" *ngFor="let item of classStart; let i = index">
+                <input type="radio" name="css-tabs" id="{{i+1}}" checked class="tab-switch">
+                <label for="{{i+1}}" class="tab-label">{{item.studentName}}</label>
+                <div class="tab-content">
+                  {{item.worksheet}}
+                  <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_02.pdf" frameborder="0"
                   allowfullscreen></iframe>
+                </div>
               </div>
-              <div class="tab-pane" id="worksheed_02" role="tabpanel" aria-labelledby="worksheed_02_tab">
-                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_02.pdf" frameborder="0"
-                  allowfullscreen></iframe>
-              </div> 
-              <div class="tab-pane" id="worksheed_03" role="tabpanel" aria-labelledby="worksheed_03_tab">
-                <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_03.pdf" frameborder="0"
-                  allowfullscreen></iframe> 
-              </div> 
             </div>
-
-
           </div>
+ 
+          
         </div>
       </div>
     </div>
-
-
-
   </div>
+  
