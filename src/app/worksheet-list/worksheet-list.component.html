@@ -60,8 +60,6 @@
           <td>
             <button (click)=addClass(worksheet) class="btn btn-primary" *ngIf="addClass">Add Class</button> 
             <button (click)="removeClass(worksheets.studentId)" *ngIf="addClass" class="btn btn-danger">Remove Class</button>
-            <button (click)="editWorksheet(worksheets.studentId)" class="btn btn-success ms-3"><b class="fa fa-edit"></b></button>
-            <button class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>  
           </td>
         </tr>
       </tbody>
