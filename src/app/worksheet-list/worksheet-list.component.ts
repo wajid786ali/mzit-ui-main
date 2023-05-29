@@ -42,7 +42,7 @@ export class WorksheetListComponent implements OnInit {
   }
 
   addClass(worksheet: any){
-    this.AddClassService.addtoCart(worksheet);    
+    this.AddClassService.addtoCart(worksheet); 
   }
   
   removeClass(item: any){
@@ -67,6 +67,6 @@ export class WorksheetListComponent implements OnInit {
       this.worksheets = data;
     });
   }
- 
+   
 
 }

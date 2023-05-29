@@ -20,9 +20,8 @@
                     <th>End Date</th> 
                     <th>Subjects</th>
                     <th>Days</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
                     <th>Add Note</th>
+                    <th>Action</th>
                 </tr>
             </thead>
         
@@ -40,11 +39,15 @@
                     <td>{{student.subjects}}</td>
                     <td>{{student.days}}</td>
                     <td>
-                        <button (click) = "update(student.studentId)" class = "btn btn-primary"><b class="fa fa-edit"></b></button>
-                     </td><td>
-                        <button (click) = "deleteById(student.studentId)" class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
-                    </td><td>
-                        <button routerLink="studentNotes" (click) = "addNote(student.studentId,student.studentName)" class="btn btn-danger ms-3"> Add Notes</button>                 </td>
+                        <button routerLink="studentNotes" (click)="addNote(student.studentId,student.studentName)" class="btn btn-danger mb-2"> Add Notes</button> 
+                        <button (click)="addStudentNote()" class="btn btn-primary"> Add Message </button>
+                    </td>
+                    <td> 
+<div class="btn-group" role="group" aria-label="Basic mixed styles example">
+<button (click) = "update(student.studentId)" class = "btn btn-primary"><b class="fa fa-edit"></b></button>
+<button (click) = "deleteById(student.studentId)" class="btn btn-danger"><b class="fa fa-trash"></b></button>
+</div>
+                    </td>
                 </tr>
             </tbody>
         </table>
@@ -55,3 +58,49 @@
    </div>
 
  
+   <button data-bs-toggle="modal" data-bs-target="#studentNotes" class="btn btn-danger ms-3"> Add</button> 
+
+<div class="modal fade" id="studentNotes" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add Student Note</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+<form #contactForm="ngForm" novalidate> 
+    <div class="row">
+        <div class="row mb-3">
+            <div class="form-group col-8">
+                <label for="studentName"> Student Name </label>
+                <input type="text" class="form-control" id="studentName" name="teacherName" value="{{student.studentId}}" />
+            </div>
+            <div class="form-group col-4">
+                <label for="studentId"> Student ID </label>
+                <input type="text" class="form-control" id="studentId" name="studentId" value="{studentId}" />
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="teacherEmail"> Comments <span>*</span></label>
+            <input type="textarea" mdInput class="form-control" id="comments" size="60" name="comments" />
+        </div>
+
+
+        <div class="form-group">
+            <label> Start Date <span>*</span></label>
+            <input type="date" class="form-control" id="reminderDate" name="reminderDate" placeholder="mm-dd-yyyy" />
+        </div>
+
+    </div>
+</form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

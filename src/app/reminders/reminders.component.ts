@@ -15,9 +15,9 @@ export class RemindersComponent implements OnInit{
   message: string;
 
 
-  constructor(private apiService: ApiClientService,
-              private router: Router
-    ){}
+  constructor(private apiService: ApiClientService, private router: Router){
+
+  }
   ngOnInit() {
     this.readAll();
   }
@@ -33,10 +33,15 @@ export class RemindersComponent implements OnInit{
   update(studentId:number){
     this.apiService.deleteById(studentId).subscribe(data=>{
       this.ngOnInit();
-    });
-    
+    }); 
+    this.message='Student deleted successfully..!!' 
+  } 
+
+  deleteRemindersById(){
+    this.apiService.deleteById(this.StudentNotes).subscribe(data=>{
+      this.ngOnInit();
+    }); 
     this.message='Student deleted successfully..!!'
-  
   }
 
 }

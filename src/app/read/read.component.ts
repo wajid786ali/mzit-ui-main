@@ -2,6 +2,7 @@ import { Component, OnInit ,Pipe, PipeTransform} from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
+import { StudentNotes } from '../entity/studentNotes';
 
 @Component({
   selector: 'app-read',
@@ -16,6 +17,7 @@ export class ReadComponent implements OnInit{
   studentName: string;
   message: string;
   nameFilter = null;
+  studentId: StudentNotes;
 
   constructor(private apiService: ApiClientService,
               private router: Router
@@ -27,7 +29,6 @@ export class ReadComponent implements OnInit{
 
 
   readById(studentId:number){
-
     this.apiService.getById(studentId);
   }
 
@@ -54,15 +55,18 @@ export class ReadComponent implements OnInit{
     this.router.navigate(['home']);
   }
 
-  addNote(studentId:number,studentName:String){ 
-   // this.router.navigate(['studentNotes']);
-    //this.router.navigateByUrl('/studentNotes', { state: { id:1 , studentName:'Angular' } });
+  addNote(studentId:number,studentName:String){  
     this.router.navigate(["/studentNotes"], {
       queryParams: { studentName: "Application" },
     });
 
     }
 
+    addStudentNote(){
+       this.apiService.addStudentNotes(this.studentId).subscribe(data => {
+        console.log();
+       })
+    }
  
 
 }
