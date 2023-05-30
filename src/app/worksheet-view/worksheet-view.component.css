@@ -6,3 +6,25 @@
 .tab-content,.tab-content>.active{height:80vh;}
 
 iframe.pdf_file_view{width:100%;height:100%;}
+
+.modal-title span{font-weight:500;color:#c03;}
+
+.popup_box_view{display:flex;justify-content:space-between;}
+.popup_box_view .chat_room{width:280px;background:#666;padding:5px;}
+.popup_box_view .chat_room .chat_hed{padding:18px 15px 15px 0px;color:#fff;font-weight:500;font-size:18px;}
+.popup_box_view .chat_room .chat_list{background:#fff;padding:10px;margin-bottom:5px;border-radius:6px;}
+.popup_box_view .chat_room .chat_list span{font-weight:500;color:#333}
+.popup_box_view .chat_room .bt_box_01{margin-top:5px;}
+.over_data{overflow:auto;height:80vh;padding-right:5px;}
+
+.tab_body{background:#666;padding:10px;height:100%;box-sizing:border-box;width:calc(100% - 280px);}
+.tabs{position:relative;height:100%}
+.tabs::before,.tabs::after{content:"";display:table}
+.tabs::after{clear:both}
+.tab{float:left}
+.tab-switch{display:none}
+.tab-label{position:relative;display:block;line-height:2.75em;height:3em;padding:0 1.618em;background:#1abc9c;border-right:2px solid #666;color:#fff;cursor:pointer;top:0;transition:all .25s}
+.tab-label:hover{top:-.25rem;transition:top .25s}
+.tab-content{position:absolute;z-index:1;top:41px;left:0;padding:10px 15px;background:#fff;color:#2c3e50;border-bottom:.25rem solid #bdc3c7;opacity:0;transition:all .35s;width:100%;}
+.tab-switch:checked + .tab-label{background:#fff;color:#2c3e50;border-bottom:0;border-right:.125rem solid #fff;transition:all .35s;z-index:1;top:-.0625rem}
+.tab-switch:checked + label + .tab-content{z-index:2;opacity:1;transition:all .35s}

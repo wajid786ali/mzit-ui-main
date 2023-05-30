@@ -29,6 +29,7 @@ import { WorksheetViewComponent } from './worksheet-view/worksheet-view.componen
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component'; 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -62,8 +63,7 @@ import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.co
     MatToolbarModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-
-
+    Ng2SearchPipeModule
   ],
   providers: [ApiClientService,DatePipe],
   bootstrap: [AppComponent]
