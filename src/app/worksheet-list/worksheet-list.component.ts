@@ -19,6 +19,7 @@ export class WorksheetListComponent implements OnInit {
   month: any;
   year: any;
   message: string; 
+  selectWeek:String;
 
   public classStart : any = [];  
 
@@ -43,6 +44,8 @@ export class WorksheetListComponent implements OnInit {
     })
   }
 
+
+
   addClass(worksheet: any){
     this.AddClassService.addtoCart(worksheet); 
   }
@@ -59,6 +62,10 @@ export class WorksheetListComponent implements OnInit {
     
   }
 
+  valueSelected(){
+//this.worksheets.worksheetsDtoList= this.worksheets.worksheetsDtoList.filter(worksheet.weekDate == this.selectWeek) ;
+
+  }
 
   editWorksheet(worksheets: number) {
     this.router.navigate(['editWorksheet', worksheets]);
