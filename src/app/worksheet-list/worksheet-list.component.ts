@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { WorksheetsList } from '../entity/worksheetsList';
 import { Worksheets } from '../entity/worksheets';
 import { ApiClientService } from '../service/api-client.service';
 import { Router } from '@angular/router';
@@ -12,6 +13,7 @@ import { AddClassService } from '../service/add-class.service';
 
 export class WorksheetListComponent implements OnInit {
   
+  //worksheetList: WorksheetsList = new WorksheetsList();
   worksheet: Worksheets = new Worksheets();
   worksheets: any;
   month: any;
@@ -54,6 +56,7 @@ export class WorksheetListComponent implements OnInit {
     response.subscribe((data) => {
       this.worksheets = data;
     });
+    
   }
 
 
