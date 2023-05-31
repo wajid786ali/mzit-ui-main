@@ -15,7 +15,6 @@ export class WorksheetViewComponent implements OnInit {
   filterText: any;
   worksheet: Worksheets = new Worksheets();
   worksheets: any;
-  worksheetsList: any;
   month: any;
   year: any;
   message: string;
@@ -58,7 +57,6 @@ export class WorksheetViewComponent implements OnInit {
     let response = this.apiService.getListWorksheets();
     response.subscribe((data) => {
       this.worksheets = data;
-      this.worksheetsList=data.worksheetsDtoList;
     });
 
   }

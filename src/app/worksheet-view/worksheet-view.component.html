@@ -32,7 +32,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheetsList, let i = index">
+        <tr *ngFor="let worksheet of worksheets | filter:filterText"> 
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
           <td>{{worksheet.weekDate}}</td>
