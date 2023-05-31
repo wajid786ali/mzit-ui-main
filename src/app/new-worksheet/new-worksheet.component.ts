@@ -26,6 +26,6 @@ export class NewWorksheetComponent {
           'Student  added successfully..!!';
       }
     });
-    this.router.navigate(['studentFeedback']);
+    this.router.navigate(['worksheetList']);
   }
 }

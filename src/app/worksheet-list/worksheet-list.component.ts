@@ -16,11 +16,13 @@ export class WorksheetListComponent implements OnInit {
   //worksheetList: WorksheetsList = new WorksheetsList();
   worksheet: Worksheets = new Worksheets();
   worksheets: any;
+  worksheetsMonth: any;
+  worksheetsList: any;
   month: any;
   year: any;
   message: string; 
   selectWeek:String;
-
+    s: any;
   public classStart : any = [];  
 
   public totalClass : number = 0;
@@ -58,14 +60,24 @@ export class WorksheetListComponent implements OnInit {
     let response = this.apiService.getListWorksheets();
     response.subscribe((data) => {
       this.worksheets = data;
+this.worksheetsMonth=data.weeklyDate;
+this.worksheetsList=data.worksheetsDtoList;
+
     });
     
   }
 
-  valueSelected(){
-//this.worksheets.worksheetsDtoList= this.worksheets.worksheetsDtoList.filter(worksheet.weekDate == this.selectWeek) ;
+  weekDateClick(){
+  
+    let response = this.apiService.getWeeklylyWorksheets(this.selectWeek);
+    response.subscribe((data) => {
 
+      this.worksheetsList=data;
+
+    });
   }
+
+
 
   editWorksheet(worksheets: number) {
     this.router.navigate(['editWorksheet', worksheets]);

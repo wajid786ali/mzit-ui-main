@@ -1,5 +1,5 @@
 export class WorksheetsList {
-    worksheetsDtoList: WorksheetsList[];
-    weeklyDate: string[];
+    worksheetsDtoList1: WorksheetsList[];
+    weeklyDate1: string[];
    
   }

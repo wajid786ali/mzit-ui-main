@@ -19,15 +19,15 @@
           <div class="col-4">
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">Month</span>
-              <select class="form-control form-select" id="month" [(ngModel)]="month" name="month"  (change)="valueSelected()"> 
+              <select class="form-control form-select" id="month" [(ngModel)]="month" name="month" > 
                 <option value="Jan">Jan</option>
                 <option value="Feb">Feb</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
               </select>
-              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"> 
-                <option *ngFor="let month of worksheets.weeklyDate, let i = index">{{month}}</option>
+              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"  (change)="weekDateClick()">  
+                <option *ngFor="let month of worksheetsMonth, let i = index">{{month}}</option>
              </select>
 			 
              
@@ -55,7 +55,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheets.worksheetsDtoList, let i = index">
+        <tr *ngFor="let worksheet of worksheetsList, let i = index">
           <td>{{worksheet.studentId}}</td>
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
