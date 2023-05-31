@@ -19,7 +19,6 @@ export class WorksheetListComponent implements OnInit {
   worksheetsMonth: any;
   worksheetsList: any;
   month: any;
-  year: any;
   message: string; 
   selectWeek:String;
     s: any;
@@ -78,13 +77,12 @@ this.worksheetsList=data.worksheetsDtoList;
   }
 
 
-
   editWorksheet(worksheets: number) {
     this.router.navigate(['editWorksheet', worksheets]);
   }
 
-  searhWorksheet(month: String, year: String) {
-    let response = this.apiService.getMonthlyWorksheets(month, year);
+  monthlyWorksheet() {
+    let response = this.apiService.getMonthlyWorksheets(this.month);
     response.subscribe((data) => {
       this.worksheets = data;
     });

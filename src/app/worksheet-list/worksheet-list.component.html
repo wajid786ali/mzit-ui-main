@@ -8,33 +8,28 @@
         <div class="row">
           <div class="col-4">
             <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">Year</span>
-              <select class="form-select" id="year" [(ngModel)]="year" aria-label="Default select example">
-                <option selected>Year</option>
-                <option value="2022">2022</option>
-                <option value="2023">2023</option>
-              </select>
+              <span class="input-group-text" id="basic-addon1">Select Week date</span>
+              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"  (change)="weekDateClick()">  
+                <option value="Select">Weekly Date</option>
+                <option *ngFor="let month of worksheetsMonth, let i = index">{{month}}</option>
+             </select>
             </div>
           </div>
           <div class="col-4">
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">Month</span>
-              <select class="form-control form-select" id="month" [(ngModel)]="month" name="month" > 
+              <select class="form-control form-select" id="month" [(ngModel)]="month" name="month"  (change)="monthlyWorksheet()"> 
+                <option value="Select">Month</option>
                 <option value="Jan">Jan</option>
                 <option value="Feb">Feb</option>
                 <option value="March">March</option>
                 <option value="April">April</option>
                 <option value="May">May</option>
-              </select>
-              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"  (change)="weekDateClick()">  
-                <option *ngFor="let month of worksheetsMonth, let i = index">{{month}}</option>
-             </select>
-			 
+              </select>		 
              
             </div>
           </div> 
           <div class="form-group col-4">
-            <button class="btn btn-primary" type="submit" (click)="searhWorksheet(month,year)"> Search </button> 
             <button class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#pdf_file_view">{{totalClass}} Class Start</button>
           </div>
 

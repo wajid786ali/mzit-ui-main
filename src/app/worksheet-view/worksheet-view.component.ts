@@ -66,8 +66,8 @@ export class WorksheetViewComponent implements OnInit {
     this.router.navigate(['editWorksheet', worksheets]);
   }
 
-  searhWorksheet(month: String, year: String) {
-    let response = this.apiService.getMonthlyWorksheets(month, year);
+  searhWorksheet(month: String) {
+    let response = this.apiService.getMonthlyWorksheets(month);
     response.subscribe((data) => {
       this.worksheets = data;
     });
