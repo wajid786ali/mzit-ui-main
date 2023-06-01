@@ -2,12 +2,13 @@ export class Students {
     studentId: number;
     studentName: string;
     parentsName: string;
+    address: string;
     email: string;
     phoneNumber: number;
     grade:string;
-    address: string;
+    subjects: string[];
     startDate: Date;
     endDate: Date;
-    subjects: string[];
     days: string[];
+    status:string
   }
