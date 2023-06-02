@@ -31,6 +31,7 @@ import { RemindersComponent } from './reminders/reminders.component';
 import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component'; 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
+
 @NgModule({
   declarations: [
     AppComponent,

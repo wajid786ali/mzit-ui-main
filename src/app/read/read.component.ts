@@ -21,6 +21,7 @@ export class ReadComponent implements OnInit{
   nameFilter = null;
   studentId: StudentNotes;
   studentId_new:string;
+  studentStatus:string;
 
   constructor(private apiService: ApiClientService,
               private router: Router
@@ -35,6 +36,10 @@ export class ReadComponent implements OnInit{
     this.apiService.getById(studentId);
   }
 
+  setStudentStatus(status:string){
+this.studentStatus=status;
+  }
+  
   readAll(){
     let response =this.apiService.getAll();
     response.subscribe((data) => {

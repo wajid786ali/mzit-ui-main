@@ -6,6 +6,20 @@
           </div>
      <div class="innerCont">	
         <p>{{message}}</p>
+
+        <form #contactForm="ngForm" novalidate>
+            <div class="row">
+               
+              <div class="form-group col-6">
+                             
+                <button (click) ="setStudentStatus('Active')" name="studentStatus" > Active Students </button>
+                <button (click) ="setStudentStatus('NEW')" name="studentStatus" > New Students</button>
+                <button (click) ="setStudentStatus('Paused')" name="studentStatus" > Paused Students</button>
+              </div> 
+</div>
+</form>
+      
+
         <table class = "table table-striped table-hover table-bordered"> 
             <thead>
                 <tr>
@@ -27,7 +41,7 @@
             </thead>
         
             <tbody>
-                <tr *ngFor ="let student of students">
+                <tr *ngFor ="let student of students | filter:studentStatus">
                     <td><input type="checkbox" name="studentId" value="{{student.studentId}}"> {{student.studentId}}</td>
                     <td>{{student.studentName}}</td>
                     <td>{{student.parentsName}}</td>
@@ -75,12 +89,12 @@
                         <div class="form-group col-8">
                           <label for="studentName"> Student Name </label>
                           <input type="text" class="form-control" id="studentName" [(ngModel)]="studentNotes.studentName"
-                          name="teacherName"  value="{studentName}" />
+                          name="studentName"  value="{{studentName_new}}" readonly />
                         </div>
                         <div class="form-group col-4">
                           <label for="studentId"> Student ID </label>
                           <input type="text" class="form-control" id="studentId" [(ngModel)]="studentNotes.studentId"
-                          name="studentId"  value="{studentId}" />
+                          name="studentId"  value="{{studentId_new}}" readonly />
                         </div>
                       </div> 
     
