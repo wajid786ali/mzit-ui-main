@@ -13,10 +13,10 @@ export class RegisterComponent implements OnInit {
   students: any;
   student: Students = new Students();
   message: string;
-  
-  constructor(private apiService: ApiClientService, private router: Router) {}
 
-  ngOnInit(): void {}
+  constructor(private apiService: ApiClientService, private router: Router) { }
+
+  ngOnInit(): void { }
 
   register(student: Students) {
     let response = this.apiService.register(student);
@@ -31,6 +31,6 @@ export class RegisterComponent implements OnInit {
     });
     this.router.navigate(['/']);
   }
- 
+
 
 }

@@ -30,6 +30,7 @@ import { StudentReminderNotesComponent } from './student-reminder-notes/student-
 import { RemindersComponent } from './reminders/reminders.component';
 import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component'; 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     MatToolbarModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    NgxDocViewerModule
   ],
   providers: [ApiClientService,DatePipe],
   bootstrap: [AppComponent]

@@ -104,8 +104,15 @@
                 <label for="{{i+1}}" class="tab-label">{{item.studentName}}</label>
                 <div class="tab-content">
                   {{item.worksheet}}
-                  <iframe class="pdf_file_view" src="../../assets/worksheet_pdf_file/worksheet_02.pdf" frameborder="0"
-                  allowfullscreen></iframe>
+                  
+                  <ngx-doc-viewer
+                  [url]="'https://podcasts.ceu.edu/sites/podcasts.ceu.edu/files/sample.doc'" viewer="office" style="width:100%;height:80vh;"
+                  ></ngx-doc-viewer>
+                  
+                  <!--<ngx-doc-viewer
+                  [url]="'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf'" viewer="google" style="width:100%;height:80vh;"
+                  ></ngx-doc-viewer>--> 
+
                 </div>
               </div>
             </div>
