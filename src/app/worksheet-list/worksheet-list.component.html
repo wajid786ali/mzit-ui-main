@@ -46,6 +46,7 @@
           <th>WeekDate</th>
           <th>ExtraWorksheet</th>
           <th>Worksheets Name </th>
+          <th>Worksheets </th>
           <th>Action </th>
         </tr>
       </thead>
@@ -57,6 +58,7 @@
           <td>{{worksheet.weekDate}}</td>
           <td>{{worksheet.extraWorksheet}}</td>
           <td>{{worksheet.worksheet}}</td>
+          <td> <a href="../../assets/worksheet_doc_file/wajid.docx" > worksheet </a></td>
           <td>
             <button (click)=addClass(worksheet) class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdf_file_view">Start Class</button> 
           </td>

@@ -13,11 +13,14 @@ import { StudentNotes } from '../entity/studentNotes';
 export class ReadComponent implements OnInit{
   filterTerm : string;
   student: Students = new Students();
+  studentNotes : StudentNotes = new StudentNotes();  
   students: any;
   studentName: string;
+ studentName_new: string;
   message: string;
   nameFilter = null;
   studentId: StudentNotes;
+  studentId_new:string;
 
   constructor(private apiService: ApiClientService,
               private router: Router
@@ -55,10 +58,30 @@ export class ReadComponent implements OnInit{
     this.router.navigate(['home']);
   }
 
+  setData(studentId:string,studentName:string){  
+    this.studentName_new=studentName;
+    this.studentId_new=studentId;
+    this.message ="";
+  }
+  
+  wsSubmit(studentNotes: StudentNotes) {
+    let response = this.apiService.addStudentNotes(studentNotes);
+    this.message =""+response;
+    response.subscribe((data) => {
+      this.message = data;
+    
+      if (data != null) {
+        this.message = " Noted  added successfully..!!";
+      }
+    });
+  }
+
   addNote(studentId:number,studentName:String){  
     this.router.navigate(["/studentNotes"], {
       queryParams: { studentName: "Application" },
     });
+
+  
 
     }
 
