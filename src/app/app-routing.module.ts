@@ -15,10 +15,12 @@ import {WorksheetListComponent}  from './worksheet-list/worksheet-list.component
 import {WorksheetViewComponent}  from './worksheet-view/worksheet-view.component';
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
 import { RemindersComponent } from './reminders/reminders.component';
+import { LoginComponent } from './login/login.component'; 
 
 
 const routes: Routes = [
-  {path: '', pathMatch: 'full', redirectTo: 'home'},
+  {path: '', pathMatch: 'full', redirectTo: 'login'},
+  {path:'login',component:LoginComponent}, 
   {path:'home',component:HomeComponent},
   {path:'register',component:RegisterComponent},
   {path:'update/:studentId',component:UpdateComponent},

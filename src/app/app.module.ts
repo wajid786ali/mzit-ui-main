@@ -12,6 +12,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {DatePipe} from '@angular/common';
 //Internal Component
 import {ApiClientService} from './service/api-client.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
@@ -29,8 +31,7 @@ import { WorksheetViewComponent } from './worksheet-view/worksheet-view.componen
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component'; 
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxDocViewerModule } from 'ngx-doc-viewer';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
     WorksheetViewComponent,
     StudentReminderNotesComponent,
     RemindersComponent,
-    WorksheetUpdateComponent
+    WorksheetUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
