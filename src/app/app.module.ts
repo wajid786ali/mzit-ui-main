@@ -3,35 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {DatePipe} from '@angular/common';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { DatePipe } from '@angular/common';
 //Internal Component
-import {ApiClientService} from './service/api-client.service';
+import { ApiClientService } from './service/api-client.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
-import { ReadComponent } from './read/read.component';
-import { DeleteComponent } from './delete/delete.component';
+import { ReadComponent } from './read/read.component'; 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
-import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component'; 
+import { FeedbackDisplayComponent } from './feedback-display/feedback-display.component';
 import { TeacherListComponent } from './teacher-list/teacher-list.component';
-import { TeacherRegisterComponent } from './teacher-register/teacher-register.component'; 
+import { TeacherRegisterComponent } from './teacher-register/teacher-register.component';
 import { NewWorksheetComponent } from './new-worksheet/new-worksheet.component';
 import { WorksheetListComponent } from './worksheet-list/worksheet-list.component';
 import { WorksheetViewComponent } from './worksheet-view/worksheet-view.component';
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
 import { RemindersComponent } from './reminders/reminders.component';
-import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component'; 
+import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AuthGuard } from './guard/auth.guard';
 
 
 @NgModule({
@@ -41,11 +42,10 @@ import { LoginComponent } from './login/login.component';
     RegisterComponent,
     UpdateComponent,
     ReadComponent,
-    DeleteComponent,
     HeaderComponent,
     FooterComponent,
     StudentFeedbackComponent,
-    FeedbackDisplayComponent, 
+    FeedbackDisplayComponent,
     TeacherListComponent,
     TeacherRegisterComponent,
     NewWorksheetComponent,
@@ -54,7 +54,8 @@ import { LoginComponent } from './login/login.component';
     StudentReminderNotesComponent,
     RemindersComponent,
     WorksheetUpdateComponent,
-    LoginComponent
+    LoginComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,7 @@ import { LoginComponent } from './login/login.component';
     Ng2SearchPipeModule,
     NgxDocViewerModule
   ],
-  providers: [ApiClientService,DatePipe],
+  providers: [ApiClientService, DatePipe,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
