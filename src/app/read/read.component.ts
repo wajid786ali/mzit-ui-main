@@ -21,7 +21,7 @@ export class ReadComponent implements OnInit {
   message: string;
   nameFilter = null;
   studentId: StudentNotes;
-  studentId_new: string;
+  studentId_new: number;
   studentStatus: string;
 
   constructor(private apiService: ApiClientService, private router: Router) {
@@ -61,13 +61,15 @@ export class ReadComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
-  setData(studentId: string, studentName: string) {
+  setData(studentId: number, studentName: string) {
     this.studentName_new = studentName;
     this.studentId_new = studentId;
     this.message = "";
   }
 
   wsSubmit(studentNotes: StudentNotes) {
+    studentNotes.studentName=this.studentName_new;
+    studentNotes.studentId=this.studentId_new;
     let response = this.apiService.addStudentNotes(studentNotes);
     this.message = "" + response;
     response.subscribe((data) => {

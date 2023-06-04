@@ -13,6 +13,7 @@ export class RemindersComponent implements OnInit{
   studentNotes: StudentNotes = new StudentNotes();
   StudentNotes: any;
   message: string;
+  studentId:string;
 
 
   constructor(private apiService: ApiClientService, private router: Router){
@@ -23,22 +24,15 @@ export class RemindersComponent implements OnInit{
   }
 
   readAll(){
-    let response =this.apiService.getListReminders();
+    let response =this.apiService.getListRemindersActive();
     response.subscribe((data) => {
       this.StudentNotes = data;
     });
   }
 
-  
-  update(studentId:number){
-    this.apiService.deleteById(studentId).subscribe(data=>{
-      this.ngOnInit();
-    }); 
-    this.message='Student deleted successfully..!!' 
-  } 
-
-  deleteRemindersById(){
-    this.apiService.deleteById(this.StudentNotes).subscribe(data=>{
+  deleteRemindersById(studentId:number){
+    
+    this.apiService.deleteRemindersById(studentId).subscribe(data=>{
       this.ngOnInit();
     }); 
     this.message='Student deleted successfully..!!'

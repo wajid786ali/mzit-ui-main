@@ -31,11 +31,15 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listFeedBack`);
   }
 
-  public getListReminders():Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/listReminders`);
+  public getListRemindersActive():Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listRemindersNew`);
   }
+  public getListRemindersResolve():Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listRemindersResolve`);
+  }
+
   public deleteRemindersById(studentId:number){
-    return this.httpClient.delete(`${this.apiUrl}/listReminders/${studentId}`);
+    return this.httpClient.delete(`${this.apiUrl}/students/reminderDelete/${studentId}`);
   }
 
   public getListWorksheets():Observable<any>{
