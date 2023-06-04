@@ -3,6 +3,17 @@
         <div class="page_title2">
             <h2>Reminder <span>List</span></h2>
         </div>
+
+        <form #contactForm="ngForm" novalidate>
+            <div class="row mb-3">
+              <div class="form-group col-6">
+                <button class="btn btn-primary btn-sm" (click)="readActiveNotes()" name="studentStatus"> Active Notes </button>
+                <button class="btn btn-success btn-sm ms-2" (click)="readInActiveNotes()" name="studentStatus"> Old Notes</button>
+       
+              </div>
+            </div>
+          </form>
+
         <div class="innerCont">
             <table class="table table-bordered">
                 <thead>

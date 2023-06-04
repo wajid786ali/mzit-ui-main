@@ -20,10 +20,16 @@ export class RemindersComponent implements OnInit{
 
   }
   ngOnInit() {
-    this.readAll();
+    this.readActiveNotes();
   }
 
-  readAll(){
+  readInActiveNotes(){
+    let response =this.apiService.getListRemindersResolve();
+    response.subscribe((data) => {
+      this.StudentNotes = data;
+    });
+  }
+  readActiveNotes(){
     let response =this.apiService.getListRemindersActive();
     response.subscribe((data) => {
       this.StudentNotes = data;
