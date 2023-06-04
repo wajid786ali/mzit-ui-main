@@ -1,4 +1,5 @@
 export class StudentNotes {
+    Id:string;
     studentId: number;
     studentName: string;
     comments: string;

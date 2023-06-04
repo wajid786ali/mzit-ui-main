@@ -38,7 +38,7 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listRemindersResolve`);
   }
 
-  public deleteRemindersById(studentId:number){
+  public deleteRemindersById(studentId:string){
     return this.httpClient.delete(`${this.apiUrl}/students/reminderDelete/${studentId}`);
   }
 

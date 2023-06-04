@@ -36,7 +36,7 @@ export class RemindersComponent implements OnInit{
     });
   }
 
-  deleteRemindersById(studentId:number){
+  deleteRemindersById(studentId:string){
     
     this.apiService.deleteRemindersById(studentId).subscribe(data=>{
       this.ngOnInit();
