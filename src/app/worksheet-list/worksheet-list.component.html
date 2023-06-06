@@ -32,7 +32,7 @@
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <tr>
-          <th>Id</th>
+          <th>SR</th>
           <th>Student Name</th>
           <th>Grade</th>
           <th>WeekDate</th>
@@ -43,8 +43,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheetsList  | filter:filterText">
-          <td>{{worksheet.studentId}}</td>
+        <tr *ngFor="let worksheet of worksheetsList | filter:filterText let i=index">
+          <td>{{i+1}}</td>
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
           <td>{{worksheet.weekDate}}</td>

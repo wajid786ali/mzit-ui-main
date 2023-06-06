@@ -8,26 +8,22 @@
               <h2>New <span>Worksheet</span></h2>
             </div> 
             
-            <div class="row">
-              <div class="form-group col-12">  
-                <label for="sName">Select Student Name <span>*</span></label>
-                <select class="form-select" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel">
-                  <option selected>Select student</option>
-                  <option *ngFor="let student of students">{{student.studentName}}</option>
-                </select>
-                <div *ngIf="!sName?.valid && (sName?.dirty || sName?.touched)" class="_error">
-                  <div *ngIf="sName.errors?.['required']">Select student is required</div>
-                </div>
-              </div>
-            </div>
+            
             <form #contactForm="ngForm" novalidate>
                
               <div class="row">
-                <div class="form-group col-12">
-                  <label for="studentName"> Student Name <span>*</span></label>
-                    <input class="form-control" type="text" id="studentName" [(ngModel)]="worksheet.studentName" disabled value="{{filterWorksheet}}"  name="studentName" placeholder="Enter student name" /> 
+                <div class="form-group col-12">  
+                  <label for="studentName">Select Student Name <span>*</span></label>
+                  <select class="form-select" name="studentName" id="studentName" [(ngModel)]="worksheet.studentName" required #studentName="ngModel"> 
+                    <option *ngFor="let student of students" value="{{student.studentName}}">{{student.studentName}}</option>
+                  </select>
+                  <div *ngIf="!studentName?.valid && (studentName?.dirty || studentName?.touched)" class="_error">
+                    <div *ngIf="studentName.errors?.['required']">Select student is required</div>
+                  </div>
                 </div>
-              </div>
+              </div> 
+               
+
               <div class="row">
                 <div class="form-group col-12">
                   <label for="grade"> Grade <span>*</span></label>
