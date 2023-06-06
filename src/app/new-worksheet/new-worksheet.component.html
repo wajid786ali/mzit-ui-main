@@ -7,21 +7,30 @@
             <div class="page_title">
               <h2>New <span>Worksheet</span></h2>
             </div> 
+            
+            <div class="row">
+              <div class="form-group col-12">  
+                <label for="sName">Select Student Name <span>*</span></label>
+                <select class="form-select" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel">
+                  <option selected>Select student</option>
+                  <option *ngFor="let student of students">{{student.studentName}}</option>
+                </select>
+                <div *ngIf="!sName?.valid && (sName?.dirty || sName?.touched)" class="_error">
+                  <div *ngIf="sName.errors?.['required']">Select student is required</div>
+                </div>
+              </div>
+            </div>
             <form #contactForm="ngForm" novalidate>
+               
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="studentName"> Student Name </label>
-                    <input class="form-control" type="text" id="studentName" [(ngModel)]="worksheet.studentName"  name="studentName" placeholder="Enter student name" required #studentName="ngModel" />
-
-                    <div *ngIf="!studentName?.valid && (studentName?.dirty || studentName?.touched)" class="_error">
-                      <div *ngIf="studentName.errors?.['required']">Student Name is required</div>
-                    </div>
-
+                  <label for="studentName"> Student Name <span>*</span></label>
+                    <input class="form-control" type="text" id="studentName" [(ngModel)]="worksheet.studentName" disabled value="{{filterWorksheet}}"  name="studentName" placeholder="Enter student name" /> 
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="grade"> Grade </label>
+                  <label for="grade"> Grade <span>*</span></label>
                   <input class="form-control" type="text" id="grade" [(ngModel)]="worksheet.grade"  name="grade" placeholder="Enter grade" required #grade="ngModel" />
 
                   <div *ngIf="!grade?.valid && (grade?.dirty || grade?.touched)" class="_error">
@@ -32,7 +41,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="weekDate"> Week Date</label>
+                  <label for="weekDate"> Week Date <span>*</span></label>
                    <input class="form-control" type="date" id="weekDate" [(ngModel)]="worksheet.weekDate" name="weekDate" placeholder="Enter Week Date" required #weekDate="ngModel" />
 
                    <div *ngIf="!weekDate?.valid && (weekDate?.dirty || weekDate?.touched)" class="_error">
@@ -43,7 +52,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="worksheet"> Worksheet</label>
+                  <label for="worksheet"> Worksheet <span>*</span></label>
                   <input class="form-control" type="text"  id="worksheet" [(ngModel)]="worksheet.worksheet"  name="extraWorksheet" placeholder="Enter Worksheet"/>
                 </div>
               </div>

@@ -16,6 +16,13 @@
             <button class="btn btn-warning btn-sm ms-2" (click)="setStudentStatus('Paused')" name="studentStatus">
               Paused Students</button>
           </div>
+
+          <div class="col-6">
+            <div class="input-group">
+              <span class="input-group-text"><b class="fa fa-search"></b></span>
+              <input type="text" class="form-control" placeholder="Search Student" name="filterText" [(ngModel)]="studentStatus">
+            </div>
+          </div> 
         </div>
       </form>
 

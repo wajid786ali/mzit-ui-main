@@ -6,9 +6,12 @@
           <div class="rgs_frm">
             <div class="page_title">
               <h2>MindZone Student <span>Registration</span></h2>
-            </div> 
-            
-            <p class="_message_show">{{message}}</p>
+            </div>  
+
+            <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
+              <strong>Success!</strong> Student Registered Successfully
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
 
             <form #contactForm="ngForm" novalidate>
               <div class="row">

@@ -12,9 +12,22 @@ import { Router } from '@angular/router';
 export class NewWorksheetComponent {
   worksheet: Worksheets = new Worksheets();
   message: string;
+  students: any;
+  filterWorksheet!: string;
   constructor(private apiService: ApiClientService,
     private router: Router
 ){}
+
+ngOnInit() {
+  this.readAll();
+}
+
+readAll(){
+let response1 =this.apiService.getAll();
+response1.subscribe((data1) => { 
+this.students = data1;
+});
+}
 
   wsSubmit(worksheets: Worksheets) {
     let response = this.apiService.addWorksheet(worksheets);

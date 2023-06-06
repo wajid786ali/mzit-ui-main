@@ -8,8 +8,8 @@
               <h2>Student <span>Feedback</span></h2>
             </div>
             <div class="row">
-              <div class="form-group col-12">
-                <label for="studentName"> Select student Name to view history</label>
+              <div class="form-group col-12">  
+                <label for="sName">Select Student Name <span>*</span></label>
                 <select class="form-select" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel">
                   <option selected>Select student</option>
                   <option *ngFor="let student of students">{{student.studentName}}</option>
@@ -22,19 +22,19 @@
             <form #contactForm="ngForm" novalidate>
               <div class="row">
                 <div class="form-group col-8">
-                  <label for="studentName"> Student Name </label>
+                  <label for="studentName"> Student Name <span>*</span></label>
                   <input class="form-control" disabled type="text" value="{{filterWorksheet}}" id="studentName"
                     [(ngModel)]="studentFeedBack.studentName" name="studentName" />
                 </div>
                 <div class="form-group col-4">
-                  <label for="studentId"> Student ID </label>
+                  <label for="studentId"> Student ID <span>*</span></label>
                   <input class="form-control" disabled type="text" value="{{filterWorksheet}}" id="studentId"
                     [(ngModel)]="student.studentId" name="studentId" />
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="teacherName"> Teacher Name </label>
+                  <label for="teacherName"> Teacher Name <span>*</span></label>
                   <input class="form-control" type="text" id="teacherName" [(ngModel)]="studentFeedBack.teacherName"
                     name="teacherName" placeholder="Enter Teacher Name" required #teacherName="ngModel" />
 
@@ -46,7 +46,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="noOfWorksheet"> Number of worksheet completed</label>
+                  <label for="noOfWorksheet"> Number of worksheet completed <span>*</span></label>
                   <input class="form-control" type="text" id="noOfWorksheet"
                     [(ngModel)]="studentFeedBack.noOfWorksheets" name="noOfWorksheet"
                     placeholder="Number of worksheet completed"  required #noOfWorksheet="ngModel" />
@@ -58,14 +58,14 @@
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="comments"> Comments</label>
+                  <label for="comments"> Comments <span>*</span></label>
                   <input class="form-control" type="text" size="50" id="comments" [(ngModel)]="studentFeedBack.comments"
                     name="comments" placeholder="Enter Comments" />
                 </div>
               </div>
               <div class="row">
                 <div class="form-group col-12">
-                  <label for="worksheetType"> Worksheet Type</label>
+                  <label for="worksheetType"> Worksheet Type <span>*</span></label>
                   <select class="form-select" id="worksheetType" name="worksheetType"
                     [(ngModel)]="studentFeedBack.worksheetsType" required #worksheetType="ngModel">
                     <option selected>Select Worksheet Type</option>

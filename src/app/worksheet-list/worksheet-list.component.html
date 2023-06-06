@@ -6,9 +6,9 @@
     <div class="form-group col-7 mb-4">
       <form #contactForm="ngForm" novalidate>
         <div class="row">
-          <div class="col-4">
+          <div class="col-3">
             <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">Select Week date</span>
+              <span class="input-group-text" id="basic-addon1">Date</span>
               <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"  (change)="weekDateClick()">  
                 <option value="Select">Weekly Date</option>
                 <option *ngFor="let month of worksheetsMonth, let i = index">{{month}}</option>
@@ -17,16 +17,8 @@
           </div>
           <div class="col-4">
             <div class="input-group">
-              <span class="input-group-text" id="basic-addon1">Month</span>
-              <select class="form-control form-select" id="month" [(ngModel)]="month" name="month"  (change)="monthlyWorksheet()"> 
-                <option value="Select">Month</option>
-                <option value="Jan">Jan</option>
-                <option value="Feb">Feb</option>
-                <option value="March">March</option>
-                <option value="April">April</option>
-                <option value="May">May</option>
-              </select>		 
-             
+              <span class="input-group-text"><b class="fa fa-search"></b></span>
+              <input type="text" class="form-control" placeholder="Search Student" name="filterText" [(ngModel)]="filterText">
             </div>
           </div> 
           <div class="form-group col-4">
@@ -51,7 +43,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheetsList, let i = index">
+        <tr *ngFor="let worksheet of worksheetsList  | filter:filterText">
           <td>{{worksheet.studentId}}</td>
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
@@ -87,8 +79,12 @@
           <div class="popup_box_view">
             <div class="chat_room">
               
-              <div class="chat_hed">Student List</div>
-<div class="chat_list" *ngFor="let worksheet of worksheets.worksheetsDtoList, let i = index"> 
+              <div class="chat_hed">
+                
+                <input type="text" class="form-control" name="filterText" id="filterText" placeholder="Search Student Name" [(ngModel)]="filterText">
+
+              </div>
+<div class="chat_list" *ngFor="let worksheet of worksheetsList  | filter:filterText"> 
   <div>Name: <span>{{worksheet.studentName}}</span></div>  
   <div>Class: <span>{{worksheet.grade}}</span></div>   
   <div class="bt_box_01">

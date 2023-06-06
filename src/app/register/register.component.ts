@@ -10,26 +10,26 @@ import { ApiClientService } from '../service/api-client.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+
+  alert:boolean=false
+
   students: any;
   student: Students = new Students();
   message: string;
 
   constructor(private apiService: ApiClientService, private router: Router) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+  }
 
   register(student: Students) {
     let response = this.apiService.register(student);
     response.subscribe((data) => {
-      this.student = data;
-      console.log(this.student.studentName)
-      if (data != null) {
-        this.message =
-          'Student ' + this.student.studentName + ' added successfully..!!';
-      }
+      this.student = data; 
+      this.alert=true  
       this.student = new Students();
     });
-    this.router.navigate(['/']);
+    //this.router.navigate(['/']);
   }
 
 

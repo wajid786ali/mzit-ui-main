@@ -13,6 +13,9 @@ import { AddClassService } from '../service/add-class.service';
 
 export class WorksheetListComponent implements OnInit {
 
+  
+  filterText:string =''
+
   //worksheetList: WorksheetsList = new WorksheetsList();
   worksheet: Worksheets = new Worksheets();
   worksheets: any;
@@ -20,8 +23,8 @@ export class WorksheetListComponent implements OnInit {
   worksheetsList: any;
   month: any;
   message: string;
-  selectWeek: String;
-  s: any;
+  selectWeek: String; 
+  
   public classStart: any = [];
 
   public totalClass: number = 0;
