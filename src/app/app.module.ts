@@ -10,6 +10,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe } from '@angular/common';
+import {NgxPaginationModule} from 'ngx-pagination';
 //Internal Component
 import { ApiClientService } from './service/api-client.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -59,6 +60,7 @@ import { AuthGuard } from './guard/auth.guard';
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,

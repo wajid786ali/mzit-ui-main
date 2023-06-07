@@ -9,6 +9,7 @@ import { TeacherRegister } from '../entity/teacher';
   styleUrls: ['./teacher-list.component.css']
 })
 export class TeacherListComponent {
+  p: number = 1;
   teacherRegister: TeacherRegister = new TeacherRegister();
   teacherRegisters : any;
   message : String;

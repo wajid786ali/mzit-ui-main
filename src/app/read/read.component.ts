@@ -12,6 +12,8 @@ import { StudentNotes } from '../entity/studentNotes';
 })
 export class ReadComponent implements OnInit {
 
+  p: number = 1;
+  
   filterTerm: string;
   student: Students = new Students();
   studentNotes: StudentNotes = new StudentNotes();

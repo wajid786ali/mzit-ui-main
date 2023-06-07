@@ -13,6 +13,7 @@ import { AddClassService } from '../service/add-class.service';
 
 export class WorksheetListComponent implements OnInit {
 
+  p: number = 1;
   
   filterText:string =''
 

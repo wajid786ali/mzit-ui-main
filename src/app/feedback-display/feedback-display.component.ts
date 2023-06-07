@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./feedback-display.component.css']
 })
 export class FeedbackDisplayComponent {
+  
+  p: number = 1;
   studentFeedBack: StudentFeedBack = new StudentFeedBack();
 
   studentFeedBacks : any;
