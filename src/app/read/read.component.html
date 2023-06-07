@@ -110,8 +110,13 @@
             <div class="form-group mb-3">
               <label for="teacherEmail"> Comments <span>*</span></label>
               <input type="textarea" mdInput class="form-control" id="comments" size="60"
-                [(ngModel)]="studentNotes.comments" name="comments" />
+                [(ngModel)]="studentNotes.comments" name="comments" required #comments="ngModel"/>
+
+                <div *ngIf="!comments?.valid && (comments?.dirty || comments?.touched)" class="_error">
+                  <div *ngIf="comments.errors?.['required']">Comments is required</div>
+               </div>
             </div>
+ 
 
 
             <div class="form-group">

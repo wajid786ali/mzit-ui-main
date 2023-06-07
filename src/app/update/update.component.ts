@@ -29,15 +29,13 @@ constructor(private apiService: ApiClientService,
     });    
   }
 
-  update(student:Students){ 
+  update(student:Students){
     let response = this.apiService.update(student);
-    response.subscribe(data=>{
-      this.student=data;
-      if(response !=null){
-        this.message= 'Student ' +this.student.studentName+' Details Successfully Updated..!!';
-      }
+    response.subscribe((data) => {
+      this.student = data;  
       this.student = new Students();
     });
-  }
+    this.router.navigate(['view'])
+  } 
 
 }

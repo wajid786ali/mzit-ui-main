@@ -68,7 +68,11 @@ export class ApiClientService {
   public register(student:Students):Observable<any>{
     console.log(student.startDate);
     return this.httpClient.post(`${this.apiUrl}/students/`,student);
-  }
+  } 
+
+  public update(student:Students):Observable<any>{
+    return this.httpClient.put(`${this.apiUrl}/students`,student);
+   }
 
 
   public addWorksheet(worksheets:Worksheets):Observable<any>{
@@ -93,10 +97,6 @@ export class ApiClientService {
   
   public deleteById(studentId:number){
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);
-  }
-
-  public update(student:Students):Observable<any>{
-   return this.httpClient.put(`${this.apiUrl}/students`,student);
   }
   
 
