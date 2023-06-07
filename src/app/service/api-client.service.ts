@@ -46,6 +46,12 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
   }
 
+
+  
+  public deleteTeacherByEmail(email:string):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/`+email);
+  }
+
   public getListTeachers():Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/listTeachers`);
   }

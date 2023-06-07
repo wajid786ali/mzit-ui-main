@@ -24,6 +24,11 @@
                     placeholder="mzit@gmail.com" />
                 </div>
                 <div class="form-group col-6">
+                  <label for="teacherEmail"> Password <span>*</span></label>
+                  <input type="text" class="form-control" id="password" [(ngModel)]="teacherRegister.password" name="password"
+                      />
+                </div>
+                <div class="form-group col-6">
                   <label for="phoneNumber"> Phone Number <span>*</span></label>
                   <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="teacherRegister.phoneNumber"
                     name="phoneNumber" placeholder="000-000-0000">

@@ -12,6 +12,7 @@ export class TeacherListComponent {
   teacherRegister: TeacherRegister = new TeacherRegister();
   teacherRegisters : any;
   message : String;
+  email : String;
 
   constructor(private apiService: ApiClientService,
     private router: Router
@@ -28,11 +29,9 @@ response.subscribe((data) => {
 }
 
 delete(email:string){
-}
- // this.apiService.deleteById(email).subscribe(data=>{
-  //  this.ngOnInit();
- // });
+  this.apiService.deleteTeacherByEmail(email);
   
- // this.message='Student deleted successfully..!!'
+ this.message='Student deleted successfully..!!'
+}
 
 }
