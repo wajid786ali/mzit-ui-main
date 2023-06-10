@@ -20,15 +20,11 @@
               <span class="input-group-text"><b class="fa fa-search"></b></span>
               <input type="text" class="form-control" placeholder="Search Student" name="filterText" [(ngModel)]="filterText">
             </div>
-          </div> 
-          <div class="form-group col-4">
-            <button class="btn btn-danger ms-2" data-bs-toggle="modal" data-bs-target="#pdf_file_view">{{totalClass}} Class Start</button>
-          </div>
-
+          </div>  
         </div>
       </form>
     </div>
-    <div>{{message}}</div>
+    <div>{{message}}</div> 
     <table class="table table-striped table-hover table-bordered">
       <thead>
         <tr>
@@ -50,31 +46,31 @@
           <td>{{worksheet.worksheet}}</td>
           <td> <a href="../../assets/worksheet_doc_file/wajid.docx" > worksheet </a></td>
           <td>
-            <button (click)=addClass(worksheet) class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pdf_file_view">Start Class</button> 
+            <button  class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal" data-bs-target="#pdf_file_view">Start Class</button> 
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
- 
-
- 
- 
-
+    <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div> 
   </div>
-
-  
+ 
   
   <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
   tabindex="-1">
     <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Class Start - <span>{{totalClass}}</span></h5>
+           
+<div *ngIf="productList.length == 0">0 Student </div>
+<div *ngIf="productList.length == 1">{{productList.length}} Student</div>
+<div *ngIf="productList.length > 1">{{productList.length}} Student</div>
+<div class="text-danger ms-3" *ngIf="errorItem"> You have already this student. </div>
+
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="padding:0;">
         
+    
           <div class="popup_box_view">
             <div class="chat_room">
               
@@ -83,23 +79,23 @@
                 <input type="text" class="form-control" name="filterText" id="filterText" placeholder="Search Student Name" [(ngModel)]="filterText">
 
               </div>
-<div class="chat_list" *ngFor="let worksheet of worksheetsList  | filter:filterText"> 
+<div class="chat_list" *ngFor="let worksheet of worksheetsList | filter:filterText"> 
   <div>Name: <span>{{worksheet.studentName}}</span></div>  
   <div>Class: <span>{{worksheet.grade}}</span></div>   
   <div class="bt_box_01">
-    <button (click)="addClass(worksheet)" class="btn btn-primary"><b class="fa fa-plus"></b></button> 
-    <button (click)="removeClass(worksheets.studentId)" class="btn btn-danger ms-1"><b class="fa fa-trash-o"></b></button>
+    <button  class="btn btn-primary" (click)="addToCart(worksheet)">Start Class</button> 
   </div>   
 </div>
             </div>
           <div class="tab_body">
             <div class="tabs">
-              <div class="tab" *ngFor="let item of classStart; let i = index">
+              <div class="tab" *ngFor="let cart of productList; let i = index">
                 <input type="radio" name="css-tabs" id="{{i+1}}" checked class="tab-switch">
-                <label for="{{i+1}}" class="tab-label">{{item.studentName}}</label>
+                <label for="{{i+1}}" class="tab-label"> {{cart.studentName}} <span title="Close" (click)="removeItem(cart)"><img src="../../assets/images/close-icon.png"></span></label>
                 <div class="tab-content">
-                  {{item.worksheet}}
+                  {{cart.studentName}}
                   
+
                   <ngx-doc-viewer
                   [url]="'https://podcasts.ceu.edu/sites/podcasts.ceu.edu/files/sample.doc'" viewer="office" style="width:100%;height:80vh;"
                   ></ngx-doc-viewer>

@@ -25,38 +25,19 @@ export class WorksheetListComponent implements OnInit {
   month: any;
   message: string;
   selectWeek: String; 
-  
-  public classStart: any = [];
 
-  public totalClass: number = 0;
-  itemExists: number[] = [];
+  productList: Worksheets[] = [];
+  errorItem: boolean = false;
 
   constructor(private apiService: ApiClientService, private AddClassService: AddClassService, private router: Router) {
 
   }
 
   ngOnInit() {
-    this.readAll();
-    this.AddClassService.getStudent()
-      .subscribe(res => {
-        this.totalClass = res.length;
-      })
-
-    this.AddClassService.getStudent()
-      .subscribe(res => {
-        this.classStart = res;
-      })
+    this.readAll(); 
   }
 
-
-  addClass(worksheet: any) {
-    this.AddClassService.addtoCart(worksheet);
-  }
-
-  removeClass(item: any) {
-    this.AddClassService.removeCartItem(Worksheets);
-  }
-
+ 
   readAll() {
     let response = this.apiService.getListWorksheets();
     response.subscribe((data) => {
@@ -84,6 +65,24 @@ export class WorksheetListComponent implements OnInit {
       this.worksheets = data;
     });
   }
+
+  addToCart(worksheets: any) {
+    if (this.productList.indexOf(worksheets) === -1) {
+      this.productList.push(worksheets);
+      this.errorItem = false; 
+    }
+    else if (this.productList.indexOf(worksheets) > -1) {
+      this.errorItem = true;  
+    }
+  }
+
+  removeItem(worksheets: any) {
+    var index = this.productList.indexOf(worksheets);
+    if (index > -1) {
+      this.productList.splice(index, 1);
+    }
+  } 
+
 
 
 }
