@@ -46,8 +46,8 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
   }
 
+ 
 
-  
   public deleteTeacherByEmail(email:string):Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/`+email);
   }
@@ -61,10 +61,15 @@ export class ApiClientService {
   }
 
   
-  public getWeeklylyWorksheets(selectWeek:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/`+selectWeek);
+  public getWeeklylyWorksheets(weeklyDate:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/`+weeklyDate);
   }
 
+  public getNewWeeklylyWorksheets(weeklyDate:String,selectedDate:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weeklyDate+"/"+selectedDate);
+  }
+
+  
   public register(student:Students):Observable<any>{
     console.log(student.startDate);
     return this.httpClient.post(`${this.apiUrl}/students/`,student);
@@ -79,6 +84,12 @@ export class ApiClientService {
   
     return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`,worksheets);
   }
+
+  public addWeeklyWorksheet(worksheetsList:any):Observable<any>{
+  
+    return this.httpClient.post(`${this.apiUrl}/students/addWeeklyWorksheet`,worksheetsList);
+  }
+
 
   public studentFeedBack(studentFeedBack:StudentFeedBack):Observable<any>{
   

@@ -34,6 +34,7 @@ import { WorksheetUpdateComponent } from './worksheet-update/worksheet-update.co
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './guard/auth.guard';
+import { WeeklyWorksheetsComponent } from './weekly-worksheets/weekly-worksheets.component';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { AuthGuard } from './guard/auth.guard';
     RemindersComponent,
     WorksheetUpdateComponent,
     LoginComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    WeeklyWorksheetsComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,8 @@ export class Worksheets {
     studentName: string;
     grade:string;
     worksheet: string;
+    worksheetStatus: string;
+    worksheetNewSuggested: string;
     extraWorksheet: string
     weekDate: Date;
 

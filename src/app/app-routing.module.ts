@@ -12,6 +12,7 @@ import { TeacherRegisterComponent } from './teacher-register/teacher-register.co
 import {NewWorksheetComponent}  from './new-worksheet/new-worksheet.component';
 import {WorksheetListComponent}  from './worksheet-list/worksheet-list.component';
 import {WorksheetViewComponent}  from './worksheet-view/worksheet-view.component';
+import {WeeklyWorksheetsComponent}  from './weekly-worksheets/weekly-worksheets.component';
 import { StudentReminderNotesComponent } from './student-reminder-notes/student-reminder-notes.component';
 import { RemindersComponent } from './reminders/reminders.component';
 import { LoginComponent } from './login/login.component'; 
@@ -34,6 +35,7 @@ const routes: Routes = [
   {path:'worksheetList',component:WorksheetListComponent, canActivate: [AuthGuard] },
   {path:'worksheetView',component:WorksheetViewComponent, canActivate: [AuthGuard] },
   {path:'studentNotes',component:StudentReminderNotesComponent, canActivate: [AuthGuard] },
+  {path:'weeklyWorksheet',component:WeeklyWorksheetsComponent, canActivate: [AuthGuard] },
   {path:'reminders',component:RemindersComponent, canActivate: [AuthGuard] },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
