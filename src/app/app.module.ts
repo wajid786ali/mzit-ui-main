@@ -35,6 +35,7 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AuthGuard } from './guard/auth.guard';
 import { WeeklyWorksheetsComponent } from './weekly-worksheets/weekly-worksheets.component';
+import { EmailSendComponent } from './email-send/email-send.component';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { WeeklyWorksheetsComponent } from './weekly-worksheets/weekly-worksheets
     WorksheetUpdateComponent,
     LoginComponent,
     NotFoundComponent,
-    WeeklyWorksheetsComponent
+    WeeklyWorksheetsComponent,
+    EmailSendComponent
   ],
   imports: [
     BrowserModule,
