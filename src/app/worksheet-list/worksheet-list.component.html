@@ -33,9 +33,9 @@
           <th>Student Name</th>
           <th>Grade</th>
           <th>WeekDate</th>
+          <th>Worksheets </th>
           <th>ExtraWorksheet</th>
           <th>Worksheets Name </th>
-          <th>Worksheets </th>
           <th>Action </th>
         </tr>
       </thead>
@@ -44,8 +44,8 @@
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
           <td>{{worksheet.weekDate}}</td>
-          <td>{{worksheet.extraWorksheet}}</td>
           <td>{{worksheet.worksheet}}</td>
+          <td>{{worksheet.extraWorksheet}}</td>
           <td> <a href="../../assets/worksheet_doc_file/wajid.docx"> worksheet </a></td>
           <td>
             <button class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal"
@@ -55,6 +55,10 @@
       </tbody>
     </table>
     <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+    <div class="col-4">
+      <div class="input-group">
+      <input class="btn rgst_btn w-100" type="submit"  class="form-control"  (click)="generateWorksheet()" value="Generate Worksheet"/> 
+  </div>
   </div>
 
 

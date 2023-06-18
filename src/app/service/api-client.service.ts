@@ -65,8 +65,12 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/`+weeklyDate);
   }
 
-  public getNewWeeklylyWorksheets(weeklyDate:String,selectedDate:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weeklyDate+"/"+selectedDate);
+  public getNewWeeklylyWorksheets(weekDate:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weekDate);
+  }
+
+  public generatedNewWeeklylyWorksheets(weekDate:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/`+weekDate);
   }
 
   
@@ -109,6 +113,16 @@ export class ApiClientService {
   public deleteById(studentId:number){
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);
   }
+
+  public login(email:string, password:string) {
   
+    return null;
+  } 
+  
+  /*
+  public login( email:string, password:string):Observable<any>{
+    return this.httpClient.post(`${this.apiUrl}/userName/'+${email}+"/"+${password});
+  }
+*/
 
 }

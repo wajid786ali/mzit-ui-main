@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
@@ -8,8 +8,11 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
-  
+export class LoginComponent  implements OnInit {
+  mzlCenter:any;
+  login:any;
+  password:any;
+
   loginForm = new FormGroup({
     email : new FormControl(''),
     password : new FormControl(''),
@@ -22,7 +25,11 @@ export class LoginComponent {
       this.router.navigate(['/home']);
     }
   }
+
+  
+  
   onSubmit(): void {
+    this.mzlCenter="MindZone Learning";
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe(
         (result) => {
@@ -35,4 +42,5 @@ export class LoginComponent {
       );
     }
   }
+  
 }

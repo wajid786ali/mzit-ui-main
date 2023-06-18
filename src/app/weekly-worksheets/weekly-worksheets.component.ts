@@ -58,7 +58,7 @@
   
   
     generateWorksheet() {
-      let response = this.apiService.getNewWeeklylyWorksheets(this.weekDate,this.selectedDate);
+      let response = this.apiService.getNewWeeklylyWorksheets(this.weekDate);
       response.subscribe((data) => {
         this.worksheetsList = data;
       });

@@ -53,7 +53,13 @@ export class WorksheetListComponent implements OnInit {
       this.worksheetsList = data;
     });
   }
+  generateWorksheet(){
 
+      let response = this.apiService.generatedNewWeeklylyWorksheets(this.selectWeek);
+      response.subscribe((data) => {
+        this.worksheetsList = data;
+      });
+    }
 
   editWorksheet(worksheets: number) {
     this.router.navigate(['editWorksheet', worksheets]);
