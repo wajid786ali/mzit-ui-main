@@ -1,0 +1,23 @@
+<div class="container mt-5">
+    <div class="row g-3 align-items-center">
+        <form action="javascritp:void(0)" [formGroup]="form" >
+        <div class="mb-3">
+            <label for="form_name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="form_name" name="form_name" placeholder="Enter name" formControlName="form_name">
+        </div>
+        <div class="mb-3">
+            <label for="form_email" class="form-label">Email ID</label>
+            <input type="text" class="form-control" id="form_email" name="form_email" placeholder="Enter email" formControlName="form_email">
+        </div>
+        <div class="mb-3">
+            <label for="subject" class="form-label">Subject</label>
+            <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter Subject" formControlName="subject">
+        </div>
+        <div class="mb-3">
+            <label for="message" class="form-label">Message</label>
+            <textarea class="form-control" id="message" name="message" placeholder="Enter Message" formControlName="message"></textarea>
+        </div> 
+        <button class="btn btn-danger" type="submit">Submit</button>
+    </form>
+    </div>
+</div>

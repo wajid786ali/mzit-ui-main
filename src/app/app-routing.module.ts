@@ -19,6 +19,7 @@ import { RemindersComponent } from './reminders/reminders.component';
 import { LoginComponent } from './login/login.component'; 
 import { AuthGuard } from './guard/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { EmailSendComponent } from './email-send/email-send.component';
 
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
   {path:'weeklyWorksheet',component:WeeklyWorksheetsComponent, canActivate: [AuthGuard] },
   {path:'createWeeklyWorksheets',component:CreateWorksheetsComponent, canActivate: [AuthGuard] },
   {path:'reminders',component:RemindersComponent, canActivate: [AuthGuard] },
+  {path:'email',component:EmailSendComponent},
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 
