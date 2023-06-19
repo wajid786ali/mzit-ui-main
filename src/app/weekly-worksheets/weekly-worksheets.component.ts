@@ -26,6 +26,7 @@
     message: string;
     selectedDate:any;
     weekDate: any; 
+    subject: any;
  
     public classStart: any = [];
   
@@ -53,12 +54,12 @@
             'Student  added successfully..!!';
         }
       });
-    //  this.router.navigate(['worksheetList']);
+      this.router.navigate(['worksheetList']);
     }
   
   
     generateWorksheet() {
-      let response = this.apiService.getNewWeeklylyWorksheets(this.weekDate);
+      let response = this.apiService.getNewWeeklylyWorksheets(this.weekDate,this.subject);
       response.subscribe((data) => {
         this.worksheetsList = data;
       });

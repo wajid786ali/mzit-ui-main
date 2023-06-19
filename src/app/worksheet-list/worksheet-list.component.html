@@ -17,6 +17,13 @@
             </div>
           </div>
           <div class="col-4">
+            <select name="subject" id="selectWeek" [(ngModel)]="subject" name="subject">
+            <option value="Math">Math</option>
+            <option value="English">English</option>
+            <option value="Science">Science</option>
+          </select>       
+        </div>
+          <div class="col-4">
             <div class="input-group">
               <span class="input-group-text"><b class="fa fa-search"></b></span>
               <input type="text" class="form-control" placeholder="Search Student" name="filterText"

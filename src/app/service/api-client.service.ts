@@ -57,16 +57,16 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyMonth/` + month);
   }
 
-  public getWeeklylyWorksheets(weeklyDate: String): Observable<any> {
+  public getWeeklylyWorksheets(weeklyDate: String, subject:String):Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/` + weeklyDate);
   }
 
-  public getNewWeeklylyWorksheets(weekDate:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weekDate);
+  public getNewWeeklylyWorksheets(weekDate:String, subject:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weekDate+'/'+subject);
   }
 
-  public generatedNewWeeklylyWorksheets(weekDate:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/`+weekDate);
+  public generatedNewWeeklylyWorksheets(weekDate:String, subject:String):Observable<any>{
+    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/`+weekDate+'/'+subject);
   }
 
 

@@ -25,7 +25,7 @@ export class WorksheetListComponent implements OnInit {
   month: any;
   message: string;
   selectWeek: String; 
-
+  subject: any;
   productList: Worksheets[] = [];
   errorItem: boolean = false;
 
@@ -48,14 +48,14 @@ export class WorksheetListComponent implements OnInit {
   }
 
   weekDateClick() {
-    let response = this.apiService.getWeeklylyWorksheets(this.selectWeek);
+    let response = this.apiService.getWeeklylyWorksheets(this.selectWeek,this.subject);
     response.subscribe((data) => {
       this.worksheetsList = data;
     });
   }
   generateWorksheet(){
 
-      let response = this.apiService.generatedNewWeeklylyWorksheets(this.selectWeek);
+      let response = this.apiService.generatedNewWeeklylyWorksheets(this.selectWeek,this.subject);
       response.subscribe((data) => {
         this.worksheetsList = data;
       });
