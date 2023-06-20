@@ -1,1 +1,70 @@
-<p>create-worksheets works!</p>
+<div class="container">
+    <div class="innerPage">
+      <div class="innerCont">
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="rgs_frm">
+              <div class="page_title">
+                <h2>Create Weekly <span>Worksheet</span></h2>
+              </div> 
+              
+              
+              <form #contactForm="ngForm" novalidate>
+                 
+                <div class="row">
+                  <div class="form-group col-12">  
+                    <label for="studentName">Select Student Name <span>*</span></label>
+                    <select class="form-select" name="studentName" id="studentName" [(ngModel)]="worksheet.studentName" required #studentName="ngModel"> 
+                      <option *ngFor="let student of students" value="{{student.studentName}}">{{student.studentName}}</option>
+                    </select>
+                    <div *ngIf="!studentName?.valid && (studentName?.dirty || studentName?.touched)" class="_error">
+                      <div *ngIf="studentName.errors?.['required']">Select student is required</div>
+                    </div>
+                  </div>
+                </div> 
+                 
+  
+                <div class="row">
+                  <div class="form-group col-12">
+                    <label for="grade"> Grade <span>*</span></label>
+                    <input class="form-control" type="text" id="grade" [(ngModel)]="worksheet.grade"  name="grade" placeholder="Enter grade" required #grade="ngModel" />
+  
+                    <div *ngIf="!grade?.valid && (grade?.dirty || grade?.touched)" class="_error">
+                      <div *ngIf="grade.errors?.['required']">Grade is required</div>
+                    </div>
+  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-12">
+                    <label for="weekDate"> Week Date <span>*</span></label>
+                     <input class="form-control" type="date" id="weekDate" [(ngModel)]="worksheet.weekDate" name="weekDate" placeholder="Enter Week Date" required #weekDate="ngModel" />
+  
+                     <div *ngIf="!weekDate?.valid && (weekDate?.dirty || weekDate?.touched)" class="_error">
+                       <div *ngIf="weekDate.errors?.['required']">Week Date is required</div>
+                     </div>
+  
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-12">
+                    <label for="worksheet"> Worksheet <span>*</span></label>
+                    <input class="form-control" type="text"  id="worksheet" [(ngModel)]="worksheet.worksheet"  name="extraWorksheet" placeholder="Enter Worksheet"/>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="form-group col-12">
+                    <label for="extraWorksheet"> Extra Worksheet</label>
+                     <input class="form-control" type="text" size="50" id="extraWorksheet" [(ngModel)]="worksheet.extraWorksheet"  name="extraWorksheet" placeholder="Enter Extra Worksheet"/>
+                  </div>
+                </div>
+                <div class="text-center mt-2">
+                  <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(worksheet)" [disabled]="!contactForm.valid"> Submit Feedback</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
