@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from '../service/auth.service';
+import { FormControl, FormGroup } from '@angular/forms'; 
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,17 +17,17 @@ export class LoginComponent  implements OnInit {
     password : new FormControl(''),
   });
 
-  constructor(private auth: AuthService, private router: Router){}
+  constructor(private router: Router){}
 
   ngOnInit(): void {
-    if (this.auth.isLoggedIn()) {
-      this.router.navigate(['/home']);
-    }
+    
   }
 
-  
-  
   onSubmit(): void {
+    console.log(this.loginForm.value)
+  }
+  
+ /* onSubmit(): void {
     this.mzlCenter="MindZone Learning";
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe(
@@ -41,6 +40,6 @@ export class LoginComponent  implements OnInit {
         }
       );
     }
-  }
+  }*/
   
 }
