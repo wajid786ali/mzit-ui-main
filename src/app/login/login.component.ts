@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
+import { UserName } from '../entity/userName';
+import { ApiClientService } from '../service/api-client.service';
 
 @Component({
   selector: 'app-login',
@@ -12,14 +14,15 @@ export class LoginComponent  implements OnInit {
   mzlCenter:any;
   login:any;
   password:any;
+  userName: UserName = new UserName();
+  userNames: any;
 
   loginForm = new FormGroup({
     email : new FormControl(''),
     password : new FormControl(''),
   });
 
-  constructor(private auth: AuthService, private router: Router){}
-
+  constructor(private auth: AuthService, private apiService: ApiClientService,private router: Router){}
   ngOnInit(): void {
     if (this.auth.isLoggedIn()) {
       this.router.navigate(['/home']);
@@ -28,6 +31,15 @@ export class LoginComponent  implements OnInit {
 
   
   
+  onSubmit(userName: UserName) {
+    let response = this.apiService.checkUserName(userName);
+    response.subscribe((data) => {
+      this.userName = data; 
+      this.router.navigate(['/home']);
+    });
+  }
+
+  /*
   onSubmit(): void {
     this.mzlCenter="MindZone Learning";
     if (this.loginForm.valid) {
@@ -41,6 +53,7 @@ export class LoginComponent  implements OnInit {
         }
       );
     }
-  }
   
+  }
+    */
 }

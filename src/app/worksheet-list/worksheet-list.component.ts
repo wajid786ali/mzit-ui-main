@@ -47,8 +47,11 @@ export class WorksheetListComponent implements OnInit {
     });
   }
 
+  subjectClick(){
+    this.filterText=this.subject;
+  }
   weekDateClick() {
-    let response = this.apiService.getWeeklylyWorksheets(this.selectWeek,this.subject);
+    let response = this.apiService.getWeeklylyWorksheets(this.selectWeek);
     response.subscribe((data) => {
       this.worksheetsList = data;
     });

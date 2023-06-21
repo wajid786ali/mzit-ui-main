@@ -9,27 +9,32 @@
           <div class="col-3">
             <div class="input-group">
               <span class="input-group-text" id="basic-addon1">Date</span>
-              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek"
-                (change)="weekDateClick()">
+              <select name="selectState" id="selectWeek" [(ngModel)]="selectWeek" name="selectWeek" (change)="weekDateClick()" >
                 <option value="Select">Weekly Date</option>
                 <option *ngFor="let month of worksheetsMonth, let i = index">{{month}}</option>
               </select>
             </div>
           </div>
-          <div class="col-4">
-            <select name="subject" id="selectWeek" [(ngModel)]="subject" name="subject">
+          <div class="col-3">
+            <select name="subject" id="subject" [(ngModel)]="subject" name="subject" size="2" (change)="subjectClick()">
             <option value="Math">Math</option>
             <option value="English">English</option>
             <option value="Science">Science</option>
           </select>       
         </div>
-          <div class="col-4">
+        <div class="col-2">
+          <div class="input-group">
+          <input class="btn rgst_btn w-100" type="submit"  class="form-control"  (click)="weekDateClick()" /> 
+      </div>
+      </div>
+          <div class="col-2">
             <div class="input-group">
               <span class="input-group-text"><b class="fa fa-search"></b></span>
-              <input type="text" class="form-control" placeholder="Search Student" name="filterText"
+              <input type="text" class="form-control" placeholder="Search Student" name="filterText" 
                 [(ngModel)]="filterText">
             </div>
           </div>
+       
         </div>
       </form>
     </div>
@@ -39,6 +44,7 @@
         <tr> 
           <th>Student Name</th>
           <th>Grade</th>
+          <th>Subject</th>
           <th>WeekDate</th>
           <th>Worksheets </th>
           <th>ExtraWorksheet</th>
@@ -50,6 +56,7 @@
         <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 5, currentPage:p}">
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
+          <td>{{worksheet.subject}}</td>
           <td>{{worksheet.weekDate}}</td>
           <td>{{worksheet.worksheet}}</td>
           <td>{{worksheet.extraWorksheet}}</td>

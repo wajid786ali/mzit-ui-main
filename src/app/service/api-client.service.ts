@@ -5,6 +5,8 @@ import { StudentFeedBack } from '../entity/studentFeedBack';
 import { TeacherRegister } from '../entity/teacher';
 import { Worksheets } from '../entity/worksheets';
 import { StudentNotes } from '../entity/studentNotes';
+import { UserName } from '../entity/userName';
+
 
 import { Observable } from 'rxjs';
 
@@ -57,7 +59,7 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyMonth/` + month);
   }
 
-  public getWeeklylyWorksheets(weeklyDate: String, subject:String):Observable<any>{
+  public getWeeklylyWorksheets(weeklyDate: String):Observable<any>{
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/` + weeklyDate);
   }
 
@@ -83,6 +85,11 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`, worksheets);
   }
 
+  public checkUserName(userName:UserName):Observable<any>{
+    return this.httpClient.post(`${this.apiUrl}/students/login`, userName);
+  } 
+
+
   public addWeeklyWorksheet(worksheetsList: any): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/students/addWeeklyWorksheet`, worksheetsList);
   }
@@ -103,17 +110,7 @@ export class ApiClientService {
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);
   }
 
-
-  public login(email:string, password:string) {
+ 
   
-    return null;
-  } 
-  
-  /*
-  public login( email:string, password:string):Observable<any>{
-    return this.httpClient.post(`${this.apiUrl}/userName/'+${email}+"/"+${password});
-  }
-*/
-
-
+ 
 }
