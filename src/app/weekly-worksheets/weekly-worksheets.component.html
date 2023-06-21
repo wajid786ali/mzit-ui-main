@@ -1,86 +1,98 @@
 <div class="container">
-    <div class="innerPage">
-      <div class="page_title2">
-        <h2>Worksheet <span>List</span></h2>
-      </div>
-      <div class="form-group col-7 mb-5">
-        <form #contactForm="ngForm" novalidate>
-          <div class="row">
-            <div class="col-4">
-              <div class="input-group">
-                <span class="input-group-text"><b class="fa fa-search"></b></span>
-                <input type="text" class="form-control" placeholder="Search Student" name="filterText" [(ngModel)]="filterText">
-              </div>
-            </div> 
-            <div class="col-4">
-                <input type="date" class="form-control" id="weekDate" name="weekDate" placeholder="Start Date" [(ngModel)]="weekDate"/> 
+  <div class="innerPage">
+    <div class="page_title2">
+      <h2>Worksheet <span>List</span></h2>
+    </div>
+    <div class="form-group col-7 mb-5">
+      <form #contactForm="ngForm" novalidate>
+        <div class="row">
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-text"><b class="fa fa-search"></b></span>
+              <input type="text" class="form-control" placeholder="Search Student" name="filterText"
+                [(ngModel)]="filterText">
             </div>
-            <div class="col-4">
-              <select name="subject" id="selectWeek" [(ngModel)]="subject" name="subject">
-              <option value="Math">Math</option>
-              <option value="English">English</option>
-              <option value="Science">Science</option>
-            </select>       
           </div>
-            <div class="col-4">
-                <div class="input-group">
-                <input class="btn rgst_btn w-100" type="submit"  class="form-control"  (click)="generateWorksheet()" /> 
-            </div>
-            </div>
-  
-  
-          </div>
-        </form>
-      </div>
-      <div>{{message}}</div>
-      <table class="table table-striped table-hover table-bordered">
-        <thead>
-          <tr>
-        
-            <th>Student Name</th>
-            <th>Grade</th>
-            <th>WeekDate</th>
-            <th>Worksheets Name </th>
-            <th>ExtraWorksheet</th>
-            <th>Worksheets Suggested </th>
-            <th>Worksheets Status </th>
 
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 5, currentPage:p}"> 
-            <td>{{worksheet.studentName}}</td>
-            <td>{{worksheet.grade}}</td>
-            <td>{{worksheet.weekDate}}</td>
-            <td>
-                <input class="form-control" type="text"  id="worksheet" [(ngModel)]="worksheet.worksheet"  name="extraWorksheet" placeholder="{{worksheet.worksheet}}"/>
-            </td>
-            <td>
-                <input class="form-control" type="text"  id="extraWorksheet" [(ngModel)]="worksheet.extraWorksheet"  name="extraWorksheet" placeholder="{{worksheet.extraWorksheet}}"/>
-            </td>
-            <td>
-                <input class="form-control" type="text"  id="worksheetNewSuggested" [(ngModel)]="worksheet.worksheetNewSuggested"  name="extraWorksheet" placeholder="{{worksheet.worksheetNewSuggested}}"/>
-            </td>
-            <td>{{worksheet.worksheetStatus}}</td>
-           
-            <td> <a href="../../assets/worksheet_doc_file/wajid.docx" > worksheet </a></td>
-        
-          </tr>
-        </tbody>
-      </table>
-      <div class="text-center mt-2">
-        <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit()" > Save Worksheets </button>
-      </div>
-      <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
-   
-  
-   
-   
-  
+          <div class="col-3">
+            <div class="input-group">
+              <input type="date" class="form-control" id="weekDate" name="weekDate" placeholder="Start Date"
+                [(ngModel)]="weekDate" />
+            </div>
+          </div>
+
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-text">Subject</span>
+              <select name="subject" id="selectWeek" [(ngModel)]="subject" name="subject">
+                <option value="Math">Math</option>
+                <option value="English">English</option>
+                <option value="Science">Science</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="col-3"> 
+            <input class="btn btn-primary" type="submit" (click)="generateWorksheet()" value="Generate Worksheet" />
+          </div>
+        </div>
+
+      </form>
     </div>
-  
-    
-    
-    
+    <div>{{message}}</div>
+    <table class="table table-striped table-hover table-bordered">
+      <thead>
+        <tr>
+
+          <th>Student Name</th>
+          <th>Grade</th>
+          <th>WeekDate</th>
+          <th>Worksheets Name </th>
+          <th>ExtraWorksheet</th>
+          <th>Worksheets Suggested </th>
+          <th>Worksheets Status </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 5, currentPage:p}">
+          <td>{{worksheet.studentName}}</td>
+          <td>{{worksheet.grade}}</td>
+          <td>{{worksheet.weekDate}}</td>
+          <td>
+            <input class="form-control" type="text" id="worksheet" [(ngModel)]="worksheet.worksheet"
+              name="extraWorksheet" placeholder="{{worksheet.worksheet}}" />
+          </td>
+          <td>
+            <input class="form-control" type="text" id="extraWorksheet" [(ngModel)]="worksheet.extraWorksheet"
+              name="extraWorksheet" placeholder="{{worksheet.extraWorksheet}}" />
+          </td>
+          <td>
+            <input class="form-control" type="text" id="worksheetNewSuggested"
+              [(ngModel)]="worksheet.worksheetNewSuggested" name="extraWorksheet"
+              placeholder="{{worksheet.worksheetNewSuggested}}" />
+          </td>
+          <td>{{worksheet.worksheetStatus}}</td>
+
+          <td> <a href="../../assets/worksheet_doc_file/wajid.docx"> worksheet </a></td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+    <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+
+    <div class="mt-2">
+      <button class="btn btn-primary" type="submit" (click)="wsSubmit()"> Save Worksheets </button>
     </div>
-    
+
+
+
+
+  </div>
+
+
+
+
+</div>

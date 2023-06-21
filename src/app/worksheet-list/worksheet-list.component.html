@@ -15,6 +15,7 @@
               </select>
             </div>
           </div>
+<<<<<<< HEAD
           <div class="col-3">
             <select name="subject" id="subject" [(ngModel)]="subject" name="subject" size="2" (change)="subjectClick()">
             <option value="Math">Math</option>
@@ -28,6 +29,20 @@
       </div>
       </div>
           <div class="col-2">
+=======
+          
+          <div class="col-3">
+            <div class="input-group">
+              <span class="input-group-text">Subject</span>
+              <select name="subject" id="selectWeek" [(ngModel)]="subject" name="subject"> 
+                <option value="Math">Math</option>
+                <option value="English">English</option>
+                <option value="Science">Science</option>
+              </select>
+            </div>
+          </div>  
+          <div class="col-4">
+>>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
             <div class="input-group">
               <span class="input-group-text"><b class="fa fa-search"></b></span>
               <input type="text" class="form-control" placeholder="Search Student" name="filterText" 
@@ -69,11 +84,11 @@
       </tbody>
     </table>
     <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
-    <div class="col-4">
-      <div class="input-group">
-      <input class="btn rgst_btn w-100" type="submit"  class="form-control"  (click)="generateWorksheet()" value="Generate Worksheet"/> 
-  </div>
-  </div>
+
+
+<div class="mt-2"> 
+<input class="btn btn-primary" type="submit" (click)="generateWorksheet()" value="Generate Worksheet"/> 
+</div>
 
 
   <div class="modal fade" id="pdf_file_view" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">

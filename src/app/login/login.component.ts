@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { AuthService } from '../service/auth.service';
+import { FormControl, FormGroup } from '@angular/forms'; 
 import { Router } from '@angular/router';
 import { UserName } from '../entity/userName';
 import { ApiClientService } from '../service/api-client.service';
@@ -22,13 +21,17 @@ export class LoginComponent  implements OnInit {
     password : new FormControl(''),
   });
 
+<<<<<<< HEAD
   constructor(private auth: AuthService, private apiService: ApiClientService,private router: Router){}
+=======
+  constructor(private router: Router){}
+
+>>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
   ngOnInit(): void {
-    if (this.auth.isLoggedIn()) {
-      this.router.navigate(['/home']);
-    }
+    
   }
 
+<<<<<<< HEAD
   
   
   onSubmit(userName: UserName) {
@@ -40,7 +43,13 @@ export class LoginComponent  implements OnInit {
   }
 
   /*
+=======
+>>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
   onSubmit(): void {
+    console.log(this.loginForm.value)
+  }
+  
+ /* onSubmit(): void {
     this.mzlCenter="MindZone Learning";
     if (this.loginForm.valid) {
       this.auth.login(this.loginForm.value).subscribe(
@@ -53,6 +62,10 @@ export class LoginComponent  implements OnInit {
         }
       );
     }
+<<<<<<< HEAD
+=======
+  }*/
+>>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
   
   }
     */
