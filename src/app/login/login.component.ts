@@ -14,40 +14,30 @@ export class LoginComponent  implements OnInit {
   login:any;
   password:any;
   userName: UserName = new UserName();
-  userNames: any;
+  message: any;
 
   loginForm = new FormGroup({
     email : new FormControl(''),
     password : new FormControl(''),
   });
 
-<<<<<<< HEAD
-  constructor(private auth: AuthService, private apiService: ApiClientService,private router: Router){}
-=======
-  constructor(private router: Router){}
 
->>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
+  constructor(private apiService: ApiClientService,private router: Router){}
+
   ngOnInit(): void {
     
   }
 
-<<<<<<< HEAD
-  
   
   onSubmit(userName: UserName) {
     let response = this.apiService.checkUserName(userName);
     response.subscribe((data) => {
-      this.userName = data; 
-      this.router.navigate(['/home']);
+      this.message = data;
+      alert(this.message);
+      this.router.navigate(['/view']);
     });
   }
 
-  /*
-=======
->>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
-  onSubmit(): void {
-    console.log(this.loginForm.value)
-  }
   
  /* onSubmit(): void {
     this.mzlCenter="MindZone Learning";
@@ -62,11 +52,6 @@ export class LoginComponent  implements OnInit {
         }
       );
     }
-<<<<<<< HEAD
-=======
-  }*/
->>>>>>> 26490e5341085326a4db8cd74843a743fa3cdcf4
-  
   }
-    */
+  */
 }
