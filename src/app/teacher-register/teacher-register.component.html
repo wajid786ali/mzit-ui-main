@@ -60,7 +60,7 @@
                   <span class="input-group-text">Type</span>
                   <select name="type" id="center" [(ngModel)]="teacherRegister.type" name="type">
                     <option value="Admin">Admin</option>
-                    <option value="Teacher">Admin</option>
+                    <option value="Teacher">Teacher</option>
                   </select>
                <div *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="_error">
                       <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
