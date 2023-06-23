@@ -15,6 +15,7 @@ export class LoginComponent  implements OnInit {
   password:any;
   userName: UserName = new UserName();
   message: any;
+  custEmail:any;
 
   loginForm = new FormGroup({
     email : new FormControl(''),
@@ -22,23 +23,34 @@ export class LoginComponent  implements OnInit {
   });
 
 
-  constructor(private apiService: ApiClientService,private router: Router){}
+  constructor(private apiService: ApiClientService,private router: Router){
+
+
+  }
 
   ngOnInit(): void {
     
   }
-
+  getData(key:string){
+    return sessionStorage.getItem(key);
+  }
   
   onSubmit(userName: UserName) {
     let response = this.apiService.checkUserName(userName);
     response.subscribe((data) => {
       this.message = data;
+      sessionStorage.setItem('custName', this.message.teacherName);
+      sessionStorage.setItem('custCenter', this.message.center);
+      sessionStorage.setItem('custEmail', this.message.email);
+      sessionStorage.setItem('custType', this.message.type);
 
       if (data != null) {
-      //  this.message = " Welcome  added successfully..!!";
+        this.router.navigate(['/view']);
+      } else{
+     this.message = " Wrong Email and/or Password";
       }
     });
-    //this.router.navigate(['/view']);
+  
   }
 
   

@@ -10,9 +10,7 @@
         
                         <form [formGroup]="loginForm" >
                             <div class="row">
-                                <div class="form-group mb-3">
-                                    admin@gmail.com<br>admin123
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>User Name <span class="text-danger">*</span></label>
                                     <div class="input-group">
@@ -31,7 +29,8 @@
 
                                 <div class="text-center mt-2">
                                     <button class="btn rgst_btn w-100" type="submit" (click)="onSubmit(userName)"> Login </button>
-                                    {{message.center}}   {{message.type}}
+                                    {{message}}                                    
+                                  
                                 </div>
                             </div>
                         </form>

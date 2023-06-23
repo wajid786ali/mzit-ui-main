@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Mind Zone Institute';
+  customer_email:string;
+
+
+  dataSave(){
+    sessionStorage.setItem('name', 'Sanjeev');
+  }
+
+  get(){
+    return sessionStorage.getItem('name');
+  }
 }
