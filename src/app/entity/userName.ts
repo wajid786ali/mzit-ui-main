@@ -2,7 +2,8 @@
 export class UserName {
      email :string;
      password:string;
-     name:string;
+     Name:string;
      center:string;
      status:string;
+
 }

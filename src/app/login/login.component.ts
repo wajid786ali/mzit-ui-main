@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms'; 
 import { Router } from '@angular/router';
-import { UserName } from '../entity/userName';
+import { UserName } from '../entity/username';
 import { ApiClientService } from '../service/api-client.service';
 
 @Component({
@@ -33,9 +33,12 @@ export class LoginComponent  implements OnInit {
     let response = this.apiService.checkUserName(userName);
     response.subscribe((data) => {
       this.message = data;
-      alert(this.message);
-      this.router.navigate(['/view']);
+
+      if (data != null) {
+      //  this.message = " Welcome  added successfully..!!";
+      }
     });
+    //this.router.navigate(['/view']);
   }
 
   

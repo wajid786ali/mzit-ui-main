@@ -5,7 +5,7 @@ import { StudentFeedBack } from '../entity/studentFeedBack';
 import { TeacherRegister } from '../entity/teacher';
 import { Worksheets } from '../entity/worksheets';
 import { StudentNotes } from '../entity/studentNotes';
-import { UserName } from '../entity/userName';
+import { UserName } from '../entity/username';
 
 
 import { Observable } from 'rxjs';
