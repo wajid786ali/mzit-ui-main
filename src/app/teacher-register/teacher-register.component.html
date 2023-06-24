@@ -8,89 +8,100 @@
               <h2>Teacher <span>Registration</span></h2>
             </div>
 
-           
+
             <form #contactForm="ngForm" novalidate>
               <div class="row">
 
                 <div class="form-group">
                   <label for="teacherName"> Teacher Name <span>*</span></label>
                   <input type="text" class="form-control" id="teacherName" [(ngModel)]="teacherRegister.teacherName"
-                    name="teacherName" placeholder="Enter Teacher Name" required #teacherName="ngModel"/> 
+                    name="teacherName" placeholder="Enter Teacher Name" required #teacherName="ngModel" />
 
-                    <div *ngIf="!teacherName?.valid && (teacherName?.dirty || teacherName?.touched)" class="_error">
-                      <div *ngIf="teacherName.errors?.['required']">Teacher Name is required</div>
-                   </div>
+                  <div *ngIf="!teacherName?.valid && (teacherName?.dirty || teacherName?.touched)" class="_error">
+                    <div *ngIf="teacherName.errors?.['required']">Teacher Name is required</div>
+                  </div>
                 </div>
 
                 <div class="form-group col-6">
-                  <label for="teacherEmail"> Email <span>*</span></label>                     
-                  <input type="email" class="form-control" id="email" [(ngModel)]="teacherRegister.email" name="email" placeholder="mzit@gmail.com" required #email="ngModel"/> 
+                  <label for="teacherEmail"> Email <span>*</span></label>
+                  <input type="email" class="form-control" id="email" [(ngModel)]="teacherRegister.email" name="email"
+                    placeholder="mzit@gmail.com" required #email="ngModel" />
 
                   <div *ngIf="!email?.valid && (email?.dirty || email?.touched)" class="_error">
                     <div *ngIf="email.errors?.['required']">Email ID is required</div>
-                 </div>
+                  </div>
                 </div>
                 <div class="form-group col-6">
                   <label for="phoneNumber"> Phone Number <span>*</span></label>
                   <input type="text" class="form-control" id="phoneNumber" [(ngModel)]="teacherRegister.phoneNumber"
-                    name="phoneNumber" placeholder="000-000-0000" required #phoneNumber="ngModel"/> 
+                    name="phoneNumber" placeholder="000-000-0000" required #phoneNumber="ngModel" />
 
-                    <div *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="_error">
-                      <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
-                   </div>
+                  <div *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="_error">
+                    <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="teacherEmail"> Password <span>*</span></label>
-                  <input type="password" placeholder="Password" class="form-control" id="password" [(ngModel)]="teacherRegister.password" name="password" required #password="ngModel"/> 
+                  <input type="password" placeholder="Password" class="form-control" id="password"
+                    [(ngModel)]="teacherRegister.password" name="password" required #password="ngModel" />
 
                   <div *ngIf="!password?.valid && (password?.dirty || password?.touched)" class="_error">
                     <div *ngIf="password.errors?.['required']">Password is required</div>
-                 </div>
+                  </div>
                 </div>
-                <div class="input-group">
-                <br>
-                  <span class="input-group-text">Center</span>
-                  <select name="center" id="center" [(ngModel)]="teacherRegister.center" name="center">
+
+                
+                <div class="form-group col-6">
+                  <label for="center"> Center <span>*</span></label>
+                  <select name="center" class="form-select" id="center" [(ngModel)]="teacherRegister.center" required #center="ngModel">
                     <option value="Waukee">Waukee</option>
                     <option value="Downtown">Downtown</option>
                     <option value="Chicago">Chicago</option>
-                  </select>
-                
+                  </select> 
 
-                  <span class="input-group-text">Type</span>
-                  <select name="type" id="center" [(ngModel)]="teacherRegister.type" name="type">
+                  <div *ngIf="!center?.valid && (center?.dirty || center?.touched)" class="_error">
+                    <div *ngIf="center.errors?.['required']">Center is required</div>
+                  </div>
+                </div>
+
+                <div class="form-group col-6">
+                  <label for="center"> User Type <span>*</span></label>
+                  <select name="type" id="type" [(ngModel)]="teacherRegister.type" class="form-select" [(ngModel)]="teacherRegister.type" required #type="ngModel">
                     <option value="Admin">Admin</option>
                     <option value="Teacher">Teacher</option>
-                  </select>
-               <div *ngIf="!phoneNumber?.valid && (phoneNumber?.dirty || phoneNumber?.touched)" class="_error">
-                      <div *ngIf="phoneNumber.errors?.['required']">Phone Number is required</div>
-                   </div>
-                  
+                  </select> 
+
+                  <div *ngIf="!type?.valid && (type?.dirty || type?.touched)" class="_error">
+                    <div *ngIf="type.errors?.['required']">Type is required</div>
+                  </div>
                 </div>
+
+ 
 
                 <div class="form-group">
                   <label for="address"> Address</label>
                   <input type="text" class="form-control" id="address" [(ngModel)]="teacherRegister.address"
-                    name="address" placeholder="Enter Address" required #address="ngModel"/> 
+                    name="address" placeholder="Enter Address" required #address="ngModel" />
 
-                    <div *ngIf="!address?.valid && (address?.dirty || address?.touched)" class="_error">
-                      <div *ngIf="address.errors?.['required']">Address is required</div>
-                   </div>
+                  <div *ngIf="!address?.valid && (address?.dirty || address?.touched)" class="_error">
+                    <div *ngIf="address.errors?.['required']">Address is required</div>
+                  </div>
                 </div>
 
                 <div class="form-group">
                   <label> Start Date <span>*</span></label>
                   <input type="date" class="form-control" id="startDate" [(ngModel)]="teacherRegister.startDate"
-                    name="startDate" placeholder="mm-dd-yyyy" required #startDate="ngModel"/> 
+                    name="startDate" placeholder="mm-dd-yyyy" required #startDate="ngModel" />
 
-                    <div *ngIf="!startDate?.valid && (startDate?.dirty || startDate?.touched)" class="_error">
-                      <div *ngIf="startDate.errors?.['required']">Date is required</div>
-                   </div>
+                  <div *ngIf="!startDate?.valid && (startDate?.dirty || startDate?.touched)" class="_error">
+                    <div *ngIf="startDate.errors?.['required']">Date is required</div>
+                  </div>
                 </div>
 
               </div>
               <div class="text-center mt-2">
-                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(teacherRegister)" [disabled]="!contactForm.valid"> Teacher Student
+                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(teacherRegister)"
+                  [disabled]="!contactForm.valid"> Teacher Student
                 </button>
               </div>
             </form>

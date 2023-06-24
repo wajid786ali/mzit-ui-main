@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-//import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 @Component({
   selector: 'app-email-send',
@@ -17,9 +17,7 @@ export class EmailSendComponent {
     message:'',
   })
   constructor(private fb:FormBuilder){ }
-  async send(){
-  }
-/*
+ 
   async send(){
     emailjs.init('AKDZUlOn2Rk9akg3E')
    let response = await emailjs.send("service_4qzg2i3","template_brvqgnt",{
@@ -32,8 +30,7 @@ export class EmailSendComponent {
      alert('Message send');
      this.form.reset();
   }
-  */
-  
+   
 }
 
 

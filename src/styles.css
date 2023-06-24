@@ -14,6 +14,8 @@ ul.disc li{margin-bottom:7px}
 .clr-th1{color:#1f4178}
 .clr-th2{color:#02964a}
 .theme1 a,.theme2 a{color:#fff}
+
+.topHead .right-head a span{color: #fff200;font-weight: 600;}
 .topHead .right-head ul.dropdown li{display:inline-block}
 .topHead .right-head ul.dropdown li a{padding:10px 12px;display:block}
 .topHead .right-head ul.dropdown li i{vertical-align:middle;margin-right:5px}

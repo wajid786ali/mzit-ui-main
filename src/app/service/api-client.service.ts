@@ -20,6 +20,10 @@ export class ApiClientService {
 
   constructor(private httpClient: HttpClient) { }
 
+  isMenuVisible() {
+    return !!sessionStorage.getItem('custType');
+  }
+
   public getById(studentId: number): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/${studentId}`);
   }
@@ -59,16 +63,16 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyMonth/` + month);
   }
 
-  public getWeeklylyWorksheets(weeklyDate: String):Observable<any>{
+  public getWeeklylyWorksheets(weeklyDate: String): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheetbyWeekDate/` + weeklyDate);
   }
 
-  public getNewWeeklylyWorksheets(weekDate:String, subject:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/`+weekDate+'/'+subject);
+  public getNewWeeklylyWorksheets(weekDate: String, subject: String): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/` + weekDate + '/' + subject);
   }
 
-  public generatedNewWeeklylyWorksheets(weekDate:String, subject:String):Observable<any>{
-    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/`+weekDate+'/'+subject);
+  public generatedNewWeeklylyWorksheets(weekDate: String, subject: String): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/` + weekDate + '/' + subject);
   }
 
 
@@ -85,9 +89,9 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`, worksheets);
   }
 
-  public checkUserName(userName:UserName):Observable<any>{
+  public checkUserName(userName: UserName): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/students/login`, userName);
-  } 
+  }
 
 
   public addWeeklyWorksheet(worksheetsList: any): Observable<any> {
@@ -110,7 +114,7 @@ export class ApiClientService {
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);
   }
 
- 
-  
- 
+
+
+
 }

@@ -40,7 +40,7 @@ const routes: Routes = [
   {path:'weeklyWorksheet',component:WeeklyWorksheetsComponent, canActivate: [AuthGuard] },
   {path:'createWeeklyWorksheets',component:CreateWorksheetsComponent, canActivate: [AuthGuard] },
   {path:'reminders',component:RemindersComponent, canActivate: [AuthGuard] },
-  {path:'email',component:EmailSendComponent},
+  {path:'email',component:EmailSendComponent, canActivate:[AuthGuard]},
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 
