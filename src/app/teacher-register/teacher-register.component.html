@@ -50,14 +50,15 @@
                   </div>
                 </div>
 
-                
+
                 <div class="form-group col-6">
                   <label for="center"> Center <span>*</span></label>
-                  <select name="center" class="form-select" id="center" [(ngModel)]="teacherRegister.center" required #center="ngModel">
+                  <select name="center" class="form-select" id="center" [(ngModel)]="teacherRegister.center" required
+                    #center="ngModel">
                     <option value="Waukee">Waukee</option>
                     <option value="Downtown">Downtown</option>
                     <option value="Chicago">Chicago</option>
-                  </select> 
+                  </select>
 
                   <div *ngIf="!center?.valid && (center?.dirty || center?.touched)" class="_error">
                     <div *ngIf="center.errors?.['required']">Center is required</div>
@@ -66,17 +67,18 @@
 
                 <div class="form-group col-6">
                   <label for="center"> User Type <span>*</span></label>
-                  <select name="type" id="type" [(ngModel)]="teacherRegister.type" class="form-select" [(ngModel)]="teacherRegister.type" required #type="ngModel">
+                  <select name="type" id="type" [(ngModel)]="teacherRegister.type" class="form-select"
+                    [(ngModel)]="teacherRegister.type" required #type="ngModel">
                     <option value="Admin">Admin</option>
                     <option value="Teacher">Teacher</option>
-                  </select> 
+                  </select>
 
                   <div *ngIf="!type?.valid && (type?.dirty || type?.touched)" class="_error">
                     <div *ngIf="type.errors?.['required']">Type is required</div>
                   </div>
                 </div>
 
- 
+
 
                 <div class="form-group">
                   <label for="address"> Address</label>

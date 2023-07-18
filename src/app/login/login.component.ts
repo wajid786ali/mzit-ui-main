@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserName } from '../entity/username';
 import { ApiClientService } from '../service/api-client.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -10,24 +11,18 @@ import { ApiClientService } from '../service/api-client.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  mzlCenter: any;
-  login: any;
-  password: any;
+
   userName: UserName = new UserName();
   message: any;
-  custEmail: any;
 
   loginForm = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
 
+  constructor(private apiService: ApiClientService, private router: Router, private toastr:ToastrService) { }
 
-  constructor(private apiService: ApiClientService, private router: Router) { }
-
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void { }
 
   getData(key: string) {
     return sessionStorage.getItem(key);
@@ -37,34 +32,26 @@ export class LoginComponent implements OnInit {
     let response = this.apiService.checkUserName(userName);
     response.subscribe((data) => {
       this.message = data;
-      sessionStorage.setItem('custName', this.message.teacherName);
-      sessionStorage.setItem('custCenter', this.message.center);
-      sessionStorage.setItem('custEmail', this.message.email);
-      sessionStorage.setItem('custType', this.message.type);
+      console.log(data);
+      if (data && data.email) {
+        sessionStorage.setItem('custName', data.teacherName);
+        sessionStorage.setItem('custCenter', data.center);
+        sessionStorage.setItem('custEmail', data.email);
+        sessionStorage.setItem('custType', data.type);
 
-      if (data != null) {
-        this.router.navigate(['/home']);
-      } else {
-        this.message = " Wrong Email and/or Password";
+        this.router.navigate(['/home']); 
+      } else { 
+        this.toastr.error('Wrong Email and/or Password.','Error', {
+          timeOut: 3000,
+        });
       }
+    }, (error) => {
+      console.error(error);
+      this.toastr.error('Please enter valid username or password.','Error', {
+        timeOut: 3000,
+      });
     });
-
   }
 
 
-  /* onSubmit(): void {
-     this.mzlCenter="MindZone Learning";
-     if (this.loginForm.valid) {
-       this.auth.login(this.loginForm.value).subscribe(
-         (result) => {
-           console.log(result);
-           this.router.navigate(['/home']);
-         },
-         (err: Error) => {
-           alert(err.message);
-         }
-       );
-     }
-   }
-   */
 }

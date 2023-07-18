@@ -6,16 +6,15 @@
                     <div class="login_frm">
                         <div class="page_title">
                             <h2>MindZone <span>Login</span></h2>
-                        </div>
+                        </div> 
         
                         <form [formGroup]="loginForm" >
-                            <div class="row">
-                                
+                            <div class="row"> 
                                 <div class="form-group">
                                     <label>User Name <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-user"></i></div>
-                                        <input type="text" class="form-control" id="email" [(ngModel)]="userName.email"  formControlName="email" placeholder="Enter your Email ID">
+                                        <input type="email" class="form-control" id="email" [(ngModel)]="userName.email"  formControlName="email" placeholder="Enter your Email ID">
                                     </div>
                                 </div>
 
@@ -23,14 +22,13 @@
                                     <label>Password <span class="text-danger">*</span></label>
                                     <div class="input-group">
                                         <div class="input-group-text"><i class="fa fa-lock"></i></div>
-                                        <input type="text" class="form-control" id="password" [(ngModel)]="userName.password"  formControlName="password" placeholder="Enter your Password">
+                                        <input type="password" class="form-control" id="password" [(ngModel)]="userName.password"  formControlName="password" placeholder="Enter your Password">
                                     </div>
                                 </div>
 
                                 <div class="text-center mt-2">
                                     <button class="btn rgst_btn w-100" type="submit" (click)="onSubmit(userName)"> Login </button>
-                                    {{message}}                                    
-                                  
+                                   
                                 </div>
                             </div>
                         </form>

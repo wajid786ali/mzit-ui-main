@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
 import { StudentNotes } from '../entity/studentNotes';
+import { NgConfirmService } from 'ng-confirm-box';
 
 @Component({
   selector: 'app-read',
@@ -13,7 +14,6 @@ import { StudentNotes } from '../entity/studentNotes';
 export class ReadComponent implements OnInit {
 
   p: number = 1;
-  
   filterTerm: string;
   student: Students = new Students();
   studentNotes: StudentNotes = new StudentNotes();
@@ -24,9 +24,11 @@ export class ReadComponent implements OnInit {
   nameFilter = null;
   studentId: StudentNotes;
   studentId_new: number;
-  studentStatus: string;
+  studentStatus: string; 
+  
+  loading: boolean = true;
 
-  constructor(private apiService: ApiClientService, private router: Router) {
+  constructor(private apiService: ApiClientService, private router: Router, private confirmService: NgConfirmService) {
 
   }
   ngOnInit() {
@@ -45,13 +47,23 @@ export class ReadComponent implements OnInit {
     let response = this.apiService.getAll();
     response.subscribe((data) => {
       this.students = data;
+      setTimeout(() => {
+        this.loading = false;
+      }, 500);
     });
   }
 
   deleteById(studentId: number) {
-    this.apiService.deleteById(studentId).subscribe(data => {
-      this.ngOnInit();
-    });
+    this.confirmService.showConfirm("Are you sure want to Delete!",
+    ()=>{
+      this.apiService.deleteById(studentId).subscribe(data => {
+        this.ngOnInit(); 
+      });
+    },
+    ()=>{
+      alert("Thanks")
+    })
+    
     this.message = 'Student deleted successfully..!!'
   }
 
@@ -75,8 +87,7 @@ export class ReadComponent implements OnInit {
     let response = this.apiService.addStudentNotes(studentNotes);
     this.message = "" + response;
     response.subscribe((data) => {
-      this.message = data;
-
+      this.message = data; 
       if (data != null) {
         this.message = " Noted  added successfully..!!";
       }

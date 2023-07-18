@@ -15,15 +15,12 @@ export class TeacherRegisterComponent implements OnInit {
  
   constructor(private apiService: ApiClientService, private router: Router) {}
 
-  ngOnInit(): void {}
-
-   
- 
+  ngOnInit(): void {} 
+    
   wsSubmit(teacherRegister: TeacherRegister) {
     let response = this.apiService.teacherRegister(teacherRegister);
     response.subscribe((data) => {
       this.teacherRegister = data;
-    
       if (data != null) {
         this.message =
           'Student ' + this.teacherRegister.teacherName + ' added successfully..!!';
@@ -31,4 +28,6 @@ export class TeacherRegisterComponent implements OnInit {
     });
     this.router.navigate(['list-teacher']);
   }
+ 
+
 }

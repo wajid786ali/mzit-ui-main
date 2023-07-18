@@ -6,3 +6,4 @@
 .login_frm input::placeholder{color:#bbb}
 .login_frm .rgst_btn{padding:8px 35px;background:#e34a4a;color:#fff;border:none;font-weight:500;font-size:16px}
 .login_frm .rgst_btn:hover,.login_frm .rgst_btn:active{background:#b82020;color:#fff}
+.error_message{color:#c03;font-weight:500;margin-bottom:10px;text-align:center;}

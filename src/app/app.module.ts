@@ -6,11 +6,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router'; 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DatePipe } from '@angular/common';
-import {NgxPaginationModule} from 'ngx-pagination';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { NgConfirmModule } from 'ng-confirm-box'; 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+
 //Internal Component
 import { ApiClientService } from './service/api-client.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
@@ -18,7 +22,7 @@ import { NgxDocViewerModule } from 'ngx-doc-viewer';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { UpdateComponent } from './update/update.component';
-import { ReadComponent } from './read/read.component'; 
+import { ReadComponent } from './read/read.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { StudentFeedbackComponent } from './student-feedback/student-feedback.component';
@@ -68,10 +72,16 @@ import { EmailSendComponent } from './email-send/email-send.component';
   imports: [
     BrowserModule,
     NgxPaginationModule,
+    NgConfirmModule, 
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot({
+      timeOut: 10000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+    }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    BrowserAnimationsModule,
     RouterModule,
     MatButtonModule,
     MatToolbarModule,
@@ -80,7 +90,7 @@ import { EmailSendComponent } from './email-send/email-send.component';
     Ng2SearchPipeModule,
     NgxDocViewerModule
   ],
-  providers: [ApiClientService, DatePipe,AuthGuard],
+  providers: [ApiClientService, DatePipe, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

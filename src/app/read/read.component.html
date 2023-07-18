@@ -3,7 +3,7 @@
     <div class="page_title2">
       <h2>Students <span>List</span></h2>
     </div>
-    <div class="innerCont">
+    <div class="innerCont" *ngIf="!loading">
       <p>{{message}}</p>
 
       <form #contactForm="ngForm" novalidate>
@@ -47,7 +47,7 @@
         </thead>
 
         <tbody>
-          <tr *ngFor="let student of students | filter:studentStatus | paginate: { itemsPerPage: 5, currentPage: p }">
+          <tr *ngFor="let student of students | filter:studentStatus | paginate: { itemsPerPage: 20, currentPage: p }">
             <td><input type="checkbox" name="studentId" value="{{student.studentId}}"> {{student.studentId}}</td>
             <td>{{student.studentName}}</td>
             <td>{{student.parentsName}}</td>
@@ -78,6 +78,28 @@
       <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
 
     </div>
+
+    <div *ngIf="loading">
+      <div class="loading_data d-flex justify-content-center">
+        <div class="spinner-border text-primary ms-4" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-border text-secondary ms-4" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-border text-success ms-4" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-border text-danger ms-4" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+        <div class="spinner-border text-warning ms-4" role="status">
+          <span class="sr-only">Loading...</span>
+        </div> 
+      </div>
+    </div>
+
+
   </div>
 </div>
 
