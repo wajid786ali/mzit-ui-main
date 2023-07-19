@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router } from '@angular/router'; 
 
 @Component({
   selector: 'app-root',
@@ -8,26 +8,19 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'Mind Zone Institute';
-  customer_email:string;
 
-  constructor(private route : Router){}
+  customer_email: string;
+  isMenuVisible = true;
 
-  isMenuVisible=true;
+  constructor(private route: Router) { }
 
-  ngDoCheck(){
-    const currentroute=this.route.url;
-    if(currentroute=='/login'){
-      this.isMenuVisible=false;
-    }else{
-      this.isMenuVisible=true;
+  ngDoCheck(): void {
+    let currentroute = this.route.url;
+    if (currentroute == '/login' /*|| currentroute == '/register'*/) {
+      this.isMenuVisible = false
+    } else {
+      this.isMenuVisible = true
     }
   }
 
-  dataSave(){
-    sessionStorage.setItem('name', 'Sanjeev');
-  }
-
-  get(){
-    return sessionStorage.getItem('custType');
-  }
-}
+} 

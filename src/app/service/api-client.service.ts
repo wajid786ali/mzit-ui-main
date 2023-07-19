@@ -23,6 +23,9 @@ export class ApiClientService {
   isMenuVisible() {
     return !!sessionStorage.getItem('custType');
   }
+  getrole(){
+    return sessionStorage.getItem('custType')!=null?sessionStorage.getItem('custType')?.toString():'';
+  } 
 
   public getById(studentId: number): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/${studentId}`);

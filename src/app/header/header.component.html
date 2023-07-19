@@ -3,16 +3,16 @@
     <div class="container">
       <div class="right-head">
         <div class="icon"><span> </span></div>
-        <ul class="dropdown smsEmail"> 
+        <ul class="dropdown smsEmail">
           <li><a href="tel:+1(515)978-1220"><i class="fa fa-phone"></i> +1(515)978-1220</a></li>
           <li><a href="mailto:info@mindzonelearning.com"><i class="fa fa-envelope"></i> info@mindzonelearning.com </a>
           </li>
           <li class="fr ms-1">
             <a class="login_bt" role="button" (click)="logout()">
-                <i class="fa fa-sign-out"></i> Logout
-              </a>
+              <i class="fa fa-sign-out"></i> Logout
+            </a>
           </li>
-          <li class="fr"><a>Welcome to <span>{{ getData('custName') }}</span></a></li> 
+          <li class="fr"><a>Welcome to <span>{{ getData('custName') }}</span></a></li>
         </ul>
       </div>
     </div>
@@ -25,10 +25,12 @@
         aria-controls="navbarTop" aria-expanded="false"><span class="fa fa-bars"></span></button>
       <div class="collapse navbar-collapse" id="navbarTop">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+          <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:
               true}">Home</a></li>
-              
-          <li class="nav-item"><a class="nav-link" routerLink="/email" routerLinkActive="active" [routerLinkActiveOptions]="{exact:
+
+          <li class="nav-item"><a class="nav-link" routerLink="/email" routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact:
             true}">Email Send</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
@@ -62,13 +64,15 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" routerLink="/newWorksheet" routerLinkActive="active">New Worksheet</a></li>
-              <li><a class="dropdown-item" routerLink="/worksheetList" routerLinkActive="active">Worksheet List</a></li> 
-              <li><a class="dropdown-item" routerLink="/weeklyWorksheet" routerLinkActive="active">Weekly Worksheet</a></li> 
-              <li><a class="dropdown-item" routerLink="/createWeeklyWorksheets" routerLinkActive="active">Create Weekly Worksheet</a></li> 
+              <li><a class="dropdown-item" routerLink="/worksheetList" routerLinkActive="active">Worksheet List</a></li>
+              <li><a class="dropdown-item" routerLink="/weeklyWorksheet" routerLinkActive="active">Weekly Worksheet</a>
+              </li>
+              <li><a class="dropdown-item" routerLink="/createWeeklyWorksheets" routerLinkActive="active">Create Weekly
+                  Worksheet</a></li>
             </ul>
           </li>
 
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown"  *ngIf="isadmin">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
               Teacher

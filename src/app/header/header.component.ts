@@ -8,7 +8,26 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   
-  constructor( private router: Router){}
+  
+  isadmin=true;
+   
+
+  constructor(private router: Router){
+    let custType=sessionStorage.getItem('custType');
+    if(custType=='Admin'){
+      this.isadmin=true;
+    }
+  }
+
+  ngDoCheck(): void { 
+    let custType=sessionStorage.getItem('custType');
+    if (custType == 'Admin') {
+      this.isadmin = true;
+      console.log(custType)
+    }else{
+      this.isadmin = false;
+    }
+  }
 
   ngOnInit(): void {
      
