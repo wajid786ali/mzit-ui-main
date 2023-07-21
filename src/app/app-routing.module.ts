@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { EmailSendComponent } from './email-send/email-send.component';
+import { RoleGuard } from './guard/role.guard';
 
 
 const routes: Routes = [
@@ -31,8 +32,8 @@ const routes: Routes = [
   {path:'view', component:ReadComponent, canActivate: [AuthGuard] },
   {path:'studentFeedback',component:StudentFeedbackComponent, canActivate: [AuthGuard] },
   {path:'feedbackDisplay',component:FeedbackDisplayComponent, canActivate: [AuthGuard] },
-  {path:'add-teacher',component:TeacherRegisterComponent, canActivate: [AuthGuard] },
-  {path:'list-teacher',component:TeacherListComponent, canActivate: [AuthGuard] },
+  {path:'add-teacher',component:TeacherRegisterComponent, canActivate: [AuthGuard,RoleGuard] },
+  {path:'list-teacher',component:TeacherListComponent, canActivate: [AuthGuard,RoleGuard] },
   {path:'newWorksheet',component:NewWorksheetComponent, canActivate: [AuthGuard] },
   {path:'worksheetList',component:WorksheetListComponent, canActivate: [AuthGuard] },
   {path:'worksheetView',component:WorksheetViewComponent, canActivate: [AuthGuard] },

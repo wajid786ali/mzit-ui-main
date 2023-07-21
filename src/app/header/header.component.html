@@ -58,8 +58,7 @@
           </li>
 
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown">
               Worksheet
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -72,14 +71,11 @@
             </ul>
           </li>
 
-          <li class="nav-item dropdown"  *ngIf="isadmin">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Teacher
-            </a>
+          <li class="nav-item dropdown" *ngIf="isadmin">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown">Teacher</a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" routerLink="/add-teacher" routerLinkActive="active">Teacher Register</a></li>
-              <li><a class="dropdown-item" routerLink="/list-teacher" routerLinkActive="active">Teacher List</a></li>
+              <li><a class="dropdown-item" routerLink="/add-teacher">Teacher Register</a></li>
+              <li><a class="dropdown-item" routerLink="/list-teacher">Teacher List</a></li>
             </ul>
           </li>
         </ul>
