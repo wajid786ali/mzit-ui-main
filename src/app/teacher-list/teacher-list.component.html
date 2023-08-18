@@ -27,12 +27,12 @@
             <td>{{teacher.type}}</td>
             <td>{{teacher.active}}</td>
             <td> 
-              <button class="btn btn-danger ms-3"><b class="fa fa-pencil-square-o"></b></button>
+              <button (click)="editTeacher(teacher.email)" class="btn btn-primary"><b class="fa fa-edit"></b></button>
             </td>
           </tr>
         </tbody>
       </table>
-
+ 
       <div class="text-center"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
     </div>
 

@@ -41,6 +41,7 @@ import { AuthGuard } from './guard/auth.guard';
 import { WeeklyWorksheetsComponent } from './weekly-worksheets/weekly-worksheets.component';
 import { CreateWorksheetsComponent } from './create-worksheets/create-worksheets.component';
 import { EmailSendComponent } from './email-send/email-send.component';
+import { EditTeacherComponent } from './edit-teacher/edit-teacher.component';
 
 
 
@@ -67,7 +68,8 @@ import { EmailSendComponent } from './email-send/email-send.component';
     NotFoundComponent,
     WeeklyWorksheetsComponent,
     CreateWorksheetsComponent,
-    EmailSendComponent
+    EmailSendComponent,
+    EditTeacherComponent
   ],
   imports: [
     BrowserModule,

@@ -23,7 +23,7 @@ export class HeaderComponent implements OnInit {
     let custType=sessionStorage.getItem('custType');
     if (custType == 'Admin') {
       this.isadmin = true;
-      console.log(custType)
+      //console.log(custType)
     }else{
       this.isadmin = false;
     }

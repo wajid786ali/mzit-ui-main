@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiClientService } from '../service/api-client.service'; 
+import { ApiClientService } from '../service/api-client.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teacher-list',
@@ -11,7 +13,11 @@ export class TeacherListComponent implements OnInit {
   teacherRegisters: any;
   loading: boolean = true;
 
-  constructor(private apiService: ApiClientService) {}
+  constructor(
+    private apiService: ApiClientService,
+    private toastr: ToastrService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.readAll();
@@ -24,12 +30,24 @@ export class TeacherListComponent implements OnInit {
         setTimeout(() => {
           this.loading = false;
         }, 500);
+        console.log(data)
       },
       (error) => {
         console.error(error);
-        // Handle error and display appropriate message to the user
+        this.loading = false;
+        // Check the type of error and display a relevant error message
+        if (error.name === 'HttpErrorResponse') {
+          this.toastr.error('Failed to load teacher data. Please try again later.', 'Error');
+        } else {
+          this.toastr.error('An unknown error occurred. Please contact support.', 'Error');
+        }
       }
     );
   }
- 
+
+  editTeacher(email: string) { 
+    this.router.navigate(['edit-teacher', email]);
+    console.log(email)
+  }
+  
 }

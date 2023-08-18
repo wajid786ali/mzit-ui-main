@@ -15,6 +15,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiClientService {
+  [x: string]: any;
 
   apiUrl = 'http://localhost:8081/mindzoneitsolutions/app/v1';
 
@@ -52,14 +53,6 @@ export class ApiClientService {
 
   public getListWorksheets(): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
-  }
-
-  public deleteTeacherByEmail(email: string): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/` + email);
-  }
-
-  public getListTeachers(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/listTeachers`);
   }
 
   public getMonthlyWorksheets(month: String): Observable<any> {
@@ -105,10 +98,6 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addFeedBack`, studentFeedBack);
   }
 
-  public teacherRegister(teacherRegister: TeacherRegister): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
-  }
-
   public addStudentNotes(studentNotes: StudentNotes): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/students/addStudentNotes`, studentNotes, { responseType: 'text' });
   }
@@ -117,7 +106,17 @@ export class ApiClientService {
     return this.httpClient.delete(`${this.apiUrl}/students/${studentId}`);
   }
 
+  /* Teachers API */
+  public getListTeachers(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/students/listTeachers`);
+  }
 
+  public teacherRegister(teacherRegister: TeacherRegister): Observable<any> {
+    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
+  }
 
+  public updateTeacher(email: string): Observable<any> {
+    return this.httpClient.put(`${this.apiUrl}/students/listTeachers`, email);
+  } 
 
 }

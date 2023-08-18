@@ -4,15 +4,14 @@ import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
 import { StudentNotes } from '../entity/studentNotes';
 import { NgConfirmService } from 'ng-confirm-box';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-read',
   templateUrl: './read.component.html',
   styleUrls: ['./read.component.css'],
-
 })
 export class ReadComponent implements OnInit {
-
   p: number = 1;
   filterTerm: string;
   student: Students = new Students();
@@ -24,13 +23,16 @@ export class ReadComponent implements OnInit {
   nameFilter = null;
   studentId: StudentNotes;
   studentId_new: number;
-  studentStatus: string; 
-  
+  studentStatus: string;
   loading: boolean = true;
 
-  constructor(private apiService: ApiClientService, private router: Router, private confirmService: NgConfirmService) {
+  constructor(
+    private apiService: ApiClientService,
+    private router: Router,
+    private confirmService: NgConfirmService,
+    private toastr: ToastrService
+  ) {}
 
-  }
   ngOnInit() {
     this.readAll();
   }
@@ -45,26 +47,32 @@ export class ReadComponent implements OnInit {
 
   readAll() {
     let response = this.apiService.getAll();
-    response.subscribe((data) => {
-      this.students = data;
-      setTimeout(() => {
+    response.subscribe(
+      (data) => {
+        this.students = data;
+        setTimeout(() => {
+          this.loading = false;
+        }, 500);
+      },
+      (error) => {
+        console.error(error);
         this.loading = false;
-      }, 500);
-    });
+        this.toastr.error('Failed to load student data. Please try again later.', 'Error');
+      }
+    );
   }
 
   deleteById(studentId: number) {
-    this.confirmService.showConfirm("Are you sure want to Delete!",
-    ()=>{
-      this.apiService.deleteById(studentId).subscribe(data => {
-        this.ngOnInit(); 
-      });
-    },
-    ()=>{
-      alert("Thanks")
-    })
-    
-    this.message = 'Student deleted successfully..!!'
+    this.confirmService.showConfirm(
+      'Are you sure want to Delete!',
+      () => {
+        this.apiService.deleteById(studentId).subscribe((data) => {
+          this.ngOnInit();
+        });
+      },
+      () => { 
+      }
+    );
   }
 
   update(studentId: number) {
@@ -78,32 +86,31 @@ export class ReadComponent implements OnInit {
   setData(studentId: number, studentName: string) {
     this.studentName_new = studentName;
     this.studentId_new = studentId;
-    this.message = "";
+    this.message = '';
   }
 
   wsSubmit(studentNotes: StudentNotes) {
-    studentNotes.studentName=this.studentName_new;
-    studentNotes.studentId=this.studentId_new;
+    studentNotes.studentName = this.studentName_new;
+    studentNotes.studentId = this.studentId_new;
     let response = this.apiService.addStudentNotes(studentNotes);
-    this.message = "" + response;
+    this.message = '' + response;
     response.subscribe((data) => {
-      this.message = data; 
+      this.message = data;
       if (data != null) {
-        this.message = " Noted  added successfully..!!";
+        this.message = 'Note added successfully..!!';
       }
     });
   }
 
   addNote(studentId: number, studentName: String) {
-    this.router.navigate(["/studentNotes"], {
-      queryParams: { studentName: "Application" },
+    this.router.navigate(['/studentNotes'], {
+      queryParams: { studentName: 'Application' },
     });
   }
 
   addStudentNote() {
-    this.apiService.addStudentNotes(this.studentId).subscribe(data => {
+    this.apiService.addStudentNotes(this.studentId).subscribe((data) => {
       console.log();
-    })
+    });
   }
-
 }
