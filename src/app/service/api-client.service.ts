@@ -67,11 +67,15 @@ export class ApiClientService {
     return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/` + weekDate + '/' + subject);
   }
 
+  /*
   public generatedNewWeeklylyWorksheets(weekDate: String, subject: String): Observable<any> {
-    alert ("");
     return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/` + weekDate + '/' + subject);
   }
-
+*/
+  public generatedNewWeeklylyWorksheets(): Observable<any> {
+    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets`);
+  }
+  
 
   public register(student: Students): Observable<any> {
     console.log(student.startDate);

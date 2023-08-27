@@ -58,8 +58,9 @@ export class WorksheetListComponent implements OnInit {
   }
   generateWorksheet(){
 
-      let response = this.apiService.generatedNewWeeklylyWorksheets(this.selectWeek,this.subject);
-      response.subscribe((data) => {
+//      let response = this.apiService.generatedNewWeeklylyWorksheets(this.selectWeek,this.subject);
+let response = this.apiService.generatedNewWeeklylyWorksheets();
+    response.subscribe((data) => {
         this.worksheetsList = data;
       });
     }
