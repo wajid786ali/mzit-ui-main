@@ -48,19 +48,22 @@
           <th>WeekDate</th>
           <th>Worksheets </th>
           <th>ExtraWorksheet</th>
-          <th>Worksheets Name </th>
           <th>Action </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 5, currentPage:p}">
+        <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 100, currentPage:p}">
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
           <td>{{worksheet.subject}}</td>
           <td>{{worksheet.weekDate}}</td>
-          <td>{{worksheet.worksheet}}</td>
-          <td>{{worksheet.extraWorksheet}}</td>
-          <td> <a href="../../assets/worksheet_doc_file/wajid.docx"> worksheet </a></td>
+          <td>{{worksheet.worksheet}} 
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPath}}"> 
+              Print </a>
+            </td>
+          <td>{{worksheet.extraWorksheet}}
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}"> 
+              Print </a>
           <td>
             <button class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal"
               data-bs-target="#pdf_file_view">Start Class</button>
