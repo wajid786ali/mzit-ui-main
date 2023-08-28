@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { WorksheetsList } from '../entity/worksheetsList';
+import { Component, OnInit } from '@angular/core'; 
 import { Worksheets } from '../entity/worksheets';
 import { ApiClientService } from '../service/api-client.service';
 import { Router } from '@angular/router';
@@ -28,6 +27,8 @@ export class WorksheetListComponent implements OnInit {
   subject: any;
   productList: Worksheets[] = [];
   errorItem: boolean = false;
+  
+  printButtonVisible: boolean = false;
 
   constructor(private apiService: ApiClientService, private AddClassService: AddClassService, private router: Router) {
 
@@ -43,9 +44,11 @@ export class WorksheetListComponent implements OnInit {
     response.subscribe((data) => {
       this.worksheets = data;
       this.worksheetsMonth = data.weeklyDate;
-      this.worksheetsList = data.worksheetsDtoList;
+      this.worksheetsList = data.worksheetsDtoList; 
     });
+    this.printButtonVisible = this.worksheetsList && this.worksheetsList.length > 0;
   }
+  
 
   subjectClick(){
     this.filterText=this.subject;

@@ -27,7 +27,8 @@
             <td>{{teacher.type}}</td>
             <td>{{teacher.active}}</td>
             <td> 
-              <button (click)="deleteTeacher(teacher.email)" class="btn btn-primary"><b class="fa fa-delete"></b></button>
+              <button (click)="editTeacher(teacher.email)" class="btn btn-primary"><b class="fa fa-edit"></b></button>
+              <button (click)="deleteTeacher(teacher.email)" class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
             </td>
           </tr>
         </tbody>

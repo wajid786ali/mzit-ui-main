@@ -30,17 +30,19 @@ readAll(){
   });
 }
 
-  wsSubmit(studentFeedBack: StudentFeedBack) {
-    let response = this.apiService.studentFeedBack(studentFeedBack);
-    response.subscribe((data) => {
-      this.studentFeedBack = data;
-    
-      if (data != null) {
-        this.message =
-          'Student ' + this.student.studentName + ' added successfully..!!';
-      }
-    });
-    this.router.navigate(['studentFeedback']);
-  }
+wsSubmit(studentFeedBack: StudentFeedBack) {
+  let response = this.apiService.studentFeedBack(studentFeedBack);
+  response.subscribe((data) => {
+    this.studentFeedBack = data;
+    if (data != null) {
+      this.message = 'Student ' + this.student.studentName + ' added successfully..!!';
+      console.log('Navigating to feedbackDisplay page...');
+      this.router.navigate(['feedbackDisplay']);
+    }
+  });
+}
+
+
+
 }
  
