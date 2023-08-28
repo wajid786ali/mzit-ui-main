@@ -123,8 +123,9 @@ export class ApiClientService {
   public updateTeacher(email: string): Observable<any> {
     return this.httpClient.put(`${this.apiUrl}/students/listTeachers`, email);
   } 
+  
   public deleteTeacher(email: string): Observable<any> {
-    return this.httpClient.delete(`${this.apiUrl}/students/deleteTeachers/${email}`);
+    return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/${email}`);
   } 
 
 }
