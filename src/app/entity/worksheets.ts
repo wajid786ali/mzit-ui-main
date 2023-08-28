@@ -9,7 +9,9 @@ export class Worksheets {
     worksheetStatus: string;
     worksheetNewSuggested: string;
     extraWorksheet: string
-    extraWorksheetPath: string
+    extraWorksheetPath: string;
+    worksheetPathAnswer : string;
+    extraWorksheetPathAnswer : string;
     weekDate: Date;
 
   }

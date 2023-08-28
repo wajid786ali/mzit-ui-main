@@ -12,6 +12,7 @@ export class TeacherListComponent implements OnInit {
   p: number = 1;
   teacherRegisters: any;
   loading: boolean = true;
+  message: string;
 
   constructor(
     private apiService: ApiClientService,
@@ -45,9 +46,17 @@ export class TeacherListComponent implements OnInit {
     );
   }
 
-  editTeacher(email: string) { 
-    this.router.navigate(['edit-teacher', email]);
-    console.log(email)
+  deleteTeacher(email: string) { 
+    let response = this.apiService.deleteTeacher(email);
+    response.subscribe((data) => {
+      this.message = data;
+      if (data != null) {
+        this.message =
+          'Teacher  ' + email+ ' delete successfully..!!';
+      }
+    });
+    this.router.navigate(['list-teacher']);
+
   }
   
 }
