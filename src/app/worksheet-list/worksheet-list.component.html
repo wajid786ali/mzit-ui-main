@@ -58,15 +58,14 @@
           <td>{{worksheet.subject}}</td>
           <td>{{worksheet.weekDate}}</td>
           <td>{{worksheet.worksheet}} 
-<a *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0" class="btn btn-outline-primary btn-sm ms-3" href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPath}}"> 
-<b class="fa fa-print"></b> Print </a>
-<a *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0"  class="btn btn-outline-danger btn-sm ms-2" href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPathAnswer}}"> 
-<b class="fa fa-bullhorn"></b>  Answer </a>
- 
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPath}}"> 
+              Print </a>
+              <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPathAnswer}}"> 
+                Answer </a>
             </td>
           <td>{{worksheet.extraWorksheet}}
-<a *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0"  class="btn btn-outline-primary btn-sm ms-3" href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}"> 
-              <b class="fa fa-print"></b> Print </a>
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}"> 
+              Print </a>
           <td>
             <button class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal"
               data-bs-target="#pdf_file_view">Start Class</button>
