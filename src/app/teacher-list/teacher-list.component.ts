@@ -60,7 +60,7 @@ export class TeacherListComponent implements OnInit {
   }
 
   editTeacher(email: string) { 
-    let response = this.apiService.deleteTeacher(email);
+    let response = this.apiService.updateTeacher(email);
     response.subscribe((data) => { 
     });
     this.router.navigate(['list-teacher']);
