@@ -8,9 +8,13 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   
-  
   isadmin=true;
-   
+  isCenterType = false;
+
+  checkUserRole(): void {
+    const custCenter = sessionStorage.getItem('custCenter');
+    this.isCenterType = custCenter === 'Downtown';
+  }
 
   constructor(private router: Router){
     let custType=sessionStorage.getItem('custType');
@@ -27,12 +31,13 @@ export class HeaderComponent implements OnInit {
     }else{
       this.isadmin = false;
     }
+    this.checkUserRole();
   }
 
   ngOnInit(): void {
-     
+    this.checkUserRole();
   }
-
+  
   logout(): void { 
     sessionStorage.setItem('custName', "");
     sessionStorage.clear();

@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  isCenterType = false;
+
+  checkUserRole(): void {
+    const custCenter = sessionStorage.getItem('custCenter');
+    this.isCenterType = custCenter === 'Downtown';
+  } 
+
+  ngDoCheck(): void {  
+    this.checkUserRole();
+  }
+
+  ngOnInit(): void {
+    this.checkUserRole();
+  }
 }

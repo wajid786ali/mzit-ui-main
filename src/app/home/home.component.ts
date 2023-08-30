@@ -10,7 +10,21 @@ export class HomeComponent implements OnInit{
 
   constructor(private router: Router){}
 
-  ngOnInit(): void {}
+  isCenterType = false;
+
+  checkUserRole(): void {
+    const custCenter = sessionStorage.getItem('custCenter');
+    this.isCenterType = custCenter === 'Downtown';
+  }
+
+  ngDoCheck(): void {  
+    this.checkUserRole();
+  }
+
+  ngOnInit(): void {
+    this.checkUserRole();
+  }
+   
 
   register(){
     this.router.navigate(['register']);

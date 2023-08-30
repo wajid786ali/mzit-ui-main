@@ -3,10 +3,9 @@
     <div class="container">
       <div class="right-head">
         <div class="icon"><span> </span></div>
-        <ul class="dropdown smsEmail">
-          <li><a href="tel:+1(515)978-1220"><i class="fa fa-phone"></i> +1(515)978-1220</a></li>
-          <li><a href="mailto:info@mindzonelearning.com"><i class="fa fa-envelope"></i> info@mindzonelearning.com </a>
-          </li>
+        <ul class="dropdown smsEmail"> 
+          <li><a href="tel:{{ isCenterType ? '+630-877-8906' : '+1(515)978-1220' }}"><i class="fa fa-phone"></i> {{ isCenterType ? '+630-877-8906' : '+1(515)978-1220' }}</a></li>
+          <li><a href="mailto:{{ isCenterType ? 'info@eehp.us' : 'info@mindzonelearning.com' }}"><i class="fa fa-phone"></i> {{ isCenterType ? 'info@eehp.us' : 'info@mindzonelearning.com' }}</a></li> 
           <li class="fr ms-1">
             <a class="login_bt" role="button" (click)="logout()">
               <i class="fa fa-sign-out"></i> Logout
@@ -19,19 +18,17 @@
   </div>
 
   <nav class="navbar navbar-expand-lg fixer">
-    <div class="container">
-      <a class="navbar-brand" routerLink="/home"><img src="./assets/images/logo.png" alt="" /></a>
+    <div class="container"> 
+      <a class="navbar-brand" routerLink="/home"><img [src]="isCenterType? './assets/images/eehp.png' : './assets/images/logo.png'" alt="Logo"> </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTop"
         aria-controls="navbarTop" aria-expanded="false"><span class="fa fa-bars"></span></button>
       <div class="collapse navbar-collapse" id="navbarTop">
         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact:
-              true}">Home</a></li>
+              [routerLinkActiveOptions]="{exact:true}">Home</a></li>
 
           <li class="nav-item"><a class="nav-link" routerLink="/email" routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact:
-            true}">Email Send</a></li>
+              [routerLinkActiveOptions]="{exact:true}">Email Send</a></li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
               aria-expanded="false">
