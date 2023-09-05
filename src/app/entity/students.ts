@@ -10,5 +10,6 @@ export class Students {
     startDate: Date;
     endDate: Date;
     days: string[];
-    status:string
+    status:string;
+    amount: number
   }
