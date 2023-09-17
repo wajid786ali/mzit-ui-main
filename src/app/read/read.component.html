@@ -36,11 +36,13 @@
             <th>Phone Number</th>
             <th>Grade</th>
             <th>Address</th>
+            <th>Amount</th>
             <th>Start Date</th>
             <th>End Date</th>
             <th>Subjects</th>
             <th>Days</th>
             <th>Status</th>
+            <th>Center</th>
             <th>Add Note</th>
             <th>Action</th>
           </tr>
@@ -55,11 +57,13 @@
             <td>{{student.phoneNumber}}</td>
             <td>{{student.grade}}</td>
             <td>{{student.address}}</td>
+            <td>{{student.amount}}</td>
             <td>{{student.startDate}}</td>
             <td>{{student.endDate}}</td>
             <td>{{student.subjects}}</td>
             <td>{{student.days}}</td>
             <td>{{student.status}}</td>
+            <td>{{student.center}}</td>
             <td>
               <button data-bs-toggle="modal" (click)="setData(student.studentId,student.studentName)"
                 data-bs-target="#studentNotes" class="btn btn-danger ms-3"> Add</button>

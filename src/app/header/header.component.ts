@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   
-  isadmin=true;
+  isadmin=false;
   isCenterType = false;
 
   checkUserRole(): void {
@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit {
   
   logout(): void { 
     sessionStorage.setItem('custName', "");
+    sessionStorage.setItem('custCenter', "");
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }

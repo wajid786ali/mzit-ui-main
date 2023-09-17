@@ -1,4 +1,5 @@
 export class Students {
+    center:string;
     studentId: number;
     studentName: string;
     parentsName: string;

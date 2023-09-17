@@ -78,6 +78,7 @@ export class ApiClientService {
   
 
   public register(student: Students): Observable<any> {
+    student.center=""+sessionStorage.getItem('custCenter');
     console.log(student.startDate);
     return this.httpClient.post(`${this.apiUrl}/students/`, student);
   }
