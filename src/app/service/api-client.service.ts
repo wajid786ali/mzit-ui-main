@@ -119,11 +119,11 @@ export class ApiClientService {
 
   public teacherRegister(teacherRegister: TeacherRegister): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
-  }
+  } 
 
-  editTeacherByEmail(email: string, updatedTeacherData: any): Observable<any> {
-    const editUrl = `${this.apiUrl}/students/listTeachers/${email}`;
-    return this.httpClient.put(editUrl, updatedTeacherData);
+  public getTeacherByEmail(email: string): Observable<TeacherRegister> {
+    const url = `${this.apiUrl}/listTeachers?email=${email}`;
+    return this.httpClient.get<TeacherRegister>(url); // Use .get method for GET requests
   }  
   
   public deleteTeacher(email: string): Observable<any> {
