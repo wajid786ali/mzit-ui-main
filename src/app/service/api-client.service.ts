@@ -33,7 +33,7 @@ export class ApiClientService {
   }
 
   public getAll(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/all`);
+    return this.httpClient.get(`${this.apiUrl}/students/all/${sessionStorage.getItem('custCenter')}`);
   }
 
   public getListFeedBack(): Observable<any> {
@@ -41,10 +41,10 @@ export class ApiClientService {
   }
 
   public getListRemindersActive(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/listRemindersNew`);
+    return this.httpClient.get(`${this.apiUrl}/students/listRemindersNew/${sessionStorage.getItem('custCenter')}`);
   }
   public getListRemindersResolve(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/listRemindersResolve`);
+    return this.httpClient.get(`${this.apiUrl}/students/listRemindersResolve/${sessionStorage.getItem('custCenter')}`);
   }
 
   public deleteRemindersById(studentId: string) {
@@ -64,7 +64,7 @@ export class ApiClientService {
   }
 
   public getNewWeeklylyWorksheets(weekDate: String, subject: String): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/` + weekDate + '/' + subject);
+    return this.httpClient.get(`${this.apiUrl}/students/newWeeklyWorksheets/` + weekDate + '/' + subject+'/'+sessionStorage.getItem('custCenter'));
   }
 
   /*
