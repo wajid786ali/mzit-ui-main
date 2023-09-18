@@ -7,4 +7,5 @@ export class StudentNotes {
     reminderDate: Date;
     createdDate: Date;
     completedDate: Date;
+    center: string
   }
