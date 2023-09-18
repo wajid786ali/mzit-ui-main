@@ -92,6 +92,7 @@ export class ReadComponent implements OnInit {
   wsSubmit(studentNotes: StudentNotes) {
     studentNotes.studentName = this.studentName_new;
     studentNotes.studentId = this.studentId_new;
+    studentNotes.center = ""+sessionStorage.getItem('custCenter');
     let response = this.apiService.addStudentNotes(studentNotes);
     this.message = '' + response;
     response.subscribe((data) => {
