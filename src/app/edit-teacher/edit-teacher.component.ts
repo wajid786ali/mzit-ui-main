@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../service/api-client.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherRegister } from '../entity/teacher';
 
 @Component({
@@ -9,15 +9,21 @@ import { TeacherRegister } from '../entity/teacher';
   styleUrls: ['./edit-teacher.component.css']
 })
 export class EditTeacherComponent implements OnInit {
-
   
-  teacherRegister : TeacherRegister = new TeacherRegister();  
-  message: string;
- 
-  constructor(private apiService: ApiClientService, private router: Router) {}
-
-  ngOnInit(): void {} 
+  teacherData: TeacherRegister;
   
+  
+  constructor(private apiService: ApiClientService, private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const email = this.route.snapshot.paramMap.get('email');
+    if (email !== null) {
+      this.apiService['getTeacherByEmail'](email).subscribe((data: TeacherRegister) => {
+        this.teacherData = data;
+        console.log('Teacher Data:', this.teacherData);
+      });
+    } else {
+      // Handle the case where 'email' is null, for example, by redirecting or showing an error message.
+    }
+  }
 }
-
-

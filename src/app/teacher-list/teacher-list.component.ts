@@ -56,16 +56,9 @@ export class TeacherListComponent implements OnInit {
       }
     });
     this.router.navigate(['list-teacher']);
-
   }
 
-  editTeacher(email: string) { 
-    let response = this.apiService.updateTeacher(email);
-    response.subscribe((data) => { 
-    });
-    this.router.navigate(['list-teacher']);
-
-  }
-
-  
+  editTeacher(email: string) {  
+    this.router.navigate(['edit-teacher',email]); 
+  } 
 }

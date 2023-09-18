@@ -121,12 +121,13 @@ export class ApiClientService {
     return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
   }
 
-  public updateTeacher(email: string): Observable<any> {
-    return this.httpClient.put(`${this.apiUrl}/students/listTeachers`, email);
-  } 
+  editTeacherByEmail(email: string, updatedTeacherData: any): Observable<any> {
+    const editUrl = `${this.apiUrl}/students/listTeachers/${email}`;
+    return this.httpClient.put(editUrl, updatedTeacherData);
+  }  
   
   public deleteTeacher(email: string): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/${email}`);
-  } 
+  }  
 
 }
