@@ -67,7 +67,7 @@
             <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}" *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0"  class="btn btn-outline-primary btn-sm ms-3"> 
               <b class="fa fa-print"></b> Print </a>
           <td>
-            <button class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal"
+            <button class="btn btn-primary" *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0" (click)="addToCart(worksheet)" data-bs-toggle="modal"
               data-bs-target="#pdf_file_view">Start Class</button>
           </td>
         </tr>
