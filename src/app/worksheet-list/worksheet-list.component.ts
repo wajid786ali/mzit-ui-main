@@ -29,7 +29,8 @@ export class WorksheetListComponent implements OnInit {
   errorItem: boolean = false;
   
   printButtonVisible: boolean = false;
-
+ 
+  
   constructor(private apiService: ApiClientService, private AddClassService: AddClassService, private router: Router) {
 
   }
@@ -53,6 +54,7 @@ export class WorksheetListComponent implements OnInit {
   subjectClick(){
     this.filterText=this.subject;
   }
+    
   weekDateClick() {
     let response = this.apiService.getWeeklylyWorksheets(this.selectWeek);
     response.subscribe((data) => {

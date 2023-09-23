@@ -58,14 +58,14 @@
           <td>{{worksheet.subject}}</td>
           <td>{{worksheet.weekDate}}</td>
           <td>{{worksheet.worksheet}} 
-            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPath}}"> 
-              Print </a>
-              <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPathAnswer}}"> 
-                Answer </a>
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPath}}" *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0" class="btn btn-outline-primary btn-sm ms-3"> 
+              <b class="fa fa-print"></b> Print </a>
+              <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.worksheetPathAnswer}}" *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0" class="btn btn-outline-danger btn-sm ms-2"> 
+                <b class="fa fa-bullhorn"></b> Answer </a>
             </td>
           <td>{{worksheet.extraWorksheet}}
-            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}"> 
-              Print </a>
+            <a href="http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{worksheet.extraWorksheetPath}}" *ngIf="worksheet.worksheet && worksheet.worksheet.length > 0"  class="btn btn-outline-primary btn-sm ms-3"> 
+              <b class="fa fa-print"></b> Print </a>
           <td>
             <button class="btn btn-primary" (click)="addToCart(worksheet)" data-bs-toggle="modal"
               data-bs-target="#pdf_file_view">Start Class</button>
@@ -101,7 +101,7 @@
               </div>
               <div class="chat_list" *ngFor="let worksheet of worksheetsList | filter:filterText">
                 <div>Name: <span>{{worksheet.studentName}}</span></div>
-                <div>Class: <span>{{worksheet.grade}}</span></div>
+                <div>Class: <span>{{worksheet.grade}}</span></div> 
                 <div class="bt_box_01">
                   <button class="btn btn-primary" (click)="addToCart(worksheet)">Start Class</button>
                 </div>
@@ -119,12 +119,13 @@
 
                     <div class="inner_tabing">
                       <div class="worksheet_tabs">
-                    
+                        
                         <div class="worksheet_tab">
                           <input type="radio" name="worksheet_{{i+1}}_group" id="Worksheet{{i+1}}_tab_01" checked class="worksheet_tab_switch">
                           <label for="Worksheet{{i+1}}_tab_01" class="worksheet_tab_label">Worksheet</label>
                           <div class="worksheet_tab_content"> 
-                            <ngx-doc-viewer [url]="'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf'" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                            <!-- http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{cart.worksheetPath}} -->
+                            <ngx-doc-viewer [url]="'http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{cart.worksheetPath}}'" viewer="office" style="width:100%;height:70vh;"></ngx-doc-viewer>
                           </div>
                         </div>
                     
@@ -132,7 +133,7 @@
                           <input type="radio" name="worksheet_{{i+1}}_group" id="Worksheet{{i+1}}_tab_02" class="worksheet_tab_switch">
                           <label for="Worksheet{{i+1}}_tab_02" class="worksheet_tab_label">AnswerSheet</label>
                           <div class="worksheet_tab_content"> 
-                            <ngx-doc-viewer [url]="'https://podcasts.ceu.edu/sites/podcasts.ceu.edu/files/sample.doc'" viewer="office" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                            <ngx-doc-viewer [url]="'http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{cart.worksheetPathAnswer}}'" viewer="office" style="width:100%;height:70vh;"></ngx-doc-viewer>
                           </div>
                         </div>
                     
@@ -140,7 +141,7 @@
                           <input type="radio" name="worksheet_{{i+1}}_group" id="Worksheet{{i+1}}_tab_03" class="worksheet_tab_switch">
                           <label for="Worksheet{{i+1}}_tab_03" class="worksheet_tab_label">Other Worksheet</label>
                           <div class="worksheet_tab_content"> 
-                            <ngx-doc-viewer [url]="'https://www.antennahouse.com/hubfs/xsl-fo-sample/pdf/basic-link-1.pdf'" viewer="google" style="width:100%;height:70vh;"></ngx-doc-viewer>
+                            <ngx-doc-viewer [url]="'http://localhost:8081/mindzoneitsolutions/app/v1/documents/{{cart.extraWorksheetPath}}'" viewer="office" style="width:100%;height:70vh;"></ngx-doc-viewer>
                           </div>
                         </div>
                         
@@ -160,3 +161,4 @@
       </div>
     </div>
   </div>
+ 
