@@ -13,5 +13,5 @@ export class Worksheets {
     worksheetPathAnswer : string;
     extraWorksheetPathAnswer : string;
     weekDate: Date;
-
+    center:String;
   }

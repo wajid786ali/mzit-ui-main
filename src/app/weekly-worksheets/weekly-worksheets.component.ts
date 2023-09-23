@@ -27,6 +27,7 @@
     selectedDate:any;
     weekDate: any; 
     subject: any;
+    custCenter:any;
  
     public classStart: any = [];
   
@@ -39,7 +40,8 @@
   
     ngOnInit() {
      // this.readAll();
-  
+     const custCenter = sessionStorage.getItem('custCenter');
+
     }
   
   

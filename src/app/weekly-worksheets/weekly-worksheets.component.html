@@ -55,7 +55,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 5, currentPage:p}">
+        <tr *ngFor="let worksheet of worksheetsList | filter:filterText | paginate: { itemsPerPage: 50, currentPage:p}">
           <td>{{worksheet.studentName}}</td>
           <td>{{worksheet.grade}}</td>
           <td>{{worksheet.weekDate}}</td>
@@ -72,8 +72,8 @@
               [(ngModel)]="worksheet.worksheetNewSuggested" name="extraWorksheet"
               placeholder="{{worksheet.worksheetNewSuggested}}" />
           </td>
-          <td>{{worksheet.worksheetStatus}}</td>
-
+          <td>{{worksheet.worksheetStatus}}</td>  
+          <td>{{custCenter}}</td> 
           <td> <a href="../../assets/worksheet_doc_file/wajid.docx"> worksheet </a></td>
 
         </tr>

@@ -73,7 +73,7 @@ export class ApiClientService {
   }
 */
   public generatedNewWeeklylyWorksheets(): Observable<any> {
-    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets`);
+    return this.httpClient.get(`${this.apiUrl}/students/generateWeeklyWorksheets/${sessionStorage.getItem('custCenter')}`);
   }
   
 
@@ -88,6 +88,7 @@ export class ApiClientService {
   }
 
   public addWorksheet(worksheets: Worksheets): Observable<any> {
+    worksheets.center=""+sessionStorage.getItem('custCenter');
     return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`, worksheets);
   }
 
