@@ -35,7 +35,7 @@ const routes: Routes = [
   { path: 'feedbackDisplay', component: FeedbackDisplayComponent, canActivate: [AuthGuard] },
   { path: 'add-teacher', component: TeacherRegisterComponent, canActivate: [AuthGuard, RoleGuard] },
   { path: 'list-teacher', component: TeacherListComponent, canActivate: [AuthGuard, RoleGuard] },
-  { path: 'edit-teacher', component: EditTeacherComponent, canActivate: [AuthGuard, RoleGuard] },
+  { path: 'edit-teacher/:email', component: EditTeacherComponent, canActivate: [AuthGuard, RoleGuard] },
   { path: 'newWorksheet', component: NewWorksheetComponent, canActivate: [AuthGuard] },
   { path: 'worksheetList', component: WorksheetListComponent, canActivate: [AuthGuard] },
   { path: 'worksheetView', component: WorksheetViewComponent, canActivate: [AuthGuard] },

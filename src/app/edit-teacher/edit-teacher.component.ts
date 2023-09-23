@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TeacherRegister } from '../entity/teacher';
 
 @Component({
@@ -9,21 +9,38 @@ import { TeacherRegister } from '../entity/teacher';
   styleUrls: ['./edit-teacher.component.css']
 })
 export class EditTeacherComponent implements OnInit {
+
   
-  teacherData: TeacherRegister;
-  
-  
-  constructor(private apiService: ApiClientService, private route: ActivatedRoute) {}
+  teacherRegister : TeacherRegister = new TeacherRegister();  
+  message: string;
+  teacher: TeacherRegister;
+  router: any;
+
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiClientService
+  ) {}
 
   ngOnInit(): void {
-    const email = this.route.snapshot.paramMap.get('email');
-    if (email !== null) {
-      this.apiService['getTeacherByEmail'](email).subscribe((data: TeacherRegister) => {
-        this.teacherData = data;
-        console.log('Teacher Data:', this.teacherData);
+    const email = this.route.snapshot.params['email'];
+    if (email) {
+      this.apiService.getTeacherByEmail(email).subscribe((data: TeacherRegister) => {
+        this.teacher = data;
+        console.log(data);
       });
     } else {
-      // Handle the case where 'email' is null, for example, by redirecting or showing an error message.
+      // Handle the case where 'email' is null or not provided, for example, by redirecting or showing an error message.
     }
+  }
+  wsSubmit(teacherRegister: TeacherRegister) {
+    let response = this.apiService.teacherRegister(teacherRegister);
+    response.subscribe((data) => {
+      this.teacherRegister = data;
+      if (data != null) {
+        this.message =
+          'Student ' + this.teacherRegister.teacherName + ' added successfully..!!';
+      }
+    });
+    this.router.navigate(['list-teacher']);
   }
 }
