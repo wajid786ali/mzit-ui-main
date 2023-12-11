@@ -3,23 +3,49 @@
         <div class="innerCont">
             <div class="row">
                 <div class="col-md-6 offset-md-3">
-                    <div class="rgs_frm">
+                    <div class="rgs_frm" *ngIf="showForm">
                         <div class="page_title">
                             <h2>Email <span>Send</span></h2>
                         </div>
 
+                        <div style="border:solid 1px #ddd;padding:10px;margin-bottom:20px;">
+                            <div style="font-weight:600;">
+                                <label>
+                                    <input type="checkbox" [(ngModel)]="selectAllTeachers"
+                                        (change)="toggleSelectAllTeachers()" />
+                                    Select All Teachers
+                                </label>
+                            </div>
+
+                            <ul>
+                                <li *ngFor="let teacher of teachers">
+                                    <input type="checkbox" [(ngModel)]="teacher.isSelected" />
+                                    {{ teacher.email }}
+                                </li>
+                            </ul>
+                            <br>
+                            <div style="font-weight:600;">
+                                <label>
+                                    <input type="checkbox" [(ngModel)]="selectAllStudents"
+                                        (change)="toggleSelectAllStudents()" />
+                                    Select All Students
+                                </label>
+                            </div>
+
+                            <ul>
+                                <li *ngFor="let student of students">
+                                    <input type="checkbox" [(ngModel)]="student.isSelected" />
+                                    {{ student.email }}
+                                </li>
+                            </ul>
+                        </div>
+
                         <form action="javascritp:void(0)" [formGroup]="form" (submit)="send()">
                             <div class="row">
-
-                                <div class="form-group">
-                                    <label for="form_name" class="form-label">Name</label>
-                                    <input type="text" class="form-control" id="form_name" name="form_name"
-                                        placeholder="Enter name" formControlName="form_name">
-                                </div>
                                 <div class="form-group">
                                     <label for="form_email" class="form-label">Email ID</label>
                                     <input type="text" class="form-control" id="form_email" name="form_email"
-                                        placeholder="Enter email" formControlName="form_email">
+                                        placeholder="Enter email" formControlName="form_email" [value]="getEmails()">
                                 </div>
                                 <div class="form-group">
                                     <label for="subject" class="form-label">Subject</label>
@@ -31,14 +57,21 @@
                                     <textarea class="form-control" id="message" name="message"
                                         placeholder="Enter Message" formControlName="message"></textarea>
                                 </div>
-
-
                             </div>
                             <div class="text-center mt-2">
                                 <button class="btn rgst_btn w-100" type="submit"> Submit </button>
                             </div>
-                        </form>
+                        </form> 
+
                     </div>
+
+
+                    <div *ngIf="showThanksMessage" style="border:solid 1px #ddd;padding:30px;text-align:center;font-size: 22px;color:green;">
+                            <img src="../../assets/images/source.gif">
+                        <p>Thanks for sending the email!</p>
+                    </div>
+
+
                 </div>
             </div>
         </div>
