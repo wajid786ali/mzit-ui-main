@@ -26,6 +26,8 @@ export class ReadComponent implements OnInit {
   studentStatus: string;
   loading: boolean = true;
 
+  selectedStudents: Students[] = [];
+
   constructor(
     private apiService: ApiClientService,
     private router: Router,
@@ -114,4 +116,22 @@ export class ReadComponent implements OnInit {
       console.log();
     });
   }
+
+  selectStudent(student: Students) {
+    if (this.selectedStudents.includes(student)) {
+      this.selectedStudents = this.selectedStudents.filter((s) => s !== student);
+    } else {
+      this.selectedStudents.push(student);
+    }
+  }
+
+  selectAllStudents() {
+    this.selectedStudents = this.students.slice(); // Copy all students to selectedStudents array
+  }
+
+  goToEmailSendComponent() {
+    // Route to EmailSendComponent and pass selected students data as query parameters
+    const selectedStudentsJSON = JSON.stringify(this.selectedStudents);
+  this.router.navigate(['/email'], { queryParams: { selectedStudents: selectedStudentsJSON } });
+}
 }

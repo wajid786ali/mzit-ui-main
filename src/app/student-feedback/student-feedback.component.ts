@@ -42,7 +42,15 @@ wsSubmit(studentFeedBack: StudentFeedBack) {
   });
 }
 
-
+fetchStudentDetails() {
+  const selectedStudent = this.students.find((student: { studentName: string; }) => student.studentName === this.filterWorksheet);
+  if (selectedStudent) {
+    this.studentFeedBack.studentName = selectedStudent.studentName;
+    this.studentFeedBack.studentId = selectedStudent.studentId;
+  } else {
+    console.error('Selected student not found');
+  }
+}
 
 }
  

@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
-import { ApiClientService } from '../service/api-client.service'; 
+import { ApiClientService } from '../service/api-client.service';
 
 @Component({
   selector: 'app-email-send',
   templateUrl: './email-send.component.html',
   styleUrls: ['./email-send.component.css']
 })
-export class EmailSendComponent {
+export class EmailSendComponent implements OnInit {
+  selectedStudents: any[] = [];
 
   teachers: any[] = [];
   students: any[] = [];
@@ -23,8 +25,18 @@ export class EmailSendComponent {
     message: '',
   });
 
-  constructor(private fb: FormBuilder, private apiService: ApiClientService) { }
+  constructor(private route: ActivatedRoute, private fb: FormBuilder, private apiService: ApiClientService) { }
 
+  ngOnInit(): void {
+    this.loadTeachers();
+    this.loadStudents();
+    // Retrieve selected students data from query parameters
+    this.route.queryParams.subscribe(params => {
+      if (params['selectedStudents']) {
+        this.selectedStudents = JSON.parse(params['selectedStudents']);
+      }
+    });
+  }
 
   async send() {
     emailjs.init('AKDZUlOn2Rk9akg3E');
@@ -47,17 +59,7 @@ export class EmailSendComponent {
   toggleSelectAllStudents() {
     this.students.forEach(student => student.isSelected = this.selectAllStudents);
   }
-  getEmails(): string {
-    const selectedTeachers = this.teachers.filter(teacher => teacher.isSelected).map(teacher => teacher.email);
-    const selectedStudents = this.students.filter(student => student.isSelected).map(student => student.email);
-    const allSelectedEmails = [...selectedTeachers, ...selectedStudents].join(', ');
-    return allSelectedEmails;
-  }
 
-  ngOnInit() {
-    this.loadTeachers();
-    this.loadStudents();
-  }
 
   loadTeachers() {
     this.apiService.getListTeachers().subscribe(
@@ -79,5 +81,9 @@ export class EmailSendComponent {
         console.error('Error loading students:', error);
       }
     );
+  }
+
+  getEmails(): string {
+    return this.selectedStudents.map(student => student.email).join(', ');
   }
 }

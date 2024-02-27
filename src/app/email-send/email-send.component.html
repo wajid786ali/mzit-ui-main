@@ -8,44 +8,13 @@
                             <h2>Email <span>Send</span></h2>
                         </div>
 
-                        <div style="border:solid 1px #ddd;padding:10px;margin-bottom:20px;">
-                            <div style="font-weight:600;">
-                                <label>
-                                    <input type="checkbox" [(ngModel)]="selectAllTeachers"
-                                        (change)="toggleSelectAllTeachers()" />
-                                    Select All Teachers
-                                </label>
-                            </div>
-
-                            <ul>
-                                <li *ngFor="let teacher of teachers">
-                                    <input type="checkbox" [(ngModel)]="teacher.isSelected" />
-                                    {{ teacher.email }}
-                                </li>
-                            </ul>
-                            <br>
-                            <div style="font-weight:600;">
-                                <label>
-                                    <input type="checkbox" [(ngModel)]="selectAllStudents"
-                                        (change)="toggleSelectAllStudents()" />
-                                    Select All Students
-                                </label>
-                            </div>
-
-                            <ul>
-                                <li *ngFor="let student of students">
-                                    <input type="checkbox" [(ngModel)]="student.isSelected" />
-                                    {{ student.email }}
-                                </li>
-                            </ul>
-                        </div>
-
+                          
                         <form action="javascritp:void(0)" [formGroup]="form" (submit)="send()">
                             <div class="row">
                                 <div class="form-group">
-                                    <label for="form_email" class="form-label">Email ID</label>
+                                    <label for="form_email" class="form-label">Email ID</label> 
                                     <input type="text" class="form-control" id="form_email" name="form_email"
-                                        placeholder="Enter email" formControlName="form_email" [value]="getEmails()">
+                                        placeholder="Enter email" [value]="getEmails()" readonly> 
                                 </div>
                                 <div class="form-group">
                                     <label for="subject" class="form-label">Subject</label>
@@ -54,7 +23,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="message" class="form-label">Message</label>
-                                    <textarea class="form-control" id="message" name="message"
+                                    <textarea class="form-control" rows="5" id="message" name="message"
                                         placeholder="Enter Message" formControlName="message"></textarea>
                                 </div>
                             </div>
@@ -77,3 +46,4 @@
         </div>
     </div>
 </div>
+ 

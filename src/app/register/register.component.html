@@ -18,12 +18,10 @@
                  
                 <div class="form-group col-6">
                   <label for="studentName"> Student Name <span>*</span></label>
-                  <input type="text" class="form-control" id="studentName" [(ngModel)]="student.studentName" name="studentName" placeholder="Enter student name" required minlength="5" #studentName="ngModel"/> 
+                  <input type="text" class="form-control" id="studentName" [(ngModel)]="student.studentName" name="studentName" placeholder="Enter student name" required #studentName="ngModel"/> 
 
                   <div *ngIf="!studentName?.valid && (studentName?.dirty || studentName?.touched)" class="_error">
-                    <div *ngIf="studentName.errors?.['required']">First Name is required</div>
-                    <div *ngIf="studentName.errors?.['minlength']">Minimum Length is {{studentName.errors?.['minlength']?.requiredLength}}
-                    </div>
+                    <div *ngIf="studentName.errors?.['required']">First Name is required</div>  
                  </div>
 
                 </div> 
@@ -40,12 +38,10 @@
 
                 <div class="form-group">
                   <label for="parentsName">Parent Name <span>*</span></label>
-                  <input type="text" class="form-control" id="parentsName" [(ngModel)]="student.parentsName" name="parentsName" placeholder="Enter parents name" required minlength="5" #parentsName="ngModel"/> 
+                  <input type="text" class="form-control" id="parentsName" [(ngModel)]="student.parentsName" name="parentsName" placeholder="Enter parents name" required #parentsName="ngModel"/> 
 
                   <div *ngIf="!parentsName?.valid && (parentsName?.dirty || parentsName?.touched)" class="_error">
-                    <div *ngIf="parentsName.errors?.['required']">Parent Name is required</div>
-                    <div *ngIf="parentsName.errors?.['minlength']">Minimum Length is {{parentsName.errors?.['minlength']?.requiredLength}}
-                    </div>
+                    <div *ngIf="parentsName.errors?.['required']">Parent Name is required</div> 
                  </div>
                 </div>
               

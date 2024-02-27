@@ -10,16 +10,17 @@
             <div class="row">
               <div class="form-group col-12">  
                 <label for="sName">Select Student Name <span>*</span></label>
-                <select class="form-select" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel">
+                <select class="form-select" name="sName" [(ngModel)]="filterWorksheet" required #sName="ngModel" (change)="fetchStudentDetails()">
                   <option selected>Select student</option>
                   <option *ngFor="let student of students">{{student.studentName}}</option>
-                </select>
+                </select>   
+                
                 <div *ngIf="!sName?.valid && (sName?.dirty || sName?.touched)" class="_error">
                   <div *ngIf="sName.errors?.['required']">Select student is required</div>
                 </div>
               </div>
             </div>
-            <form #contactForm="ngForm" novalidate>
+            <form #contactForm="ngForm" (ngSubmit)="wsSubmit(studentFeedBack)" novalidate>
               <div class="row">
                 <div class="form-group col-8">
                   <label for="studentName"> Student Name <span>*</span></label>
