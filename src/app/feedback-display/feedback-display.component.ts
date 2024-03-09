@@ -9,24 +9,26 @@ import { Router } from '@angular/router';
   styleUrls: ['./feedback-display.component.css']
 })
 export class FeedbackDisplayComponent {
-  
+
   p: number = 1;
   studentFeedBack: StudentFeedBack = new StudentFeedBack();
 
-  studentFeedBacks : any;
+  studentFeedBacks: any;
+
   constructor(private apiService: ApiClientService,
     private router: Router
-){}
+  ) { }
 
   ngOnInit() {
     this.readAll();
-}
+  }
 
-readAll(){
-let response1 =this.apiService.getListFeedBack();
-response1.subscribe((data1) => { 
-  this.studentFeedBacks = data1;
-});
-}
+  readAll() {
+    let response1 = this.apiService.getListFeedBack();
+    response1.subscribe((data1) => {
+      this.studentFeedBacks = data1;
+      console.log(data1)
+    });
+  }
 
 }

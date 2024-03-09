@@ -16,24 +16,29 @@ export class RegisterComponent implements OnInit {
   student: Students = new Students();
   message: string;
 
+
   constructor(private apiService: ApiClientService, private router: Router, private toastr: ToastrService) { }
 
   ngOnInit(): void { 
   }
 
+  
   register(student: Students) {
     let response = this.apiService.register(student);
     response.subscribe(
       (data) => {
         this.student = data; 
         this.alert = true;  
-        this.student = new Students();
       },
       (error) => {
         console.error(error);
         this.toastr.error('Failed to register student. Please try again later.', 'Error');
       }
     );
-    this.router.navigate(['view']);
+  }
+  
+  addNewStudent() {
+    this.student = new Students();
+    this.alert = false;
   }
 }

@@ -3,7 +3,15 @@
     <div class="innerCont">
       <div class="row">
         <div class="col-md-6 offset-md-3">
-          <div class="rgs_frm">
+
+          <div *ngIf="alert" class="border mb-4 border-success rounded p-4 text-center" style="font-size:16px;" role="alert">
+            <div class="mb-3"><img src="../../assets/images/source.gif"></div>
+            <h3 class="alert-heading text-success">Success!</h3>
+            <div class="mb-3">Student Feedback Successfully </div>
+            <button class="btn btn-primary" (click)="addNewFeedback()">Add New Feedback</button>
+          </div> 
+
+          <div class="rgs_frm" *ngIf="!alert">
             <div class="page_title">
               <h2>Student <span>Feedback</span></h2>
             </div>
@@ -48,8 +56,7 @@
               <div class="row">
                 <div class="form-group col-12">
                   <label for="noOfWorksheet"> Number of worksheet completed <span>*</span></label>
-                  <input class="form-control" type="text" id="noOfWorksheet"
-                    [(ngModel)]="studentFeedBack.noOfWorksheets" name="noOfWorksheet"
+                  <input class="form-control" type="number" id="noOfWorksheet" [(ngModel)]="studentFeedBack.noOfWorksheets" name="noOfWorksheet"
                     placeholder="Number of worksheet completed"  required #noOfWorksheet="ngModel" />
 
                     <div *ngIf="!noOfWorksheet?.valid && (noOfWorksheet?.dirty || noOfWorksheet?.touched)" class="_error">
@@ -81,11 +88,12 @@
                 </div>
               </div>
               <div class="text-center mt-2">
-                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentFeedBack)"
-                  [disabled]="!contactForm.valid"> Submit Feedback</button>
+                <button class="btn rgst_btn w-100" type="submit"> Submit Feedback</button>
               </div>
             </form>
           </div>
+
+          
         </div>
       </div>
     </div>

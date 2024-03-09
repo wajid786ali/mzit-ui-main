@@ -7,27 +7,25 @@
             <table class = "table table-striped table-hover table-bordered"> 
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>S.N</th>
                         <th>Student Name</th>
                         <th>Teacher Name</th>
                         <th>Worksheets Type </th>
                         <th>noOfWorksheets</th>
-                        <th>Comments</th>
-                        <th>Action</th>
+                        <th>Comments</th> 
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let studentFeedBack of studentFeedBacks  | paginate: { itemsPerPage: 5, currentPage: p }">
-                        <td>{{studentFeedBack.studentId}}</td>
+                    <tr *ngFor="let studentFeedBack of studentFeedBacks  | paginate: { itemsPerPage: 10, currentPage: p } let i = index">
+                        <td>{{ i + 1}}</td>
                         <td>{{studentFeedBack.studentName}}</td>
                         <td>{{studentFeedBack.teacherName}}</td>
                         <td>{{studentFeedBack.worksheetsType}}</td>
                         <td>{{studentFeedBack.noOfWorksheets}}</td>
                         <td>{{studentFeedBack.comments}}</td>
-                        <td>
-                            <button class="btn btn-success ms-3"><b class="fa fa-edit"></b></button>
-                            <button class="btn btn-danger ms-3"><b class="fa fa-trash"></b></button>
-                        </td>
+                        <!--<td>
+                            <button class="btn btn-success ms-3"><b class="fa fa-edit"></b></button> 
+                        </td>-->
                     </tr>
                 </tbody>
             </table>

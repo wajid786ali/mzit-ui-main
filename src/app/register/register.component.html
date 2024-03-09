@@ -8,11 +8,14 @@
               <h2>MindZone Student <span>Registration</span></h2>
             </div>  
 
-            <div *ngIf="alert" class="alert alert-warning alert-dismissible fade show" role="alert">
-              <strong>Success!</strong> Student Registered Successfully
-              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-
+            <div *ngIf="alert" class="border mb-4 border-success rounded p-4 text-center" style="font-size:16px;" role="alert">
+              <div class="mb-3"><img src="../../assets/images/source.gif"></div>
+              <h3 class="alert-heading text-success">Success!</h3>
+              <div class="mb-3">Student Registered Successfully </div>
+              <button class="btn rgst_btn" (click)="addNewStudent()">Add New Student</button>
+            </div> 
+ 
+            <div *ngIf="!alert">
             <form #contactForm="ngForm" novalidate>
               <div class="row">
                  
@@ -119,6 +122,7 @@
                 <button class="btn rgst_btn w-100" type="submit" (click)="register(student)" [disabled]="!contactForm.valid"> Registration Student </button>
               </div>
             </form>
+          </div>
           </div>
         </div>
       </div>

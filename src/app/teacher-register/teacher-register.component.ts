@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiClientService } from '../service/api-client.service';
 import { Router } from '@angular/router';
 import { TeacherRegister } from '../entity/teacher';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-teacher-register',
@@ -10,24 +11,31 @@ import { TeacherRegister } from '../entity/teacher';
 })
 export class TeacherRegisterComponent implements OnInit {
 
-  teacherRegister : TeacherRegister = new TeacherRegister();  
-  message: string;
- 
-  constructor(private apiService: ApiClientService, private router: Router) {}
+  teacherRegister: TeacherRegister = new TeacherRegister();
+  alert: boolean = false;
 
-  ngOnInit(): void {} 
-    
+  constructor(private apiService: ApiClientService, private router: Router, private toastr: ToastrService) { }
+
+  ngOnInit(): void { }
+
   wsSubmit(teacherRegister: TeacherRegister) {
     let response = this.apiService.teacherRegister(teacherRegister);
-    response.subscribe((data) => {
-      this.teacherRegister = data;
-      if (data != null) {
-        this.message =
-          'Student ' + this.teacherRegister.teacherName + ' added successfully..!!';
+    console.log(response)
+    response.subscribe(
+      (data) => {
+        this.teacherRegister = data;
+        this.alert = true;
+      },
+      (error) => {
+        console.error(error);
+        this.toastr.error('Failed to register teacher. Please try again later.', 'Error');
       }
-    });
-    this.router.navigate(['list-teacher']);
+    );
   }
- 
+
+  addNewTeacher() {
+    this.teacherRegister = new TeacherRegister();
+    this.alert = false;
+  }
 
 }

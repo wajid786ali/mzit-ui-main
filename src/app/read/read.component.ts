@@ -25,6 +25,7 @@ export class ReadComponent implements OnInit {
   studentId_new: number;
   studentStatus: string;
   loading: boolean = true;
+  alert: boolean = false;
 
   selectedStudents: Students[] = [];
 
@@ -101,6 +102,7 @@ export class ReadComponent implements OnInit {
       this.message = data;
       if (data != null) {
         this.message = 'Note added successfully..!!';
+        this.alert = true;  
       }
     });
   }
