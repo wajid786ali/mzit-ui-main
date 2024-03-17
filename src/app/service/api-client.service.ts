@@ -49,8 +49,7 @@ export class ApiClientService {
 
   public deleteRemindersById(studentId: string) {
     return this.httpClient.delete(`${this.apiUrl}/students/reminderDelete/${studentId}`);
-  }
-
+  } 
   public getListWorksheets(): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/listWorksheet`);
   }
@@ -89,7 +88,7 @@ export class ApiClientService {
 
   public addWorksheet(worksheets: Worksheets): Observable<any> {
     worksheets.center=""+sessionStorage.getItem('custCenter');
-    return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`, worksheets);
+    return this.httpClient.post(`${this.apiUrl}/students/addWorksheet`, worksheets, {responseType: 'text'});
   }
 
   public checkUserName(userName: UserName): Observable<any> {
@@ -98,12 +97,12 @@ export class ApiClientService {
 
 
   public addWeeklyWorksheet(worksheetsList: any): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/students/addWeeklyWorksheet`, worksheetsList);
+    return this.httpClient.post(`${this.apiUrl}/students/addWeeklyWorksheet`, worksheetsList, {responseType: 'text'});
   }
 
   public studentFeedBack(studentFeedBack: StudentFeedBack): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/students/addFeedBack`, studentFeedBack);
-  }
+    return this.httpClient.post(`${this.apiUrl}/students/addFeedBack`, studentFeedBack, { responseType: 'text' });
+  } 
 
   public addStudentNotes(studentNotes: StudentNotes): Observable<any> {
     return this.httpClient.post(`${this.apiUrl}/students/addStudentNotes`, studentNotes, { responseType: 'text' });
@@ -119,7 +118,7 @@ export class ApiClientService {
   }
 
   public teacherRegister(teacherRegister: TeacherRegister): Observable<any> {
-    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
+    return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister, { responseType: 'text' });
   } 
 
   public getTeacherByEmail(email: string): Observable<TeacherRegister> {

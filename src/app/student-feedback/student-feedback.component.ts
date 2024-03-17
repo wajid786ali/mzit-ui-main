@@ -33,21 +33,20 @@ export class StudentFeedbackComponent {
  
   wsSubmit(studentFeedBack: StudentFeedBack) {
     let response = this.apiService.studentFeedBack(studentFeedBack);
-    console.log(studentFeedBack);
     response.subscribe(
       (data) => {
-        console.log(data); // Log the response data
-        this.studentFeedBack = data;
-        this.alert = true;
+        this.studentFeedBack = data; 
+        this.alert = true;  
+        console.log(studentFeedBack)
       },
       (error) => {
         console.error(error);
-        this.toastr.error('Failed to submit feedback. Please try again later.', 'Error');
+        this.toastr.error('Failed to register student. Please try again later.', 'Error');
       }
     );
   }
-  
-
+ 
+   
   fetchStudentDetails() {
     const selectedStudent = this.students.find((student: { studentName: string; }) => student.studentName === this.filterWorksheet);
     if (selectedStudent) {

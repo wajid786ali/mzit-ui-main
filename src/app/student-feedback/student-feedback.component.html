@@ -28,7 +28,7 @@
                 </div>
               </div>
             </div>
-            <form #contactForm="ngForm" (ngSubmit)="wsSubmit(studentFeedBack)" novalidate>
+            <form #contactForm="ngForm" novalidate> 
               <div class="row">
                 <div class="form-group col-8">
                   <label for="studentName"> Student Name <span>*</span></label>
@@ -88,7 +88,7 @@
                 </div>
               </div>
               <div class="text-center mt-2">
-                <button class="btn rgst_btn w-100" type="submit"> Submit Feedback</button>
+                <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(studentFeedBack)" [disabled]="!contactForm.valid"> Submit Feedback</button>
               </div>
             </form>
           </div>

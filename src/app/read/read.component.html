@@ -3,8 +3,7 @@
     <div class="page_title2">
       <h2>Students <span>List</span></h2>
     </div>
-    <div class="innerCont" *ngIf="!loading">
-      <p>{{message}}</p>
+    <div class="innerCont" *ngIf="!loading"> 
       <form #contactForm="ngForm" novalidate>
         <div class="row mb-3">
           <div class="form-group col-6">
@@ -83,11 +82,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add Student Note</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="refreshPage()"></button>
       </div>
       <div class="modal-body">
-        <div *ngIf="alert" style="font-size:18px;color:green;font-weight:500;margin:5px 0px 10px;text-align:center;"> {{message}} </div>
-        <div  *ngIf="!alert">
+
+        <div *ngIf="alert" class="border mb-4 border-success rounded p-4 text-center" style="font-size:16px;" role="alert">
+          <div class="mb-3"><img src="../../assets/images/source.gif"></div>
+          <h3 class="alert-heading text-success">Success!</h3>
+          <div class="mb-3">Student Note Successfully Added</div> 
+        </div> 
+        
+        <div *ngIf="!alert">
           <form #contactForm="ngForm" novalidate>
             <div class="row">
               <div class="row mb-3">

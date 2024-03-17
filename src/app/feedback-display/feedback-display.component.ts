@@ -27,7 +27,7 @@ export class FeedbackDisplayComponent {
     let response1 = this.apiService.getListFeedBack();
     response1.subscribe((data1) => {
       this.studentFeedBacks = data1;
-      console.log(data1)
+      //console.log(data1)
     });
   }
 

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Worksheets } from '../entity/worksheets';
 import { ApiClientService } from '../service/api-client.service';
-import { StudentFeedBack } from '../entity/studentFeedBack';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,34 +10,38 @@ import { Router } from '@angular/router';
 })
 export class NewWorksheetComponent {
   worksheet: Worksheets = new Worksheets();
-  message: string;
   students: any;
+  alert: boolean = false;
   filterWorksheet!: string;
-  constructor(private apiService: ApiClientService,
-    private router: Router
-){}
 
-ngOnInit() {
-  this.readAll();
-}
+  constructor(private apiService: ApiClientService, private router: Router) { }
 
-readAll(){
-let response1 =this.apiService.getAll();
-response1.subscribe((data1) => { 
-this.students = data1;
-});
-}
+  ngOnInit() { this.readAll(); }
+
+  readAll() {
+    let response1 = this.apiService.getAll();
+    response1.subscribe((data1) => {
+      this.students = data1;
+    });
+  }
 
   wsSubmit(worksheets: Worksheets) {
-    let response = this.apiService.addWorksheet(worksheets);
-    response.subscribe((data) => {
-      this.worksheet = data;
-      alert(console.warn(data))
-      if (data != null) {
-        this.message =
-          'Student  added successfully..!!';
+    this.apiService.addWorksheet(worksheets).subscribe(
+      (data) => {
+        this.worksheet = data;
+        console.warn(data); // Log the response data
+        this.alert = true;
+        //alert(JSON.stringify(data)); // Display the response in an alert box
+      },
+      (error) => {
+        console.error(error);
+        // Handle error here, display error message or perform any other action
       }
-    });
-    this.router.navigate(['worksheetList']);
+    );
+  }
+
+  addNewWorksheet() {
+    this.worksheet = new Worksheets();
+    this.alert = false;
   }
 }

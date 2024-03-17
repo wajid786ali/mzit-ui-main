@@ -6,9 +6,16 @@
           <div class="rgs_frm">
             <div class="page_title">
               <h2>New <span>Worksheet</span></h2>
+            </div>  
+
+            <div *ngIf="alert" class="border mb-4 border-success rounded p-4 text-center" style="font-size:16px;" role="alert">
+              <div class="mb-3"><img src="../../assets/images/source.gif"></div>
+              <h3 class="alert-heading text-success">Success!</h3>
+              <div class="mb-3">Worksheet Successfully Added </div>
+              <button class="btn btn-primary" (click)="addNewWorksheet()">Add New Feedback</button>
             </div> 
-            
-            
+  
+            <div class="rgs_frm" *ngIf="!alert">
             <form #contactForm="ngForm" novalidate>
                
               <div class="row">
@@ -72,6 +79,7 @@
                 <button class="btn rgst_btn w-100" type="submit" (click)="wsSubmit(worksheet)" [disabled]="!contactForm.valid"> Submit Feedback</button>
               </div>
             </form>
+          </div>
           </div>
         </div>
       </div>

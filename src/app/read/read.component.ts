@@ -4,7 +4,7 @@ import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
 import { StudentNotes } from '../entity/studentNotes';
 import { NgConfirmService } from 'ng-confirm-box';
-import { ToastrService } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr'; 
 
 @Component({
   selector: 'app-read',
@@ -19,14 +19,14 @@ export class ReadComponent implements OnInit {
   students: any;
   studentName: string;
   studentName_new: string;
-  message: string;
   nameFilter = null;
   studentId: StudentNotes;
   studentId_new: number;
   studentStatus: string;
   loading: boolean = true;
   alert: boolean = false;
-
+ 
+ 
   selectedStudents: Students[] = [];
 
   constructor(
@@ -89,7 +89,6 @@ export class ReadComponent implements OnInit {
   setData(studentId: number, studentName: string) {
     this.studentName_new = studentName;
     this.studentId_new = studentId;
-    this.message = '';
   }
 
   wsSubmit(studentNotes: StudentNotes) {
@@ -97,27 +96,10 @@ export class ReadComponent implements OnInit {
     studentNotes.studentId = this.studentId_new;
     studentNotes.center = ""+sessionStorage.getItem('custCenter');
     let response = this.apiService.addStudentNotes(studentNotes);
-    this.message = '' + response;
     response.subscribe((data) => {
-      this.message = data;
-      if (data != null) {
-        this.message = 'Note added successfully..!!';
-        this.alert = true;  
-      }
+      this.alert = true; 
     });
-  }
-
-  addNote(studentId: number, studentName: String) {
-    this.router.navigate(['/studentNotes'], {
-      queryParams: { studentName: 'Application' },
-    });
-  }
-
-  addStudentNote() {
-    this.apiService.addStudentNotes(this.studentId).subscribe((data) => {
-      console.log();
-    });
-  }
+  }  
 
   selectStudent(student: Students) {
     if (this.selectedStudents.includes(student)) {
@@ -136,4 +118,11 @@ export class ReadComponent implements OnInit {
     const selectedStudentsJSON = JSON.stringify(this.selectedStudents);
   this.router.navigate(['/email'], { queryParams: { selectedStudents: selectedStudentsJSON } });
 }
+ 
+refreshPage() {
+  this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
+    this.router.navigate(['/view']);
+  });
 }
+
+} 
