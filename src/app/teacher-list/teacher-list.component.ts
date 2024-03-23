@@ -13,6 +13,7 @@ export class TeacherListComponent implements OnInit {
   teacherRegisters: any;
   loading: boolean = true;
   message: string;
+  activeFilter: boolean | null = null;
 
   constructor(
     private apiService: ApiClientService,
@@ -44,7 +45,7 @@ export class TeacherListComponent implements OnInit {
         }
       }
     );
-  }
+  } 
 
   deleteTeacher(email: string) { 
     let response = this.apiService.deleteTeacher(email);
@@ -61,4 +62,36 @@ export class TeacherListComponent implements OnInit {
   editTeacher(email: string) {  
     this.router.navigate(['edit-teacher',email]); 
   } 
+  
+  setActiveFilter(active: boolean | null) {
+    this.activeFilter = active;
+  }
+  
+  clearActiveFilter() {
+    this.activeFilter = null;
+  }
+  
+  getFilteredTeachers(): any[] {
+    if (this.activeFilter === null) {
+      return this.teacherRegisters;
+    } else {
+      return this.teacherRegisters.filter((teacher: { active: boolean | null; }) => teacher.active === this.activeFilter);
+    }
+  }
+
+  changeTeacherStatusToActive(email: string) {
+    this.apiService.updateTeacherStatus(email, true).subscribe(
+      (data) => {
+        // Handle successful update
+        this.toastr.success('Teacher status updated to active successfully.', 'Success');
+        this.readAll(); // Refresh the teacher list after updating
+      },
+      (error) => {
+        console.error(error);
+        // Handle error
+        this.toastr.error('Failed to update teacher status to active. Please try again later.', 'Error');
+      }
+    );
+  }
+  
 }

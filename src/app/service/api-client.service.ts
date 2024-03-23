@@ -118,6 +118,7 @@ export class ApiClientService {
   }
 
   public teacherRegister(teacherRegister: TeacherRegister): Observable<any> {
+    //return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister);
     return this.httpClient.post(`${this.apiUrl}/students/addTeachers`, teacherRegister, { responseType: 'text' });
   } 
 
@@ -129,5 +130,9 @@ export class ApiClientService {
   public deleteTeacher(email: string): Observable<any> {
     return this.httpClient.get(`${this.apiUrl}/students/deleteTeachers/${email}`);
   }  
+
+  updateTeacherStatus(email: string, active: boolean): Observable<any> {
+    return this.httpClient.put<any>(`${this.apiUrl}/students/teachers/${email}`, { active });
+  }
 
 }
