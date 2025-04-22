@@ -87,3 +87,51 @@ legend{float:none;background:#fff;padding:5px 10px;width:inherit;font-size:15px}
 .modal-overlay .modal1.active{background:#fff;}
 .modal-overlay .modal-content1 h1{margin:0px;padding:0;font-size:24px;}
 /* popup CSS End */
+
+
+.student_work_sheet{display:flex;flex-wrap: wrap;text-align: center;}
+.student_work_sheet li{width:20%;}
+.student_work_sheet li a{display:block;border:solid 1px #ddd;margin:5px;padding:4px;color: #666;border-radius: 6px;}
+.student_work_sheet li a b{font-size:100px;margin:20px 0px;color:#fdbf5e}
+.student_work_sheet li a div{font-size: 14px;background:#ddd;padding:10px;font-weight:500;color:#333;border-bottom-left-radius: 6px;border-bottom-right-radius: 6px} 
+.tab-content,.tab-content>.active{height:80vh;}
+
+iframe.pdf_file_view{width:100%;height:100%;}
+
+.modal-title span{font-weight:500;color:#c03;}
+.modal-header{font-size:16px;font-weight:500;}
+.popup_box_view{display:flex;justify-content:space-between;}
+.popup_box_view .chat_room{width:250px;background:#666;padding:5px;}
+.popup_box_view .chat_room .chat_hed{padding:18px 10px 10px;color:#fff;font-weight:500;font-size:18px;}
+.popup_box_view .chat_room .chat_list{background:#fff;padding:10px;margin-bottom:5px;border-radius:6px;}
+.popup_box_view .chat_room .chat_list span{font-weight:500;color:#333}
+.popup_box_view .chat_room .bt_box_01{margin-top:5px;}
+
+.tab_body{background:#666;padding:10px;height:100%;box-sizing:border-box;width:calc(100% - 250px);}
+.tabs{position:relative;height:100%}
+.tabs::before,.tabs::after{content:"";display:table}
+.tabs::after{clear:both}
+.tab{float:left}
+.tab-switch{display:none}
+.tab-label{position:relative;display:block;line-height:2em;height:3em;padding:10px 25px 10px 15px;background:#eee;border-right:2px solid #666;color:#666;cursor:pointer;top:0;transition:all .25s;font-weight:500;}
+.tab-label:hover{transition:top .25s;background:#f7f7f7;}
+.tab-label span{position:absolute;top:0;right:0;cursor:pointer;padding:4px;line-height:0;}
+.tab-label span img{width:11px;opacity:0.7;}
+.tab-content{position:absolute;z-index:1;top:41px;left:0;padding:15px 15px 10px 15px;background:#fff;color:#2c3e50;border-bottom:.25rem solid #bdc3c7;opacity:0;transition:all .35s;width:100%;}
+.tab-switch:checked + .tab-label{background:#fff;color:#2c3e50;border-bottom:0;z-index:1;}
+.tab-switch:checked + label + .tab-content{z-index:2;opacity:1;transition:all .35s}
+
+
+.inner_tabing{background:#666;padding:10px;height:100%;box-sizing:border-box;}
+.worksheet_tabs{position:relative;height:100%}
+.worksheet_tabs::before,.worksheet_tabs::after{content:"";display:table}
+.worksheet_tabs::after{clear:both}
+.worksheet_tab{float:left}
+.worksheet_tab_switch{display:none}
+.worksheet_tab_label{position:relative;display:block;line-height:2em;height:3em;padding:10px 25px 10px 15px;background:#eee;border-right:2px solid #666;color:#666;cursor:pointer;top:0;transition:all .25s;font-weight:500;}
+.worksheet_tab_label:hover{transition:top .25s;background:#f7f7f7;}
+.worksheet_tab_label span{position:absolute;top:0;right:0;cursor:pointer;padding:4px;line-height:0;}
+.worksheet_tab_label span img{width:11px;opacity:0.7;}
+.worksheet_tab_content{position:absolute;z-index:1;top:41px;left:0;padding:10px 15px;background:#fff;color:#2c3e50;border-bottom:.25rem solid #bdc3c7;opacity:0;transition:all .35s;width:100%;}
+.worksheet_tab_switch:checked + .worksheet_tab_label{background:#fff;color:#2c3e50;border-bottom:0;z-index:1;}
+.worksheet_tab_switch:checked + label + .worksheet_tab_content{z-index:2;opacity:1;transition:all .35s}

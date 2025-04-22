@@ -1,10 +1,10 @@
-import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiClientService } from '../service/api-client.service';
 import { Students } from '../entity/students';
 import { StudentNotes } from '../entity/studentNotes';
 import { NgConfirmService } from 'ng-confirm-box';
-import { ToastrService } from 'ngx-toastr'; 
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-read',
@@ -16,7 +16,7 @@ export class ReadComponent implements OnInit {
   filterTerm: string;
   student: Students = new Students();
   studentNotes: StudentNotes = new StudentNotes();
-  students: any;
+  students: Students[] = [];
   studentName: string;
   studentName_new: string;
   nameFilter = null;
@@ -25,8 +25,7 @@ export class ReadComponent implements OnInit {
   studentStatus: string;
   loading: boolean = true;
   alert: boolean = false;
- 
- 
+
   selectedStudents: Students[] = [];
 
   constructor(
@@ -38,14 +37,6 @@ export class ReadComponent implements OnInit {
 
   ngOnInit() {
     this.readAll();
-  }
-
-  readById(studentId: number) {
-    this.apiService.getById(studentId);
-  }
-
-  setStudentStatus(status: string) {
-    this.studentStatus = status;
   }
 
   readAll() {
@@ -65,6 +56,10 @@ export class ReadComponent implements OnInit {
     );
   }
 
+  readById(studentId: number) {
+    this.apiService.getById(studentId);
+  }
+
   deleteById(studentId: number) {
     this.confirmService.showConfirm(
       'Are you sure want to Delete!',
@@ -73,7 +68,8 @@ export class ReadComponent implements OnInit {
           this.ngOnInit();
         });
       },
-      () => { 
+      () => {
+        // Cancelled
       }
     );
   }
@@ -86,6 +82,10 @@ export class ReadComponent implements OnInit {
     this.router.navigate(['home']);
   }
 
+  setStudentStatus(status: string) {
+    this.studentStatus = status;
+  }
+
   setData(studentId: number, studentName: string) {
     this.studentName_new = studentName;
     this.studentId_new = studentId;
@@ -94,12 +94,12 @@ export class ReadComponent implements OnInit {
   wsSubmit(studentNotes: StudentNotes) {
     studentNotes.studentName = this.studentName_new;
     studentNotes.studentId = this.studentId_new;
-    studentNotes.center = ""+sessionStorage.getItem('custCenter');
+    studentNotes.center = "" + sessionStorage.getItem('custCenter');
     let response = this.apiService.addStudentNotes(studentNotes);
     response.subscribe((data) => {
-      this.alert = true; 
+      this.alert = true;
     });
-  }  
+  }
 
   selectStudent(student: Students) {
     if (this.selectedStudents.includes(student)) {
@@ -109,20 +109,30 @@ export class ReadComponent implements OnInit {
     }
   }
 
+  // ✅ Select only filtered students
   selectAllStudents() {
-    this.selectedStudents = this.students.slice(); // Copy all students to selectedStudents array
+    this.selectedStudents = this.getFilteredStudents();
+  }
+
+  // ✅ Get filtered students based on status
+  getFilteredStudents(): Students[] {
+    if (!this.studentStatus) {
+      return this.students;
+    }
+    return this.students.filter(student =>
+      student.status?.toLowerCase().includes(this.studentStatus.toLowerCase())
+    );
   }
 
   goToEmailSendComponent() {
-    // Route to EmailSendComponent and pass selected students data as query parameters
     const selectedStudentsJSON = JSON.stringify(this.selectedStudents);
-  this.router.navigate(['/email'], { queryParams: { selectedStudents: selectedStudentsJSON } });
+    this.router.navigate(['/email'], { queryParams: { selectedStudents: selectedStudentsJSON } });
+  }
+
+  refreshPage() {
+    this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
+      this.router.navigate(['/view']);
+    });
+  }
 }
  
-refreshPage() {
-  this.router.navigateByUrl('/refresh', { skipLocationChange: true }).then(() => {
-    this.router.navigate(['/view']);
-  });
-}
-
-} 
